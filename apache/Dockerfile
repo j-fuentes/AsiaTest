@@ -7,7 +7,18 @@ RUN apt-get -y update
 #RUN echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 #RUN gem install puppet librarian-puppet
 
-#Install Apache AND APC PHP
+#Install Apache
+RUN apt-get -y install apache
+
+# APACHE CONF
+#/etc/apache2/apache2.conf
+#/etc/apache2/mods-enabled
+#/etc/apache2/sites-enabled 
+#/etc/apache2/conf.d.
+
+#INSTALL PHP APC
+
+RUN apt-get -y install php5 libapache2-mod-php5
 RUN apt-get -y install libpcre3-dev
 RUN apt-get -y install php-pear
 RUN apt-get -y install php5-dev
@@ -16,7 +27,7 @@ RUN apt-get -y install apache2-prefork-dev
 
 # ADD extension=apc.so on php.ini
 
-RUN sed -i ‘$a extension=apc.so’ /etc/php5/apache2/php.ini
+#RUN sed -i ‘$a extension=apc.so’ /etc/php5/apache2/php.ini
 
 RUN service apache2 restart
 
