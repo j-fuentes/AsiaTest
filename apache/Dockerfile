@@ -8,7 +8,7 @@ RUN apt-get -y update
 #RUN gem install puppet librarian-puppet
 
 #Install Apache
-RUN apt-get -y install apache
+RUN apt-get -y install apache2
 
 # APACHE CONF
 #/etc/apache2/apache2.conf
