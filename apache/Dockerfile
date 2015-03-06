@@ -14,7 +14,9 @@ RUN apt-get -y install php5-dev
 RUN apt-get -y install make
 RUN apt-get -y install apache2-prefork-dev
 
-# MISS extension=apc.so on php.ini
+# ADD extension=apc.so on php.ini
+
+RUN sed -i ‘/  extension=apc.so’ php.ini
 
 #Install Memcached
 
