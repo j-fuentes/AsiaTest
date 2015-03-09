@@ -45,3 +45,8 @@ RUN apt-get -y install vsftpd
 RUN apt-get -y install munin
 #Install SSH
 RUN apt-get -y install openssh-client
+
+EXPOSE 80 88 21 22
+
+CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
+
