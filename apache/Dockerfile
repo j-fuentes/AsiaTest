@@ -46,6 +46,14 @@ RUN apt-get -y install munin
 #Install SSH
 RUN apt-get -y install openssh-client
 
+#Creating Volume space
+
+#RUN cd /
+#RUN mkdir /CO_MEDIA/
+#RUN mkdir /CO_MEDIA/APACHE/
+
+#VOLUME /CO_MEDIA/APACHE/ /etc/apache2/
+
 EXPOSE 80 88 21 22
 
 CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
