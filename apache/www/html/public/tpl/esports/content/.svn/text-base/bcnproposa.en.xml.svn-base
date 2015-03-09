@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bcnproposa label="And you can also find...">
+<col>
+<item href="/?pg=search&amp;q=Restaurants celíacs" >Restaurants for coeliacs</item> 
+<item href="/?pg=search&amp;q=Balnearis" >Urban spas</item> 
+<item href="/?pg=search&amp;code1=0040102003001&amp;q=animals" >Hotels that allow animals</item> 
+<item href="/?pg=search&amp;code1=0040102006002&amp;q=publica" >State primary schools</item> 
+<item href="/?pg=search&amp;q=farmacies permanents" >24-hour chemists</item> 
+</col>
+<col>
+<item href="/?pg=search&amp;q=Punt ancoratge bicicletes">Bicycle anchor points</item> 
+<item href="/?pg=search&amp;q=Parcs WiFi" >Parks with Wi-Fi</item> 
+<item href="/?pg=search&amp;q=Pipican&amp;districtstr=Sant Martí&amp;barristr=el Clot" >Animal-waste bins in Clot</item>
+<item href="/?pg=search&amp;q=Natació nadons" >Swimming for babies</item> 
+<item href="/montjuic-fountain-hours_96318091405.html" >Montjuïc fountain hours</item> 
+</col>
+<col>
+<item href="/?pg=search&amp;q=Activitats familiars">Family activities</item> 
+<item href="/?pg=search&amp;q=&amp;code1=0040002009035&amp;districtstr=Eixample" >Painting exhibitions in the Eixample district</item> 
+<item href="/?pg=search&amp;q=canvi+oficial" >Official time change</item> 
+<item href="/?pg=search&amp;code1=0040002023026&amp;q=" >Local annual festivals</item> 
+<item href="/?pg=search&amp;d=avui&amp;q=Concerts" >Today’s concerts</item> 
+</col>
+</bcnproposa>

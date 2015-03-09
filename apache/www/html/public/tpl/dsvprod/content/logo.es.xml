@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logo>
+ <h1><a href="#">Guía de escuelas <span>2013 - 2014</span></a></h1>
+        <div id="navegacio-separada">              		
+            <div class="item4" id="menu-principal"> 
+                <ul class="menu">
+                    <li class="first leaf"><a title="" href="/tpl/dsvprod/es/directori_escoles.htm">Directorio de escuelas</a></li>
+                    <li class="leaf"><a title="" href="/tpl/dsvprod/es/portes_obertes_mapa.htm">Jornadas de puertas abiertas</a></li>
+                    <li class="leaf"><a href="/tpl/dsvprod/es/preinscripcion_matricula.htm">Preinscripción y matriculación</a></li>
+                    <li class="last leaf"><a href="/tpl/dsvprod/es/beques_i_ajuts.htm">Becas y ayudas</a></li>
+                </ul>		
+            </div>
+        </div>
+</logo>

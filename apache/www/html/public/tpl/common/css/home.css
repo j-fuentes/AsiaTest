@@ -1,0 +1,47 @@
+body#iframe-cats {background:#FFFFFF; width:780px;padding:0; margin:0;}
+body#iframe-cats #marc-iframe { margin:0;padding:9px 0px 0px 30px ; background-color:#FFFFFF;}
+body#iframe-cats #contenidor { display:block;border:none;background: transparent ; border-bottom:none;width:780px;margin: 0;padding:0;}
+body#iframe-cats #contenidor-2 { display:block;border:none;background: transparent ; border-bottom:none;width:780px;margin: 0;padding:0;}
+
+#directori-home {overflow:hidden;height:217px;background-color:#FFFFFF;border-left:0.5em solid #FFFFFF;border-right:0.5em solid #FFFFFF;border-bottom:0.6em solid #FFFFFF;position:relative;} 
+	#directori-home.search {height: 37px; }
+	#directori-home ul {margin-top:16px;width:15em; letter-spacing:-0.01em; margin-bottom:0.7em;}
+	#directori-home ul li{padding-bottom:0.05em; padding-left: .7em; background: transparent url(/tpl/common/img/raquo-llistats.gif) no-repeat left 0.4em; line-height:1.5em;}
+	#directori-home ul li a{font-size:1.2em; font-weight:normal;}
+	#directori-home ul.col1 {float:left; margin-left:13.5em; }
+	#directori-home ul.col2 { float:left;}
+	
+	#directori-home h2 { margin-top:27px;margin-left:25px;color:#013365;font-size:2.2em; letter-spacing:-0.02em;}
+	#directori-home p.mostra-tots { clear:both;padding-left: .7em;font-weight:bold;font-size:12px;background: transparent url(/tpl/common/img/raquo-llistats.gif) no-repeat left 0.4em; margin-left:135px;}
+	
+	#directori-home p.mostra-tots a.iframe{ border-bottom:1px dashed;; text-decoration:none; line-height:1.4em;}
+		#directori-home p.mostra-tots a.iframe:hover{ border-bottom:1px solid; text-decoration:none;}
+	
+
+#directori-home .directori{position:absolute;left:461px;top:0px;height: 215px;width: 450px; border:1px solid #e5e5e5;
+    background: #eeeeee url(/tpl/common/img/bg-classhome-eq.gif) no-repeat 0px 0px;
+}
+#directori-home .agenda {position:absolute;left:0px;top:0px;height: 215px;width: 453px;border:1px solid #e5e5e5;
+    background: #eeeeee url(/tpl/common/img/bg-classhome-ag.gif) no-repeat 0px 0px;
+}
+#directori-home.search .directori{height: 35px;background: #eeeeee url(/tpl/common/img/bg-veure-directoris.gif) no-repeat 0px 0px;}
+#directori-home.search .agenda {height: 35px;background: #eeeeee url(/tpl/common/img/bg-veure-agenda.gif) no-repeat 0px 0px;}
+#directori-home.search  h2 {letter-spacing:0;margin-top:8px;font-size:1.6em;}
+#directori-home.search  h2 span {margin-left: 20px;font-size:0.8em;padding-left: .7em;background: transparent url(/tpl/common/img/raquo-llistats.gif) no-repeat left 0.4em;}
+#directori-home.search .agenda h2{margin-left:184px;}
+#directori-home.search .directori h2{margin-left:132px;}
+
+
+.categoria-col-1 {float:left;width:260px}
+.categoria-col-2 {float:left;display:inline;width:260px}
+.categoria-col-3 {float:left;display:inline;width:260px} 
+
+#categoria { padding-right:10px;padding-bottom:10px}
+#categoria a{font-size:1.2em; font-weight:bold;}
+#categoria ul li{margin-left:15px;padding-bottom: 0.3em; padding-left: .7em; background: transparent url(/tpl/common/img/raquo-llistats.gif) no-repeat left 0.4em;}
+#categoria ul li a{font-size:1.2em; font-weight:normal;}
+
+.spinner {position:fixed;top:50%;left: 50%;margin-left: -50px; /* half width of the spinner gif */
+											margin-top: -50px; /* half height of the spinner gif */
+	text-align:center;z-index:1234;overflow: auto;width: 100px; /* width of the spinner gif */
+	height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */}

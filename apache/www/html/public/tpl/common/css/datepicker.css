@@ -1,0 +1,47 @@
+
+div.datepickerBorder {font-size: 12px;width: 559px;height: auto;background-color: white;	border:1px solid #ececec;padding: 1px 1px 1px 1px;  }.datepickerContainer {border:1px solid #ececec;background-color: #f5f5f5;padding-top: 3px; padding-left: 3px;    padding-right: 3px; overflow: auto; }
+
+.datepickerContainer a:hover{text-decoration:none}
+div.datepicker {display: none;}#dt-capsalera{  background-color:#013365; padding-right: 10px; padding-left: 10px; padding-top: 6px;				padding-bottom: 8px;height:auto;overflow:hidden;-moz-border-radius:10px;-webkit-border-radius:10px;                border-radius: 10px;
+}
+#dt-capsalera a:hover{ text-decoration:none;}#dt-capsalera p{ float:left; margin-top:0.2em;}#dt-capsalera ul{  width:auto;}#dt-capsalera ul li.datepickerGoPrev{display:inline;float:left; }#dt-capsalera ul li.datepickerMonth{display:inline; color:white;font-weight:bold;}#dt-Month1 {float:left;padding-left: 80px;}#dt-Month2 {float:right;padding-right: 80px;}#dt-capsalera ul li.datepickerGoNext{display:inline; float:right;}#dt-capsalera img{vertical-align:middle; margin:0em 0em 0em 0em; padding:0;}.datepickerHidden {display: none;}.tb-container { padding-left:15px; width:100%;}.tr-container {}.th-nameday{ width: 32px;height: 41px;text-align:center;padding-left : 0px;}	.nameday{color : #000000; }
+
+tbody.datepickerDays td.datepickerNotInMonth {background-color: #F5F5F5;}td.datepickerNotInMonth a {	color: #666; display:none}
+tbody.datepickerDays td.datepickerNotInMonth.datepickerSelected {background-color: #F5F5F5;}/*background: #17384d;*/
+div.datepicker td.datepickerNotInMonth a:hover {color: #999;}
+td.datepickerDisabled a,td.datepickerDisabled.datepickerNotInMonth a{color: #333;}
+tbody.datepickerDays td {background-color: #FFFFFF;border:1px solid #ececec;width:30px;height: 30px;text-align:center;}tbody.datepickerDays td.datepickerSelected{background: #136A9F;}tbody.datepickerDays td.datepickerSelected a{color: #FFFFFF;}td.datepickerDisabled a:hover {color: #333;}td.datepickerSpecial a {background: #700;}td.datepickerSpecial.datepickerSelected a {	background: #a00;}
+
+#divDateContainer label {color: #666666;}
+.dtp-interval { float: left; width: 240px;margin: 0 0 0 20px;}
+div.select{float:left; font-weight: bold;margin: 8px 0 0 224px;}
+		
+#frm-datepicker input.cerca {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url(/tpl/common/img/bg-boton-cerca.gif) repeat-x scroll left bottom #0D8DD0;
+    border-color: #6EBBE3 #03689A #03689A #6EBBE3;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 1px 1px 0 0 #07689B;
+    color: #FFFFFF;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    height: auto;
+    letter-spacing: -0.01em;
+    margin-right: 15px;
+    overflow: hidden;
+    padding: 0.2em 0;
+    text-shadow: 1px 1px #005886;
+    width: 90px;
+    float: right;
+}
+#frm-datepicker input.cerca:hover{background:url(/tpl/common/img/bg-boton-cercaover.gif)  repeat-x bottom left #46b0e7; color:#FFFFFF; cursor: pointer;}
+
+
+

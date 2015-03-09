@@ -1,0 +1,6 @@
+name = Asia
+description = Toolkit for making consultations in Asia.
+package = Barcelona City Council
+version = 1.5
+core = 7.x
+files[] = asia.module

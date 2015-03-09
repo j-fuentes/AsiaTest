@@ -1,0 +1,343 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	 box-sizing: border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+}
+
+#contingut-asia{ height:auto; overflow:hidden; padding-bottom:2em;}
+
+/****************************/
+/* Formulari Cerca avançada */
+/****************************/
+
+#asia select, #asia-prefixat select{width:100%;}
+
+/****************************/
+/*     Mapa Districtes      */
+/****************************/
+
+#mapa-districtes p{ position:absolute; top:0; left:0; background:#FFFFFF; border:1px solid #000; padding: 0.1em 0.3em; -webkit-box-shadow: 2px 2px 3px #000; -moz-box-shadow:2px 2px 3px #000;
+box-shadow:2px 2px 3px #000; z-index:10; width:134px; text-align:center;}
+
+/****************************/
+/*    Plantilla Llistat     */
+/****************************/
+img#loader {
+    left: 50%;
+    position: fixed;
+    top: 50%;
+}
+h2 { margin-bottom:1em;}
+h2 span{ font-weight:bold;}
+#contingut-asia .info-llistat{ height:auto; overflow:hidden; padding-bottom:2em;}
+#llistat-resultats{ width:100%;}
+#llistat-resultats.amb-mapa{ width: 410px; float:left; margin-top:0; }
+	#llistat-resultats.mapa{float:left; width:39em;}
+	
+	#llistat-resultats div.filtres{ padding:10px; border:1px solid #000;}
+	
+#llistat-resultats div.filtres h3{ color:#000000; letter-spacing:-0.05em;}
+	#llistat-resultats h3{ margin-bottom:0.5em;}
+	#llistat-resultats div{ height:auto; overflow:hidden; padding:1em 0;  border-bottom:1px solid #CCC; position:relative;}
+		#llistat-resultats div.filtres{ border:1px solid #CCC; margin-bottom:1em;}
+		
+		#llistat-resultats div div{ border:0; padding:0;}
+		#llistat-resultats div div.dades p{ margin:0;}
+		#llistat-resultats div div.dades dl { margin:0; font-size:1.2em; height:auto; overflow:hidden;}
+			#llistat-resultats div div.dades dl dt{ float:left; font-weight:bold; margin-right:0.3em; color:#000000;}
+			#llistat-resultats div div.dades dl dd{ margin:0; padding:0;}
+		#llistat-resultats div img{ width:200px; float:left; margin-right:2em;}
+			#llistat-resultats div img.icona{ width:24px; float:none; bottom:0.7em; right:0.7em; position:absolute; margin:0; }
+			
+			
+	/***/		
+
+#contingut-asia.llistat-cerca #accions{ padding-top: 9px; height:auto; overflow: hidden; padding-bottom:3px;}
+ #contingut-asia.llistat-cerca #accions dl{ padding:0; margin:0;}
+ #contingut-asia.llistat-cerca #accions dt, #contingut-asia.llistat-cerca #accions dd{ float:left; margin-right:10px; margin-left:0; }
+
+#contingut-asia.llistat-cerca #accions select{ float:right; margin:-4px 0 0; padding: 3px;}
+
+#contingut-asia.llistat-cerca .info-llistat{ clear:both; padding:25px 0 0;}
+
+
+#contingut-asia.llistat-cerca .info-llistat #llistat-resultats h3{ line-height:1em;margin-top: 0;}
+
+
+
+
+
+.ui-state-default{ background:url(http://w20.bcn.cat/Guiamap/img/slider-images-handle-2.gif) no-repeat 2px 0;}
+.ui-state-default:hover{ background:url(http://w20.bcn.cat/Guiamap/img/slider-images-handle-1.gif) no-repeat 2px 0;}
+	
+	.ui-datepicker-calendar .ui-state-default{ background:none;}
+	
+	/***/
+	
+			
+			
+			
+			
+			
+			
+.cat-ag, .cat-eq {
+    font-size: 1em;
+    font-weight: normal;
+    margin-top: 9px;
+    padding: 0.2em 0;
+    text-transform: uppercase;
+}	
+
+	.cat-ag span {-moz-border-radius: 3px;padding:1px 3px;background-color:#f79721; color:#FFF;}
+ 	.cat-eq span {-moz-border-radius: 3px;padding:1px 3px;background-color:#0d8ed1; color:#FFF;}
+		
+			
+#mapa{ position:relative;}
+#map_canvas {  }
+	#map_canvas .bubble div, #map_canvas .bubble p{ font-size:11px!important; color:#666666!important; margin:0!important;}
+	#map_canvas .bubble h3 { font-size:1.2em; line-height:1em; font-weight:bold; color:#0d8ed1; margin:0; }
+#mapa {
+  
+    border: 1px solid #000;
+    float: right;
+    position: relative;
+    top: 0;
+ 
+}
+#mapa.stop {
+    margin-bottom: 2em;
+    position: static;
+}
+#mapa #content-mapa {
+    position: relative;
+}
+#mapa #content-mapa h3.mapa {
+    background-color: #ccc;
+    border-bottom: 1px solid #000;
+    color: #666;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    margin:0;
+    padding: 0.4em 0.5em 0.3em 34px;
+	font-weight:normal;
+
+}
+
+#mapa #amplia {
+    left: 10px;
+    position: absolute;
+    top: 0.7em;
+}
+#mapa #amplia img {
+    margin-top: 0;
+}
+.MapaSituacio {z-index:100!important;}
+
+/* paginador */
+
+#llistat-resultats div.paginador{}
+
+#llistat-resultats .paginador{ position:relative;text-align:center; font-size:1.2em; clear:both; p border:0; padding:0; margin:1.5em 0 0; border:0;}
+
+	#llistat-resultats .paginador ul{ width:auto; margin:auto; list-style-type:none;}
+		#llistat-resultats .paginador ul li{ display:inline; padding:0 0.2em; color:#000000; list-style-type:none; background:none;}
+		#llistat-resultats .paginador ul li span.bold { font-weight:bold;}
+	#llistat-resultats .paginador p{ margin:0; padding:0;}
+		#llistat-resultats .paginador p.prev{ position:absolute; top:0;  left:0; }
+		#llistat-resultats .paginador p.next{position:absolute; top:0; right:0; }
+
+
+
+
+
+
+/****************************/
+/*    Plantilla Detall      */
+/****************************/
+
+
+#mapadetall, #mapastreet{
+border: 1px solid #E5E5E5;
+    height: 263px;
+    padding: 1px;
+    position: relative;
+    width: 263px;
+	display:block;
+}
+#detallmap, #streetview {
+    height: 262px;
+    position: relative;
+    width: 262px;
+}
+
+#contenidor{ width:39em; float:left; }
+#contenidor-detall .detall{ width:300px; float:left; margin-bottom:1.5em;  height:auto; overflow:hidden;}
+
+.detall h2, .detall h3{ clear:both; margin:0 0 1.4em;}
+
+#contenidor-detall .detall img{ margin-bottom:1.1em; float:right; }
+#contenidor-detall .detall dl{ margin:0 0 1em; padding:0; display:block; height:auto; overflow:hidden; clear:both; float:left;}
+#contenidor-detall .detall dt, #contenidor-detall .detall dd{ margin:0; padding:0;}
+#contenidor-detall .detall dt{ font-weight:bold; float:left; margin:0 0.7em 0 0 ; clear:left;}
+	#contenidor-detall .detall dd{ float:left;}
+
+#contenidor-detall .detall .resum{ clear:both; display:block;}
+#contenidor-detall .detall p.accessibility{ clear:both;}
+#contenidor-detall p.torna{
+  margin-bottom: 1.25em;
+  float:left;
+  }
+#contenidor-detall  p.torna a{ font-weight: bold;}
+	
+	#contenidor-detall #fitxa{ clear:both;}
+	#box-translate{ float:right; display:block; margin-bottom:2em;}
+	
+#addthis {background:#f6f6f6; padding:0.5em 0 0; margin-bottom:22px;}	
+
+#addthis .addthis_toolbox{ padding:0 0 0.5em; background:#f6f6f6;}
+
+
+#contenidor-pestanes{ clear:both;}
+#contenidor-pestanes .tabdetall{  border:1px solid #e5e5e5; padding:20px; padding:0.7em 0.7em 0.7em; margin:1em 0 2em; border:1px solid #999999;}
+
+
+	#contenidor-pestanes .tabdetall h3{ margin-top:0; font-family:Arial, Helvetica, sans-serif;font-size:1.2em; font-weight:bold; color:#000;}
+	#contenidor-pestanes ul#menu-pestanes li{ margin-right:8px;}
+	#contenidor-pestanes #menu-pestanes li a{ background:url(../img/bg-pestana-des.gif)no-repeat scroll left top transparent; color: #FFF;    display: block; text-decoration:none; text-align: center; width:116px; }
+	
+	#contenidor-pestanes #menu-pestanes li a.active{  background: url(../img/bg-pestana-sel.gif) no-repeat scroll left top transparent;    color: #013365; display: block; text-align: center; }
+
+
+
+
+#contenidor-pestanes .tabdetall h3{ margin-bottom:0.5em;}
+#contenidor-pestanes h4{ font-size:1.2em; margin-bottom:0.2em;}
+#contenidor-pestanes .tabdetall ul{ margin:0; padding:0;}
+#contenidor-pestanes .tabdetall div{ margin:0 0 1.5em;}
+#contenidor-pestanes .tabdetall p{ margin:0; padding:0;} 
+#contenidor-pestanes .tabdetall dl{margin:0 0 1em; padding:0;}
+	#contenidor-pestanes .tabdetall dt, #contenidor-pestanes .tabdetall dd{margin:0; padding:0;}
+	#contenidor-pestanes .tabdetall dt{float:left; margin:0 0.7em 0 0 ;}
+	
+
+#contenidor-pestanes ul#menu-pestanes{ clear:both; height:auto; overflow:hidden; list-style-type:none;}
+#contenidor-pestanes ul#menu-pestanes li{ float:left; list-style-type:none; background:none; margin:0; padding:0;}
+		#contenidor-pestanes #menu-pestanes li a{ font-size:1.2em; padding:0 0.4em;} 
+			#contenidor-pestanes #menu-pestanes li a.active{ color:#000000;text-decoration:none;}
+
+
+#contingut-addicional{width:22.4em; float:right; display:block;}
+#contingut-addicional #banners{ margin-bottom:1.5em;}
+	#contingut-addicional #banners a.com-anar{ font-weight:bold; background: url(../img/com-anar.gif) no-repeat center; display:block; color:#FFFFFF; border:1px solid #e6e6e6;  height: 67px; letter-spacing: -0.05em; line-height: 1.1em; padding: 10px 0 0 10px; width: 255px; color:#0d8ed1;font-size: 1.1em; text-decoration:none;}
+		#contingut-addicional #banners a.com-anar:hover{ text-decoration:none;}
+		#contingut-addicional #banners a.com-anar span{ font-weight:normal; display: block; font-size: 0.7em; letter-spacing: -0.01em; line-height: 1.2em;margin-top:0.2em; color:#555;  width: 99px; line-height: 1.1em;}
+		
+		#contenidor-detall .detall p.status{ display:block; clear:both; padding-top:1.5em; font-weight:bold; color:#FF0000;}
+
+
+
+		
+		
+/* mapes */
+
+#mapes{ width:22.4em; display:block; margin-bottom:2em;}
+
+#mapadetall, #mapaplanol, #mapastreet{ margin:0 0 0.8em;}
+
+#changemap a.active{ color:#000000; text-decoration:none; font-weight:bold;} 
+
+
+
+
+
+/***********************************/
+/*    Form Proximes activitats     */
+/***********************************/
+
+input.calendari.desactivat{ color:#cccccc; background:#f1f1f1;}
+
+
+/****************************************/
+/*    Plantilla proximes activitats     */
+/****************************************/
+
+#block-asia_list-0{ clear:both; display:block;}
+
+
+		
+
+
+#properes-activitats h3{ margin-bottom:0.5em; font-size:1.2em;}
+#properes-activitats div{ height:auto; overflow:hidden; padding:1em 0;  border-bottom:1px solid #CCC; position:relative;}
+	#properes-activitats div div{ border:none; padding:0; margin:0;}
+	#properes-activitats div div.dades { padding:0; border:0;}
+		#properes-activitats div div.dades p{ margin:0; font-size:1em;}
+		#properes-activitats div div.dades dl{ margin:0; font-size:1em;}
+			#properes-activitats div div.dades dl dt{ float:left; font-weight:bold; margin-right:0.3em; color:#000000;}
+			#properes-activitats div div.dades dl dd{ margin:0; padding:0;}
+		#properes-activitats div img{ width:200px; float:left; margin-right:2em;}
+		
+		
+/****************************************/
+/*            Cerca interna             */
+/****************************************/		
+		
+#resultats-cerca-interna table tbody th{ background:#FFFFFF;}
+
+
+#llistat-seleccionat ul li{ list-style: disc inside none;}
+
+#llistat-seleccionat ul li img{ vertical-align: sub; width: 12px; cursor:pointer;}
+
+#resultats-cerca-interna { background:#FFFFFF; border:1px solid #DDDDDD;}
+#resultats-cerca-interna  #content-resultats{padding:1em;}
+
+#resultats-cerca-interna h2{
+ background: none repeat scroll 0 0 #F4F4F4;
+    color: #333333;
+    display: block;
+    font-size: 11px;
+    margin: 0;
+    padding: 4px 9px 5px;
+	}
+
+#resultats-cerca-interna table tfoot td { background:#eeeeee;}
+#resultats-cerca-interna table tfoot div{ width:100%;position:relative; display:block;}
+#resultats-cerca-interna table tfoot ul {text-align:center;}
+#resultats-cerca-interna table tfoot ul li{ display:inline; margin:0 0.5em 0;}
+		#resultats-cerca-interna table tfoot p{ position:absolute; top:0; margin:0;}
+					#resultats-cerca-interna table tfoot p.next{ right:1em; }
+					#resultats-cerca-interna table tfoot p.back{ left:1em;}
+					
+#info-addicional{ padding:1em 1.4em 1.6em;}				
+
+  #info-addicional label{ color: #999999;
+    font-size: 10px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;	
+	}
+	#info-addicional input{ background:#FFFFFF; border:1px solid #ddd; clear:both; width:100%; display:block;}			
+	#info-addicional  select{ clear:both; display:block; background:#FFFFFF; border:1px solid #ddd;  }		
+	
+	
+#button-cerca-intern, #bt-adjuntar{ background: #3399CC;
+    border:#000;
+    color: #FFF;
+    cursor: pointer;
+    font-weight: normal;
+    padding: 2px 10px;
+    text-align: center;display:inline-block;}
+	#button-cerca-intern{ margin-bottom:1em; }
+	
+	
+#mapaplanol .ui-state-default{ background:url(http://w20.bcn.cat/Guiamap/img/slider-images-handle-2.gif) no-repeat 4px 0; border:0;}
+#mapaplanol .ui-state-default:hover{ background:url(http://w20.bcn.cat/Guiamap/img/slider-images-handle-1.gif) no-repeat 4px 0;}	
+#mapaplanol .ui-slider-vertical{ background:none; border:0;} 
+#mapaplanol .ui-slider-vertical .ui-slider-range{ background:none;}

@@ -1,0 +1,36 @@
+@charset utf-8;
+ @font-face {
+ font-family: 'Open Sans Bold';
+ font-style: normal;
+ font-weight: normal;
+ src: url('../type/opensans-bold.eot');
+ src: local('Open Sans Bold'), local('OpenSans-Bold'), url('../type/opensans-bold.woff') format('woff'), url('../type/opensans-bold.ttf') format('truetype'), url('../type/opensans-bold.svg') format('svg'), url('../type/opensans-bold.otf') format('opentype');
+}
+@font-face {
+ font-family: 'Open Sans Semibold';
+ font-style: normal;
+ font-weight: normal;
+ src: url('../type/opensans-semibold.eot');
+ src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url('../type/opensans-semibold.woff') format('woff'), url('../type/opensans-semibold.ttf') format('truetype'), url('../type/opensans-semibold.svg') format('svg'), url('../type/opensans-semibold.otf') format('opentype');
+}
+@font-face {
+ font-family: 'Open Sans Light';
+ font-style: normal;
+ font-weight: normal;
+ src: url('../type/opensans-light.eot');
+ src: local('Open Sans Light'), local('OpenSans-Light'), url('../type/opensans-light.woff') format('woff'), url('../type/opensans-light.ttf') format('truetype'), url('../type/opensans-light.svg') format('svg'), url('../type/opensans-light.otf') format('opentype');
+}
+@font-face {
+ font-family: 'Open Sans Extrabold';
+ font-style: normal;
+ font-weight: normal;
+ src: url('../type/opensans-extrabold.eot');
+ src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'), url('../type/opensans-extrabold.woff') format('woff'), url('../type/opensans-extrabold.ttf') format('truetype'), url('../type/opensans-extrabold.svg') format('svg'), url('../type/opensans-extrabold.otf') format('opentype');
+}
+@font-face {
+ font-family: 'Open Sans';
+ font-style: normal;
+ font-weight: normal;
+ src: url('../type/opensans-regular.eot');
+ src: local('Open Sans'), local('OpenSans'), url('../type/opensans-regular.woff') format('woff'), url('../type/opensans-regular.ttf') format('truetype'), url('../type/opensans-regular.svg') format('svg'), url('../type/opensans-regular.otf') format('opentype');
+}

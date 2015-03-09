@@ -1,0 +1,173 @@
+
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  asia_gmapmarker.admin.inc: n/a
+#  asia_gmapmarker.module: n/a
+#  asia_gmapmarker.info: n/a
+#  templates/gmapmarker.tpl.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-09-16 11:10+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+
+
+#: asia_gmapmarker.module:289;297
+msgid "Text"
+msgstr ""
+
+#: asia_gmapmarker.module:304;311
+msgid "Url"
+msgstr ""
+
+#: asia_gmapmarker.module:27
+msgid "View map"
+msgstr ""
+
+#: asia_gmapmarker.module:27
+msgid "View list"
+msgstr ""
+
+#: asia_gmapmarker.module:27
+msgid "When"
+msgstr ""
+
+#: asia_gmapmarker.module:137
+msgid "ASIA GMAPS MARKER: Gmaps marker"
+msgstr ""
+
+#: asia_gmapmarker.module:158
+msgid "GMAPS MARKER"
+msgstr ""
+
+#: asia_gmapmarker.module:185
+msgid "Setting the map"
+msgstr ""
+
+#: asia_gmapmarker.module:190
+msgid "Zoom"
+msgstr ""
+
+#: asia_gmapmarker.module:196
+msgid "Latitude"
+msgstr ""
+
+#: asia_gmapmarker.module:203
+msgid "Length"
+msgstr ""
+
+#: asia_gmapmarker.module:210
+msgid "Channel"
+msgstr ""
+
+#: asia_gmapmarker.module:212
+msgid "Specify the channel, if this is different from the configuration of the module asia. Put &lt;none&gt; if you want some."
+msgstr ""
+
+
+#: asia_gmapmarker.module:218
+msgid "Number of results to be shown"
+msgstr ""
+
+#: asia_gmapmarker.module:220
+msgid "This map has no pagination. In show number of points should be raised."
+msgstr ""
+
+#: asia_gmapmarker.module:226
+msgid "Type list "
+msgstr ""
+
+#: asia_gmapmarker.module:229
+msgid "Show events"
+msgstr ""
+
+#: asia_gmapmarker.module:230
+msgid "Show Directories"
+msgstr ""
+
+#: asia_gmapmarker.module:232
+msgid "To show that the results should be a list type selected"
+msgstr ""
+
+#: asia_gmapmarker.module:238
+msgid "List "
+msgstr ""
+
+#: asia_gmapmarker.module:241
+msgid "Active list"
+msgstr ""
+
+#: asia_gmapmarker.module:242
+msgid "Active option all"
+msgstr ""
+
+#: asia_gmapmarker.module:256
+msgid "Search criteria"
+msgstr ""
+
+#: asia_gmapmarker.module:276
+msgid "Item"
+msgstr ""
+
+#: asia_gmapmarker.module:306;312
+msgid "Example:"
+msgstr ""
+
+#: asia_gmapmarker.module:353
+msgid "Incorrect latitude."
+msgstr ""
+
+#: asia_gmapmarker.module:358
+msgid "Incorrect length."
+msgstr ""
+
+#: asia_gmapmarker.module:365
+msgid "Incorrect zoom."
+msgstr ""
+
+#: asia_gmapmarker.module:371
+msgid "Incorrect number of results."
+msgstr ""
+
+#: asia_gmapmarker.module:377
+msgid "You have to choose a type of list"
+msgstr ""
+
+#: asia_gmapmarker.module:99
+msgid "Gmapmarkers page"
+msgstr ""
+
+#: asia_gmapmarker.module:100
+msgid "Settings for gmapmarkers page."
+msgstr ""
+
+#: asia_gmapmarker.info:0
+msgid "Asia gmaps marker"
+msgstr ""
+
+#: asia_gmapmarker.info:0
+msgid "Gmaps of activities and entities"
+msgstr ""
+
+#: asia_gmapmarker.info:0
+msgid "Barcelona City Council"
+msgstr ""
+
+#: templates/gmapmarker.tpl.php:45
+msgid "All"
+msgstr ""
+
+
+

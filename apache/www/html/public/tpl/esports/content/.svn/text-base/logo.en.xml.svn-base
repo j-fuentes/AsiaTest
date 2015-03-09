@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logo>
+	<div id="logo-capsalera"><a href="/barcelona-guide.html">
+		<img alt="Barcelona Guide"
+			src="/tpl/common/img/guiabcn.en.png"/></a>
+			 <span class="beta">
+				<img alt="Make the most of the BCN Guide"
+					src="/tpl/common/img/treupartit.en.png"/></span> 
+	</div>
+</logo>

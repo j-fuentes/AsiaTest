@@ -1,0 +1,105 @@
+<?php
+
+/**
+* @file
+* Asia module Install
+*
+*/
+function asia_install() {
+// Inicialitza variables del mòdul
+  // Variables generiques asia.admin.inc
+  variable_set('asia_num_resultats', 10);
+  variable_set('asia_config_resultats', array(1 => 1, 2 => 2, 3 => 3));
+  variable_set('asia_display_list', array(1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 0, 7 => 0));
+  variable_set('asia_config_detall', array(1 => 1, 2 => 2));
+  variable_set('asia_maplist_amplada', 260); 
+  variable_set('asia_maplist_alcada', 353); 
+  variable_set('asia_list_amplada', 410);  
+  variable_set('asia_addthis', array('llistat' => 'llistat', 'detall' => 'detall'));  
+  variable_set('asia_display_detail', array('picture' => 'picture', 'when' => 'when', 'where' => 'where', 'street' => 'street', 'district' => 'district', 'area' => 'area', 'cp' => 'cp',  'city' => 'city', 'phone' => 'phone', 'fax' => 'fax', 'web' => 'web', 'email' => 'email', 'accessibility' => 'accessibility', 'ownership' => 'ownership', 'description' => 'description', 'abstract' => 'abstract', 'comments' => 'comments', 'maps' => 'maps', 'howtogo' => 'howtogo', 'tabinfomation' => 'tabinfomation', 'tabactivities' => 'tabactivities', 'tabneavy' => 'tabneavy'));
+  
+  
+  //Filtres
+  
+  variable_set('asia_codes_filters', '');
+  variable_set('asia_block_filters', getFiltersInstall());  
+  
+  
+  
+  
+  // Variables del Block Mapa districtes
+  variable_set('widthMap', 180);
+  // Variables del Block Cerca avançada
+  variable_set('settings_cercaavancada',  array(1 => 1, 2 => 0));
+  variable_set('settings_cercaavancada_prefixada',  array(1 => 1, 2 => 0));
+  
+  
+}
+ 
+function asia_uninstall() {
+
+//Borra varieables que crea el mòdul
+  // Variables generiques
+  variable_del('asia_canal');
+  variable_del('asia_num_resultats');
+  variable_del('asia_maplist_amplada');
+  variable_del('asia_list_amplada');
+  variable_del('asia_maplist_alcada');
+  variable_del('asia_config_resultats');
+  variable_del('asia_display_list');
+  variable_del('asia_addthis');
+  variable_del('asia_config_detall');
+  variable_del('asia_display_detail');
+  
+  // Variables del block mapa districtes
+  variable_del('code0Mapa');
+  variable_del('code1Mapa');
+  variable_del('arraySelectMap');
+  variable_del('widthMap');      
+    
+  // Variables del block
+  variable_del('code0Cerca');
+  variable_del('code1Cerca');
+  variable_del('settings_cercaavancada');
+  variable_del('settings_cercaavancada_prefixada');
+  
+  // Filtres
+  variable_del('asia_codes_filters'); 
+  variable_del('asia_block_filters'); 
+
+}
+
+
+
+function getFiltersInstall() {
+ global $language;
+ $idma = $language->language;
+ $canal = variable_get('asia_canal', '');
+
+ $url = "http://guia.bcn.cat/index.php?pg=search&xout=1&ajax=search&idma=" . $idma;
+  if ($canal != '') {
+    $url = $url . "&canal=" . $canal;
+  }
+  
+ $str = file_get_contents($url);
+ $arrXml = new SimpleXmlElement($str);
+  
+  
+  if (isset($arrXml->search->bleft->leftfilter->facetlist)) {
+
+    $array_filtres=$arrXml->search->bleft->leftfilter->facetlist;
+    $installFilters=array();    
+    foreach ($array_filtres->children() as $delta => $itype) {      
+  
+      if ($itype -> getName()!="class") {        
+        $installFilters[$itype -> getName()] = $itype -> getName() ;
+      } 
+	  else {        
+        $installFilters[(string)$itype['treeid']] = (string)$itype['treeid'];       
+      }
+
+    } 
+  
+  }
+  return $installFilters;
+}

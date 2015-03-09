@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datepicker label="ACTIVITADES P0R FECHA">
+<div class="datepickerBorder">
+	<div class="datepickerContainer">
+		<div id="date"></div>
+		<form id="frm-datepicker" enctype="multipart/form-data" action="index.php" method="get">
+		<input id="inputDate" type="hidden" name="dt" value=""/>
+		<input type="hidden" name="pg" value="search"/>
+		<input type="hidden" name="q" value="*:*"/>
+		<label class="dtp-interval">Haz clic en la fecha de inicio y la de finalización y se seleccionarán los días entre ellas.</label><input class="cerca" type="submit" value="Buscar" />
+		</form>
+	</div>
+</div>
+</datepicker>

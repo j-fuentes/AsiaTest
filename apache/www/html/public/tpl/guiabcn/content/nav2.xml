@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<navigator>
+
+	<page>
+		<xslt>guiabcn</xslt>
+		<pgtitle />
+		<msg />
+		<block>classform</block>
+		<headers>	  
+			<!-- <block>langs</block>-->
+			<copy>brand</copy>
+			<copy>logo</copy>			
+			<copy>capsalera</copy>				
+		</headers>		
+		<home_central xml="home">home</home_central>		
+		<footers>
+			<block>footer</block>
+		</footers>
+	</page>
+	
+	<pg name="home">
+		<nav>
+			<prev>any</prev>
+			<action>home</action>
+		</nav>		
+		<!-- <bleft><block>leftfilter</block></bleft> -->		
+		<central>	
+		<copy>bannerweb</copy>
+		<copy>cartellera</copy>
+		<block>mviewed</block>	
+		<block>mvoted</block>	
+		<copy>banners</copy>
+		<copy>bcnproposa</copy>				
+		<!--<block>classhome</block> -->
+		<block>classsearch</block>
+		<block>hrecom</block>
+		<copy>datepicker</copy>					
+		</central>
+	</pg>
+	
+	
+	<pg name="search">
+		<nav>
+			<prev>home</prev>
+			<action>add</action>
+		</nav>	
+		<nav>
+			<prev>search</prev>
+			<action>current</action>
+		</nav>
+		<nav>
+			<prev>classall</prev>
+			<action>reset</action>
+		</nav> 
+		<nav>
+			<prev>notfound</prev>
+			<action>reset</action>
+		</nav> 
+		<central>
+		<block>classsearch</block>
+		</central>
+		<msg/>
+
+	</pg>
+	
+	<pg name="rss">
+		<nav>
+			<prev>any</prev>
+			<action>reset</action>
+		</nav>		
+		<central><copy>rss</copy></central>
+	</pg>
+	
+	<pg name="notfound">
+		<nav>
+			<prev>any</prev>
+			<action>reset</action>
+		</nav>		
+		<central>
+		<block>classsearch</block>
+		<copy>notfound</copy>
+		</central>
+	</pg>
+	
+	<pg name="detall">
+		<nav>
+			<prev>home</prev>
+			<action>add</action>
+		</nav>
+		<nav>
+			<prev>search</prev>
+			<action>add</action>
+		</nav>	
+		<nav>
+			<prev>classall</prev>
+			<action>reset</action>
+		</nav>		
+		<central>
+		<block>classsearch</block>
+		<block>related</block>
+		<!-- <block>agendaeq</block> -->		
+		</central>
+	</pg>	
+
+    <pg name="classall">
+		<nav>
+			<prev>home</prev>
+			<action>reset</action>
+		</nav>	
+	</pg>
+
+</navigator>

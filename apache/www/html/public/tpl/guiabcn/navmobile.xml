@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<navigator>
+
+	<page>
+		<xslt>mobileguiabcn</xslt>
+		<pgtitle />
+		<msg />
+		<headers>		 
+			<copy>brandmobile</copy>			
+			<copy>capsalera</copy>	
+		</headers>		
+		<home_central xml="home">home</home_central>		
+		<footers>
+			<block>footer</block>
+		</footers>
+	</page>
+	
+	<pg name="home">
+		<nav>
+			<prev>any</prev>
+			<action>home</action>
+		</nav>		
+		<central>
+		<block>hrecom</block>	
+		</central>
+		
+		<!-- <bleft><block>leftfilter</block></bleft> -->
+		
+	</pg>
+	
+	
+	<pg name="search">
+		<nav>
+			<prev>home</prev>
+			<action>add</action>
+		</nav>	
+		<nav>
+			<prev>search</prev>
+			<action>current</action>
+		</nav>
+
+	</pg>
+	
+	<pg name="rss">
+		<nav>
+			<prev>home</prev>
+			<action>add</action>
+		</nav>		
+		<central><copy>rss</copy></central>
+	</pg>
+	
+	<pg name="detall">
+		<nav>
+			<prev>home</prev>
+			<action>add</action>
+		</nav>
+		<nav>
+			<prev>search</prev>
+			<action>add</action>
+		</nav>		
+	</pg>
+
+
+</navigator>

@@ -1,0 +1,835 @@
+<?php
+
+/**
+* @file
+* Module fitxa asia
+*/
+
+/**
+* Implementation of hook_node_info().
+*/
+
+function fitxa_asia_menu() {
+  
+  $items = array();
+  $items['asia/autocomplete'] = array(
+      'title' => '',
+      'page callback' => '_asia_autocomplete',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+  );
+   
+  return $items;
+}
+
+
+function fitxa_asia_form_alter(&$form, &$form_state, $form_id) {
+ 
+switch($form_id) {
+  
+  case "fitxa_asia_node_form":   
+  
+    $form['title']['#required'] = FALSE;    
+      
+      
+    
+      //** Camps de dades que venen de l'xml
+      
+        $form['asia_fieldset'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Dades de l\'acte'),
+        '#prefix' => '<div id="acte-asia-wrapper">',
+        '#suffix' => '</div>',
+         '#weight' => -100,
+         '#collapsible' => TRUE,
+         '#group' => 'vertical_tab_asia'
+        
+        );   
+       
+      
+       $form['asia_fieldset']['asia_cerca'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Cercador d\'actes'),
+        '#collapsible' => TRUE,
+         '#weight' => -16,
+        );  
+        
+        $form['asia_fieldset']['asia_cerca']['cerca'] = array(
+          '#title' => t('Cerca a Asia'),
+          '#type' => 'textfield',
+          '#maxlength' => 60,
+          '#weight' => -16,
+          '#autocomplete_path' => 'asia/autocomplete',
+          );
+         $form['asia_fieldset']['asia_cerca']['boto_cerca'] = array(
+          '#type' => 'button',
+          '#value' => t('Cerca acte'),
+          '#weight' => -15,
+          '#ajax' => array(
+            'callback' => '_import_data_js',
+            'method' => 'replace',
+            'wrapper' => 'acte-asia-wrapper',
+          
+           )
+         );
+          
+        $form['asia_fieldset']['dades_asia']  = array(
+          '#type' => 'fieldset',
+          '#title' => t('Resultat de la cerca'),
+          '#collapsible' => TRUE,
+          '#weight' => -14
+        );  
+        
+        $form['asia_fieldset']['dades_asia']['description'] = array(
+          '#type' => 'item'
+        );
+
+       
+      
+       /** Disabled fields from asia */
+       $form['asia_fieldset']['dades_asia']['title-aux'] = $form['title'];
+       $form['asia_fieldset']['dades_asia']['id-aux'] = $form['fitxa_asia_id'];
+       $form['asia_fieldset']['title'] = $form['title'];
+       
+       // $form['asia_fieldset']['title']['#disabled'] = TRUE;
+       
+       $form['asia_fieldset']['fitxa_asia_id'] = $form['fitxa_asia_id'];
+      
+      //   $form['asia_fieldset']['fitxa_asia_id']['#type'] = 'hidden';
+      
+      $form['asia_fieldset']['title']['#type'] = 'hidden';
+
+       // $form['asia_fieldset']['fitxa_asia_id']['#disabled'] = TRUE;
+       
+      
+         unset($form['title']);
+      
+       $form['asia_fieldset']['fitxa_asia_id']['und']['0']['value']['#type'] = 'hidden';
+      
+       $form['fitxa_asia_id']= array('#language' => NULL);
+       $form['asia_fieldset']['dades_asia']['title-aux']['#disabled'] = TRUE;
+         $form['asia_fieldset']['dades_asia']['id-aux'] ['#disabled'] = TRUE;
+    
+       /** Càrrega de dades d'asia en el formulari */  
+
+           $form['#after_build'][] = '_load_data'; 
+       
+  
+  
+  
+  
+  
+  
+   
+  /// Dades generiques del checkboxes de les pàgines de configuració
+  $detail_options=fitxa_asia_get_detail_options();
+  $list_options=fitxa_asia_get_list_options();     
+  
+  
+    
+  // Node
+  $node = $form_state['node'];
+  
+  
+  if (!isset($node->nid) || isset($node->is_new)) {
+    
+    // Si és un contingut NOU      
+    
+    /*****************/
+    /*    LLISTAT    */
+    /*****************/  
+      
+    // Reseteja els Checkboxes del llistat a 0.    
+    foreach ($form['fitxa_asia_list_display']['und']['#options'] as $key => $value) {  
+      
+       $form['fitxa_asia_list_display']['und'][$key]['#default_value'] = 0;
+    }
+    
+    
+    // Agafa per defecte els checkboxes de la pàgina de configuració del llistat
+    foreach ($list_options as $key => $value) {    
+      if ($value['value']!==0) {          
+        $num=$value['value'];
+          $form['fitxa_asia_list_display']['und'][$num]['#default_value'] = $num;
+      }
+    }
+    
+    /******************/
+    /*     DETALL     */
+    /******************/
+    
+    // Reseteja els Checkboxes del detall a 0.    
+    foreach ($form['fitxa_asia_detail_display']['und']['#options'] as $key => $value) {        
+       $form['fitxa_asia_detail_display']['und'][$key]['#default_value'] = 0;
+    }
+    
+    // Agafa per defecte els checkboxes de la pàgina de configuració del llistat
+    foreach ($detail_options as $value) {        
+      if ($value['value']!==0) {          
+        $text=(string)$value['value'];        
+          $form['fitxa_asia_detail_display']['und'][$text]['#default_value'] = $text;
+      }
+    }
+    
+   }
+  break;
+  }
+  
+}
+
+function fitxa_asia_get_detail_options() {  
+  $optionsDetailGeneric=array();
+    foreach (variable_get('asia_display_detail', '') as $field) {
+      $field = array("value" => $field);
+      array_push($optionsDetailGeneric, $field);                
+    }
+  return $optionsDetailGeneric;
+}
+
+function fitxa_asia_get_list_options() {  
+  $optionsListGeneric=array();
+  foreach (variable_get('asia_display_list', '') as $field) {
+    $field = array("value" => $field);
+    array_push($optionsListGeneric, $field);  
+  }
+  return $optionsListGeneric;
+}
+
+
+function _load_data(&$form) {
+
+  $nid = $form["nid"]["#value"];
+
+  $node = node_load($nid);
+    
+  if (isset($node->fitxa_asia_id['und'][0]['value'])) { 
+  
+  
+  $id = $node->fitxa_asia_id['und'][0]['value'];
+  
+  $url = "http://guia.bcn.cat/?pg=detall&id_doc=" . $id . "&xout=1&ajax=detall&idma=ca";
+  
+  
+  if (@file_get_contents($url) == TRUE) { 
+    // s'ha trobat l'acte a asia  
+    
+    $str = file_get_contents($url);
+    $arrXml = new SimpleXmlElement($str);
+    
+    $detall = $arrXml->detall;
+    //$name= $detall->actname;
+    if (isset($detall->wp->detall->title)) {
+      $name = $detall->wp->detall->title;
+    }
+    else {    
+      $name = $detall->name;
+      
+    }
+    
+    
+    $comments= $detall->comments;
+    $id= $detall->entity_id;
+    
+    /** Load data **/
+    $form['asia_fieldset']['dades_asia']['title-aux']['#value'] = strip_tags((string)$name, " ");
+         $form['asia_fieldset']['dades_asia']['id-aux']['und']['0']['value']['#value'] =(string)$id;
+
+    $content = _load_content($arrXml);
+    $form['asia_fieldset']['dades_asia']['description']['#markup'] = (string)$content;
+
+  }
+  else {
+   
+   //no s'ha trobat l'acte a asia.
+    
+    drupal_set_message(t('No s\'ha trobat l\'acte amb l\'identificador: %id', array('%id' => $id)));
+   
+  
+  
+  
+  }
+
+}
+return $form;
+
+}
+function _import_data_js($form, $form_state) {
+  
+
+  
+  $acteId =  $form_state['values']['cerca'];
+    
+  $url = "http://guia.bcn.cat/?pg=detall&id_doc=" . (string)$acteId . "&xout=1&ajax=detall&idma=ca";
+  
+  
+  if (@file_get_contents($url) == TRUE) { 
+    // s'ha trobat l'acte a asia  
+    
+    $str = file_get_contents($url);
+    $arrXml = new SimpleXmlElement($str);
+    
+    $detall=$arrXml->detall;
+    
+    if (isset($detall->wp->detall->title)) {
+      $name = $detall->wp->detall->title;
+    }
+    else {
+      $name= $detall->name;
+    }
+
+    
+    $idActe= $detall->entity_id;
+    
+    
+  }
+  
+  $content = _load_content($arrXml);
+  
+  $form['asia_fieldset']['title']['#value'] = strip_tags((string)$name, " ");
+  $form['asia_fieldset']['dades_asia']['title-aux']['#value'] = strip_tags((string)$name, " ");
+  
+  $form['asia_fieldset']['fitxa_asia_id']['und']['0']['value']['#value'] = (string)$idActe;
+  $form['asia_fieldset']['dades_asia']['id-aux']['und']['0']['value']['#value'] = (string)$idActe;
+  
+  $form['asia_fieldset']['dades_asia']['description']['#markup'] = (string)$content;
+  
+    
+  return $form['asia_fieldset'];
+  
+}
+
+
+  
+  
+    
+function parsejaUrl2($str) {    
+  $str=str_replace(" ", "+", $str);    
+  $str=str_replace("&", "&amp;", $str);    
+  return $str;
+}
+
+function _asia_autocomplete($string = '') {
+  
+    $matches = array();
+  
+  $cerca = parsejaUrl2($string);
+
+    $url = "http://guia.bcn.cat/index.php?pg=search&q=" . $cerca . "&nr=700&xout=1&canal=agenda500";
+  
+    
+  $str = file_get_contents($url);
+  $arrXml = new SimpleXmlElement($str);
+  
+  
+  $result = $arrXml->xpath("//row");
+
+
+  foreach ($result as $llistat) {
+  
+    $item = $llistat->item;
+    $name = $item->name;
+    $id = $item->id;
+      $matches[(string)$id] = (string)$name;
+    //strip_tags((string)$name," ")
+   }
+    
+  drupal_json_output($matches);
+}
+
+
+function _load_content($arrXml) {
+  
+  $content = ""; 
+  global $language;
+  
+  $base_url=$GLOBALS['base_url'] . '/' . $language->language;
+  
+  $detall=$arrXml->detall;
+  
+  
+  if (isset($detall->wp->detall->title)) {
+    $name = $detall->wp->detall->title;
+  }
+  else {
+    $name= $detall->name;
+  }
+  
+  
+  $tp=strtolower($detall->entity_type);
+  
+    $out_picture= "";
+      $picture = $detall->internetref->item; // Array  
+      if (arrayhasValue($picture)) {
+        foreach ($picture as $ipicture => $field) {
+          $out_picture='<img alt="" src="' . $field->irefvalue . '" />';
+        }
+      }
+      $out_warning= "";
+      $warning = $detall->warning; // Array  
+      if (hasValue($warning)) {        
+        $out_warning='<p class="warning">' . $warning . '</p>';      
+      }
+      
+      
+      $on = $detall->institutionname;
+      $out_where = "";
+      if (hasValue($on)) {
+          $out_where= '<dt class="notranslate">' . $on['label'] . '</dt>';
+          if (hasValue($on['href'])) {        
+            $out_where .= '<dd class="notranslate"><a href="' . $on['href'] . '">' . $on . '</a></dd>';
+          }
+          else {
+            $out_where .= '<dd class="notranslate">' . $on . '</dd>';
+          }
+      }
+  
+      $date = $detall->date;
+      $out_when ='';
+      if (hasValue($date)) {
+        $out_when .= '<dt class="notranslate">' . $date['label'] . '</dt>';
+        $out_when .= '<dd>' . $date . '</dd>';
+      } 
+      elseif (hasValue($detall->begindate) || hasValue($detall->enddate)) {
+        $out_when .=  '<dt class="notranslate">' . $detall->begindate['label2'] . '</dt>';
+        $out_when .= '<dd>' . $detall->begindate['label'] . ' ' . $detall->begindate . ' ' . $detall->enddate['label'] . ' ' . $detall->enddate . '.</dd>';
+      }
+  
+      $street = $detall->street;
+      $num_street = $detall->streetnum_i;
+      if (hasValue($street)) {
+        $out_street = '<dt class="notranslate">' . $street['label'] . ':</dt>';
+        $out_street .= '<dd class="notranslate">' . $street . ', ' . $num_street . '</dd>';
+      }     
+    
+      $district = $detall->district;
+      if (hasValue($district)) {
+        $out_district = '<dt class="notranslate">' . $district['label'] . ':</dt>';
+        $out_district .= '<dd class="notranslate">' . $district . '</dd>';
+      }
+    
+      $barri = $detall->barri;  
+      if (hasValue($barri)) {
+        $out_area = '<dt class="notranslate">' . $barri['label'] . ':</dt>';
+        $out_area .= '<dd class="notranslate">' . $barri . '</dd>';
+      }
+    
+      $cp = $detall->postalcode;
+       if (hasValue($cp)) {
+        $out_cp = '<dt class="notranslate">' . $cp['label'] . ':</dt>';
+        $out_cp .= '<dd class="notranslate">' . $cp . '</dd>';
+      }
+       $city = $detall->city;   
+      if (hasValue($city)) {
+        $out_city =  '<dt class="notranslate">' . $city['label'] . ':</dt>';
+        $out_city .=  '<dd class="notranslate">' . $city . '</dd>';
+      }
+    
+      $tel = $detall->phones->item; //Array tel + fax 
+      $out_phone="";  
+      if (arrayhasValue($tel)) {  
+          
+        foreach ($tel as $itel => $field) {
+          
+          if ($field->label!="Fax") {            
+            $out_phone .= '<dt class="notranslate">' . $field->label . ': </dt>';        
+            $out_phone .= '<dd>' . $field->phonenumber . ' ' . $field->phonedesc . '</dd>';
+          }
+        }       
+      }
+    
+      $tel = $detall->phones->item; //Array tel + fax 
+      $out_fax="";
+      if (arrayhasValue($tel)) {  
+            
+        foreach ($tel as $itel => $field) {
+            
+          if ($field->label=="Fax") {            
+            $out_fax .= '<dt class="notranslate">' . $field->label . ': </dt>';        
+            $out_fax .= '<dd>' . $field->phonenumber . ' ' . $field->phonedesc . '</dd>';
+          }
+        }       
+      }
+    $interestinfo = $detall->interestinfo->item; // array email + web
+      if (arrayhasValue($interestinfo)) {
+        $out_web="";
+        foreach ($interestinfo as $iint => $field) {          
+          if ($field->label=='Web') {
+            if ($field->label!='') {
+              $out_web .= '<dt class="notranslate">' . $field->label . ': </dt>';
+            }
+            $out_web .= '<dd><a href="http://' . $field->interinfo . '">' . $field->interinfo . '</a></dd>';
+          }        
+        }
+      }
+  
+       $interestinfo = $detall->interestinfo->item; // array email + web
+      if (arrayhasValue($interestinfo)) {
+        $out_email = "";
+        foreach ($interestinfo as $iint => $field) {          
+            if ($field->label!='Web') {
+            if ($field->label=='Email' || $field->label=='Adreça electrònica' || $field->label=='Correo electrónico') {      
+              if ($field->label!='') {
+                $out_email .= '<dt class="notranslate">' . $field->label . ': </dt>';
+              }  
+              $out_email .= '<dd class="notranslate"><a href="mailto:' . $field->interinfo . '">' . $field->interinfo . '</a></dd>';
+            }
+            else {
+              if ($field->label!='') {
+                $out_email .= '<dt class="notranslate">' . $field->label . ': </dt>';
+              }  
+              $out_email .= '<dd class="notranslate">' . $field->interinfo . '</dd>';
+            }
+          }
+          
+        }
+      }
+  
+      $accessibility = $detall->accessibility;
+      if (hasValue($accessibility)) { 
+        $out_accessibility = '<p class="accessibility">' . $accessibility . '</p>';
+      }
+      else {
+        $out_accessibility = "";
+      }
+  
+      $titularitat = $detall->titularitat;
+      if (hasValue($titularitat)) {
+        $out_ownership = '<dl class="titularitat">';
+          $out_ownership .= '<dt>' . $titularitat['label'] . ': </dt>';
+          $out_ownership .= '<dd>' . $titularitat . '</dd>';
+        $out_ownership .= '</dl>';
+      }
+      else {
+        $out_ownership = "";
+      }
+      
+      //Si hi ha info del wp
+      if (isset($detall->wp->detall->content)) {        
+        $desc = $detall->wp->detall->content;  
+      }
+      else {
+        $desc = $detall->texte;  
+      }    
+      if (hasValue($desc)) { 
+        $out_description = $desc;
+      }
+      else {
+        $out_description = "";
+      }     
+      
+      
+      //Si hi ha info del wp    
+      if (isset($detall->wp->detall->except)) {        
+        $resum = $detall->wp->detall->except;  
+      }
+      else {
+        $resum = $detall->resum;
+      }
+      
+      if (hasValue($resum)) { 
+        $out_abstract = $resum;
+      }
+      else {
+        $out_abstract = "";
+      }
+     
+       $comments = $detall->comments; 
+      if (hasValue($comments)) {
+        $out_comments = '<p>' . $comments . '</p>';
+      }
+      else {
+         $out_comments = "";
+      }  
+    
+  
+      $info = $detall->timetable->horari; //Array    
+    $id_on = $detall->institution_id;
+    
+    if ($tp=="eq") {
+      $info_rel = $detall->relations->section;
+      $tit_info_rel = $detall->relations['labelsection']; 
+      $info_relOtros = $detall->relations->item; //Array
+      $tit_info_relOtros = $detall->relations['label']; 
+    }
+    else{
+      $info_rel = $detall->relations->item; //Array
+      $tit_info_rel = $detall->relations['label']; 
+    }
+    
+    $out_tabinfomation = "";
+    if (arrayhasValue($info) || arrayhasValue($info_rel) || (isset($info_relOtros) && arrayhasValue($info_relOtros))) {
+      $out_tabinfomation = '<div class="tabdetall" id="div-informacio">';
+
+      if ($tp=='eq') { 
+        if (arrayhasValue($info)) {
+          
+          $out_tabinfomation .= '<div id="horari">';// inici horaris
+          $out_tabinfomation .= '<h3>' . t('Schedule') . '</h3>';
+          if (count($info)>1) {
+          $out_tabinfomation .= '<table>';
+          $out_tabinfomation .= '<tbody>';
+            $txt="";
+            /*foreach($info as $iinfo => $field){
+              if($txt==""){
+                $out_tabinfomation .= '<h3>'.$field['label'].'</h3>';
+              }
+              $txt=$field['label'];
+              if($txt!="Time tables" && $txt!="Horaris" && $txt!="Horarios" ){
+                $out_tabinfomation .= '<h3>'.$txt.'</h3>';
+              }
+              $out_tabinfomation .= '<p>'.$field->periode.' '.$field->dies.' '.$field->hores.' '.$field->observacions.'</p>';
+            }*/
+            foreach ($info as $iinfo => $field) {
+              $out_tabinfomation .= '<tr>';
+            
+              
+              //periode
+              if (hasValue($field->periode)) {
+                $out_tabinfomation .= '<td class="content-info">' . $field->periode . '</td>';
+              }
+              else {
+                $out_tabinfomation .= '<td>' . $field->periode . '</td>';
+              }
+              
+              //dies
+              if (hasValue($field->dies)) {
+                $out_tabinfomation .= '<td class="content-info">' . $field->dies . '</td>';
+              }
+              else {
+                $out_tabinfomation .= '<td>' . $field->dies . '</td>';
+              }
+              //hores
+              if (hasValue($field->hores)) {
+                $out_tabinfomation .= '<td class="content-info">' . $field->hores . '</td>';
+              }
+              else {
+                $out_tabinfomation .= '<td>' . $field->hores . '</td>';
+              }        
+              //preu
+              if (hasValue($field->observacions)) {
+                $out_tabinfomation .= '<td class="content-info">' . $field->observacions . '</td>';
+              }
+              else {
+                $out_tabinfomation .= '<td>' . $field->observacions . '</td>';
+              }
+              
+              
+              $out_tabinfomation .= '</tr>';
+            }
+          $out_tabinfomation .= '</tbody>';
+          $out_tabinfomation .= '</table>';
+          $out_tabinfomation .= '</div>'; // fi horari
+          }
+          else {
+              $txt="";
+            foreach ($info as $iinfo => $field) {
+              $out_tabinfomation .= '<p>' . $field->periode . ' ' . $field->dies . ' ' . $field->hores . '. ' . $field->observacions . '</p>';
+              $out_tabinfomation .= '</div>'; // fi horari      
+              if (hasValue($field->preu)) {    
+                $out_tabinfomation .= '<div class="preu"><h3>' . $field->preu['label'] . '</h3>';
+                $out_tabinfomation .= '<p>' . $field->preu . '</p></div>';
+              }
+              
+            }
+          }
+          
+        }
+      }
+      else{
+        // Horari d'agenda
+        if (arrayhasValue($info)) {
+          
+          $out_tabinfomation .= '<div id="horari">';// inici horaris
+          $out_tabinfomation .= '<h3>' . t('Schedule') . '</h3>';
+          if (count($info)>1) {
+          $out_tabinfomation .= '<table>';
+          $out_tabinfomation .= '<tbody>';
+            foreach ($info as $iinfo => $field) {
+              $out_tabinfomation .= '<tr>';
+            
+              
+              //periode
+              if (hasValue($field->periode)) {
+                $out_tabinfomation .= '<td class="content-info">' . $field->periode . '</td>';
+              }
+              else {
+                $out_tabinfomation .= '<td>' . $field->periode . '</td>';
+              }
+              
+              //dies
+              if (hasValue($field->dies)) {
+                $out_tabinfomation .= '<td class="content-info">' . $field->dies . '</td>';
+              }
+              else {
+                $out_tabinfomation .= '<td>' . $field->dies . '</td>';
+              }
+              //hores
+              if (hasValue($field->hores)) {
+                $out_tabinfomation .= '<td class="content-info">' . $field->hores . '</td>';
+              }
+              else {
+                $out_tabinfomation .= '<td>' . $field->hores . '</td>';
+              }
+              //preu
+              if (hasValue($field->preu)) {
+                $out_tabinfomation .= '<td class="content-info">' . $field->preu . '</td>';
+              }
+              else {
+                $out_tabinfomation .= '<td>' . $field->preu . '</td>';
+              }
+              //preu
+              if (hasValue($field->observacions)) {
+                $out_tabinfomation .= '<td class="content-info">' . $field->observacions . '</td>';
+              }
+              else{
+                $out_tabinfomation .= '<td>' . $field->observacions . '</td>';
+              }
+              
+              
+              $out_tabinfomation .= '</tr>';
+            }
+          $out_tabinfomation .= '</tbody>';
+          $out_tabinfomation .= '</table>';
+          $out_tabinfomation .= '</div>'; // fi horari
+          }
+          else {
+              $txt="";
+            foreach ($info as $iinfo => $field) {
+              $out_tabinfomation .= '<p>' . $field->periode . ' ' . $field->dies . ' ' . $field->hores . '. ' . $field->observacions . '</p>';
+              $out_tabinfomation .= '</div>'; // fi horari      
+              if (hasValue($field->preu)) {    
+                $out_tabinfomation .= '<div class="preu"><h3>' . $field->preu['label'] . '</h3>';
+                $out_tabinfomation .= '<p>' . $field->preu . '</p></div>';
+              }
+              
+            }
+          }
+          
+
+        }
+      }
+
+
+      // Otros o informacio relacionada
+   
+      if (arrayhasValue($info_rel)) {
+        $out_tabinfomation .= '<div>';
+          $out_tabinfomation .= '<h3>' . $tit_info_rel . '</h3>';
+          if ($tp=='eq') { 
+            $out_tabinfomation .= '<ul class="notranslate">';
+              foreach ($info_rel as $irel => $field) {
+                if (hasValue($field->sectionname)) {
+                  $out_tabinfomation .= '<li><a href="' . $base_url . '/detall/' . $field['href'] . '">' . $field->sectionname . '</a></li>';
+                }
+                elseif (hasValue($field->institutionname)) {
+                  $out_tabinfomation .= '<li><a href="' . $base_url . '/detall/' . $field['href'] . '">' . $field->institutionname . '</a></li>';
+                }
+                
+              }
+            $out_tabinfomation .= '</ul>';
+          }
+          else {
+            $out_tabinfomation .= '<dl>';
+              foreach ($info_rel as $irel => $field) {
+                $out_tabinfomation .= '<dt>' . $field->direct . ': </dt><dd class="notranslate"><a href="' . $base_url . '/detall/' . $field['href'] . '">' . $field->institutionname . '</a>. ' . $field->comments . '</dd>';
+              }
+            $out_tabinfomation .= '</dl>';
+          }  
+        $out_tabinfomation .= '</div>';
+      }
+    if (isset($info_relOtros) && arrayhasValue($info_relOtros)) {
+        $out_tabinfomation .= '<div>';
+          $out_tabinfomation .= '<h3>' . $tit_info_relOtros . '</h3>';
+      
+            $out_tabinfomation .= '<dl>';
+              foreach ($info_relOtros as $irel => $field) {
+                $out_tabinfomation .= '<dt>' . $field->direct . ': </dt><dd class="notranslate"><a href="' . $base_url . '/detall/' . $field['href'] . '">' . $field->institutionname . '</a>. ' . $field->comments . '</dd>';
+              }
+            $out_tabinfomation .= '</dl>';
+            
+        $out_tabinfomation .= '</div>';
+    }
+
+      $out_tabinfomation .= '</div>'; //fi div-info
+
+    }
+
+     $ageq=$arrXml->ageq;
+     $out_tabactivities = "";
+     
+     if (arrayhasValue($ageq)) {
+      $out_tabactivities = '<div class="tabdetall" id="div-ageq">';
+        $out_tabactivities .= '<h3>Esdeveniments</h3><ul>';
+          foreach ($ageq->item as $iageq) {
+            $out_tabactivities .= '<li><a href="' . $base_url . '/detall/' . $iageq['href'] . '">' . $iageq->actname . '</a>';
+              $out_tabactivities .= '<dl>';
+                if (hasValue($iageq->date)) {
+                  $out_tabactivities .= '<dt class="notranslate">' . $iageq->date['label'] . '</dt><dd>' . $iageq->date . '</dd>';
+                }
+                else{
+                  $out_tabactivities .= '<dt>' . $iageq->begindate['label2'] . '</dt><dd>' . $iageq->begindate['label'] . ' ' . $iageq->begindate . ' ' . $iageq->enddate['label'] . ' ' . $iageq->enddate . '</dd>';
+                }
+              $out_tabactivities .= '</dl>';
+            $out_tabactivities .= '</li>';
+          }
+        $out_tabactivities .= '</ul>';
+      $out_tabactivities .= '</div>';
+    }
+
+    $aprop=$arrXml->aprop;
+      
+       // Pestanya Aprop d'aqui
+      if (isset($aprop->aparcs)) {
+      $aprop_aparcs = $aprop->aparcs->list->list_items->row; //Array
+      }
+      if (isset($aprop->restaurants)) {
+      $aprop_restau = $aprop->restaurants->list->list_items->row; //Array
+      }
+      
+      $out_tabneavy = "";
+      if (isset($aprop_aparcs) || isset($aprop_restau)) {
+      $out_tabneavy = '<div class="tabdetall" id="div-aprop">';
+        if (isset($aprop_aparcs)) {
+          $out_tabneavy .= '<h3>' . $aprop->aparcs['label'] . '</h3>';
+          foreach ($aprop_aparcs as $iapracs => $field) {
+            $out_tabneavy .= '<p><a href="' . $base_url . '/detall/' . $field->item['href'] . '" class="notranslate">' . $field->item->name . '</a></p>';
+            $out_tabneavy .= '<div class="dades">';
+              $out_tabneavy .= '<p class="notranslate">' . $field->item->address . '</p>';
+              $out_tabneavy .= '<p>' . $field->item->phonenumber . '</p>';
+            $out_tabneavy .= '</div>';
+    
+          }
+        }
+        if (isset($aprop_restau)) {
+          $out_tabneavy .= '<h3>' . $aprop->restaurants['label'] . '</h3>';  
+          foreach ($aprop_restau as $irestau => $field) {
+            $out_tabneavy .= '<p><a href="' . $base_url . '/detall/' . $field->item['href'] . '" class="notranslate">' . $field->item->name . '</a></p>';
+            $out_tabneavy .= '<div class="dades">';
+              $out_tabneavy .= '<p class="notranslate">' . $field->item->address . '</p>';
+              $out_tabneavy .= '<p>' . $field->item->phonenumber . '</p>';
+            $out_tabneavy .= '</div>';
+          }
+        }
+      $out_tabneavy .= '</div>';
+    }
+
+
+
+
+
+
+
+
+ 
+
+  $content = '<div id="contenidor-detall"><h2>' . $name . '</h2>' . $out_picture . '<div id="fitxa"><div class="detall"><dl>' . $out_warning . $out_when . $out_where . $out_street . $out_district . $out_area . $out_cp . $out_city . $out_phone . $out_fax . $out_email . $out_web . "</dl><div style='clear:both'>" . $out_accessibility . $out_ownership . $out_description . $out_abstract . '</div></div></div><div style="clear:both">' . $out_comments . '</div>' . $out_tabinfomation . $out_tabactivities . $out_tabneavy ;
+  
+  return $content;
+
+}
+ 
+ 
+ 
+ 
+ 
+ 

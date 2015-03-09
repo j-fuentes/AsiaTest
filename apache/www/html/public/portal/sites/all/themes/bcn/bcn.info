@@ -1,0 +1,89 @@
+name = BCN Theme
+description = Tema de l'Ajuntament de Barcelona
+screenshot = images/screenshot.gif
+core = "7.x"
+project = "bcn"
+engine = phptemplate
+
+regions[header] = Header
+
+regions[menu] = Menu
+
+regions[promotional] = Zona promocional
+
+regions[r1_b1] = Content Row1 Bloc1
+regions[r1_b2] = Content Row1 Bloc2
+regions[r1_full] = Content Row1 Full
+
+regions[r2_b1] = Content Row2 Bloc1
+regions[r2_b2] = Content Row2 Bloc2
+regions[r2_full] = Content Row2 Full
+
+regions[content] = Content
+
+regions[r3_b1] = Content Row3 Bloc1
+regions[r3_b2] = Content Row3 Bloc2
+regions[r3_full] = Content Row3 Full
+
+regions[r4_b1] = Content Row4 Bloc1
+regions[r4_b2] = Content Row4 Bloc2
+regions[r4_full] = Content Row4 Full
+
+regions[r5_b1] = Content Row5 Bloc1
+regions[r5_b2] = Content Row5 Bloc2
+regions[r5_full] = Content Row5 Full
+
+regions[r6_b1] = Content Row6 Bloc1
+regions[r6_b2] = Content Row6 Bloc2
+regions[r6_full] = Content Row6 Full
+
+regions[r7_b1] = Content Row7 Bloc1
+regions[r7_b2] = Content Row7 Bloc2
+regions[r7_full] = Content Row7 Full
+
+regions[r8_b1] = Content Row8 Bloc1
+regions[r8_b2] = Content Row8 Bloc2
+regions[r8_full] = Content Row8 Full
+
+regions[r9_b1] = Content Row9 Bloc1
+regions[r9_b2] = Content Row9 Bloc2
+regions[r9_full] = Content Row9 Full
+
+regions[footer] = Footer
+
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = search
+features[] = main_menu
+features[] = secondary_menu
+
+; Stylesheets
+stylesheets[all][] = css/default.css
+stylesheets[all][] = css/normalize.css
+stylesheets[all][] = css/layout.css
+stylesheets[all][] = css/custom/style.css
+stylesheets[print][] = css/print.css
+
+; Scripts
+scripts[] = js/modernizr.js
+scripts[] = js/jquery-ready-bcn.js
+scripts[] = js/custom/custom.js
+
+settings[basic_tabs] = 1
+settings[basic_breadcrumb] = 1
+settings[basic_breadcrumb_home] = 1
+settings[basic_breadcrumb_separator] = »
+settings[clear_registry] = 0
+settings[basic_ie_enabled] = 0
+settings[basic_ie_enabled_versions][ie8] = 0
+settings[basic_ie_enabled_versions][ie9] = 0
+settings[basic_ie_enabled_versions][ie10] = 0
+
+version = "7.x"
+core = "7.x"
+project = "bcn"
+datestamp = "1375478470"
+
+screenshot = screenshot.png
