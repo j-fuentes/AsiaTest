@@ -72,10 +72,11 @@ RUN service sshd restart
 #MOVE CUSTOM FILES TO CONTAINER
 
 ADD ./www/ /var/www/
-ADD ./Apache2/ /etc/Apache2/
+ADD ./Apache2/ /etc/httpd/
 
 
 EXPOSE 80 88 21 22
 
-CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
+RUN /etc/init.d/httpd restart
+#CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
 
