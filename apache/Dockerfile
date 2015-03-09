@@ -69,6 +69,11 @@ RUN yum install openssh-server
 RUN chkconfig sshd on
 RUN service sshd restart
 
+#MOVE CUSTOM FILES TO CONTAINER
+
+ADD ./www/ /var/www/
+ADD ./Apache2/ /etc/Apache2/
+
 
 EXPOSE 80 88 21 22
 
