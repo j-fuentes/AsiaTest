@@ -16,3 +16,6 @@ RUN apt-get -y install vsftpd
 RUN apt-get -y install munin
 #Install SSH
 RUN apt-get -y install openssh-client
+
+VOLUME /var/lib/mysql
+EXPOSE 3306
