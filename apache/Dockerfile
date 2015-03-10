@@ -1,60 +1,53 @@
-FROM ubuntu:12.04
-MAINTAINER Xavier Xicota
-RUN apt-get -y update
-
-# UnComment to install Puppet on Ubuntu
-#RUN apt-get -y install rubygems
-#RUN echo "gem: --no-ri --no-rdoc" > ~/.gemrc
-#RUN gem install puppet librarian-puppet
-
-#Install Apache
-RUN apt-get -y install apache2
-
-# APACHE CONF
-#/etc/apache2/apache2.conf
-#/etc/apache2/mods-enabled
-#/etc/apache2/sites-enabled 
-#/etc/apache2/conf.d.
-
-#INSTALL PHP APC
-
-RUN apt-get -y install php5 libapache2-mod-php5
-RUN apt-get -y install libpcre3-dev
-RUN apt-get -y install php-pear
-RUN apt-get -y install php5-dev
-RUN apt-get -y install make
-RUN apt-get -y install apache2-prefork-dev
-
-# ADD extension=apc.so on php.ini
-
-#RUN sed -i ‘$a extension=apc.so’ /etc/php5/apache2/php.ini
-
-RUN service apache2 restart
-
-#Install Memcached
-
-RUN apt-get install -y mysql-server php5-mysql php5 php5-memcached memcached
-
-#Install Java 1.6
-RUN apt-get -y install openjdk-6-jre
-
+FROM centos:6.6
+MAINTAINER “Xavier Xicota” <xavixicota@gmail.com>
+ENV container docker
+#install Apache
+RUN yum -y update
+RUN yum -y install httpd
+RUN chkconfig --levels 235 httpd on
+#Install PHP
+RUN yum -y install php
+#Install PHP MySQL Support
+RUN yum -y install php-mysql
+#Install Commmon Modules 
+RUN yum -y install php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-mssql php-snmp php-soap php-tidy curl curl-devel
+#Install APC
+RUN yum -y install php-pecl-apc
+#Restart HTTP 
+RUN /etc/init.d/httpd restart
+#Install JDK 1.6
+RUN yum -y install java-1.6.0-openjdk
+RUN yum -y install java-1.6.0-openjdk-devel
+# How to install PHP memcached on CentOS 6.5 
+# Install dependencies
+RUN yum -y install cyrus-sasl-devel zlib-devel gcc-c++
+# Get the latest libmemcached
+RUN yum -y install wget
+RUN wget https://launchpad.net/libmemcached/1.0/1.0.16/+download/libmemcached-1.0.16.tar.gz
+RUN yum -y install tar
+RUN tar -xvf libmemcached-1.0.16.tar.gz
+RUN cd libmemcached-1.0.16
+# Compile and install liblmemcached with sasl disabled
+RUN /libmemcached-1.0.16/configure --disable-memcached-sasl
+RUN make
+RUN make install
+# After memcached's dependencies has been satisfied, install it with pecl
+RUN pecl install memcached
+# Enable it for PHP
+RUN echo "extension=memcached.so" > /etc/php.d/memcached.ini
 #Install FTP
-RUN apt-get -y install vsftpd
-
-#Install Munin
-RUN apt-get -y install munin
+RUN yum -y install vsftpd
+RUN yum -y install ftp
+RUN service vsftpd restart
+RUN chkconfig vsftpd on
+#MISS FTP CONFIG HERE
 #Install SSH
-RUN apt-get -y install openssh-client
-
-#Creating Volume space
-
-#RUN cd /
-#RUN mkdir /CO_MEDIA/
-#RUN mkdir /CO_MEDIA/APACHE/
-
-#VOLUME /CO_MEDIA/APACHE/ /etc/apache2/
-
+RUN yum -y install openssh-server
+RUN chkconfig sshd on
+RUN service sshd restart
+#MOVE CUSTOM FILES TO CONTAINER
+ADD ./www/ /var/www/
+ADD ./apache2/ /etc/httpd/
 EXPOSE 80 88 21 22
-
+RUN /etc/init.d/httpd restart
 CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
-
