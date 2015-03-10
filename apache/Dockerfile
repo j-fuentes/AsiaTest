@@ -62,6 +62,13 @@ RUN chkconfig vsftpd on
 
 #MISS FTP CONFIG HERE
 
+#INSTALL MUNIN
+
+RUN yum install munin-node
+RUN yum install munin-server
+RUN chkconfig --add munin-node
+RUN service munin-node start
+
 #Install SSH
 
 RUN yum install openssh-server
