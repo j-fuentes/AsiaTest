@@ -1,0 +1,11 @@
+version 2.0.12
+imivplapa22a001;imivplapa22a001;open_files;used;ok OK
+imivplapa22a001;imivplapa22a001;open_files;used;state ok
+imivplapa22a001;imivplapa22a001;diskstats_latency;sda;avgwrwait;ok OK
+imivplapa22a001;imivplapa22a001;diskstats_latency;sda;avgwrwait;state ok
+imivplapa22a001;imivplapa22a001;df_inode;_dev_sda3;ok OK
+imivplapa22a001;imivplapa22a001;df_inode;_dev_sda3;state ok
+imivplapa22a001;imivplapa22a001;df;_dev_shm;ok OK
+imivplapa22a001;imivplapa22a001;df;_dev_shm;state ok
+imivplapa22a001;imivplapa22a001;df;_dev_sda3;ok OK
+imivplapa22a001;imivplapa22a001;df;_dev_sda3;state ok

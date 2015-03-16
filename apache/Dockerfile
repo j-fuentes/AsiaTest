@@ -23,6 +23,7 @@ RUN yum -y install java-1.6.0-openjdk-devel
 RUN yum -y install cyrus-sasl-devel zlib-devel gcc-c++
 # Get the latest libmemcached
 RUN yum -y install wget
+RUN yum -y install memcached.x86_64 php-pecl-memcached.x86_64
 RUN wget https://launchpad.net/libmemcached/1.0/1.0.16/+download/libmemcached-1.0.16.tar.gz
 RUN yum -y install tar
 RUN tar -xvf libmemcached-1.0.16.tar.gz
@@ -41,24 +42,14 @@ RUN yum -y install ftp
 RUN service vsftpd restart
 RUN chkconfig vsftpd on
 #MISS FTP CONFIG HERE
-<<<<<<< HEAD
-
-#INSTALL MUNIN
-
-RUN yum install munin-node
-RUN yum install munin-server
-RUN chkconfig --add munin-node
-RUN service munin-node start
-
-=======
->>>>>>> origin/master
 #Install SSH
 RUN yum -y install openssh-server
 RUN chkconfig sshd on
 RUN service sshd restart
 #MOVE CUSTOM FILES TO CONTAINER
-ADD ./www/ /var/www/
-ADD ./apache2/ /etc/httpd/
+ADD ./data/ ./
+#ADD ./apache2/ /etc/httpd/
 EXPOSE 80 88 21 22
-RUN /etc/init.d/httpd restart
-CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
+RUN /etc/init.d/httpd start
+#CMD ["/usr/sbin/apache2","-D", "FOREGROUND"]
+CMD ["/usr/sbin/apachectl","-D","FOREGROUND"]

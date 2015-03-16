@@ -1,0 +1,622 @@
+version 2.0.12
+imivplapa22a001;imivplapa22a001:cpu.irq.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda_rdbytes.min 0
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda_util.update_rate 300
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.svctm.info Average time an I/O takes on the block device not including any queue times, just the round trip time for the disk request.
+imivplapa22a001;imivplapa22a001:memory.vmalloc_used.info 'VMalloc' (kernel) memory used
+imivplapa22a001;imivplapa22a001:apache_processes.graph_args --base 1000 -l 0
+imivplapa22a001;imivplapa22a001:irqstats.i39.label pciehp
+imivplapa22a001;imivplapa22a001:open_files.graph_title File table usage
+imivplapa22a001;imivplapa22a001:selinux_avcstat.lookups.info Number of access vector lookups. This number is a good indicator of the load beeing placed on the AVC.
+imivplapa22a001;imivplapa22a001:irqstats.i27.update_rate 300
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.avgwrrqsz.negative avgrdrqsz
+imivplapa22a001;imivplapa22a001:irqstats.i38.min 0
+imivplapa22a001;imivplapa22a001:irqstats.i12.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.wrio.type GAUGE
+imivplapa22a001;imivplapa22a001:memory.active.info Memory recently used. Not reclaimed unless absolutely necessary.
+imivplapa22a001;imivplapa22a001:irqstats.i58.label eth0-event-2
+imivplapa22a001;imivplapa22a001:proc_pri.graph_title Processes priority
+imivplapa22a001;imivplapa22a001:users.pty.colour 0000FF
+imivplapa22a001;imivplapa22a001:irqstats.i16.label vmci
+imivplapa22a001;imivplapa22a001:irqstats.i9.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.i32.info Interrupt 32, for device(s): pciehp
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.graph_vlabel Units read (-) / write (+)
+imivplapa22a001;imivplapa22a001:memory.apps.label apps
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_total_connections.cdef memcache_total_connections,100,*
+imivplapa22a001;imivplapa22a001:selinux_avcstat.hits.draw STACK
+imivplapa22a001;imivplapa22a001:irqstats.iERR.min 0
+imivplapa22a001;imivplapa22a001:cpu.nice.graph_data_size normal
+imivplapa22a001;imivplapa22a001:cpu.steal.draw STACK
+imivplapa22a001;imivplapa22a001:proc_pri.low.label low priority
+imivplapa22a001;imivplapa22a001:entropy.graph_info This graph shows the amount of entropy available in the system.
+imivplapa22a001;imivplapa22a001:irqstats.i28.info Interrupt 28, for device(s): pciehp
+imivplapa22a001;imivplapa22a001:irqstats.i16.update_rate 300
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda_rdio.draw LINE1
+imivplapa22a001;imivplapa22a001:if_err_.rcvd.graph_data_size normal
+imivplapa22a001;imivplapa22a001:processes.uninterruptible.graph_data_size normal
+imivplapa22a001;imivplapa22a001:apache_processes.free80.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i48.info Interrupt 48, for device(s): pciehp
+imivplapa22a001;imivplapa22a001:selinux_avcstat.hits.update_rate 300
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda.graph_scale no
+imivplapa22a001;imivplapa22a001:irqstats.i55.label pciehp
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_total_items.info New items*5
+imivplapa22a001;imivplapa22a001:fw_packets.forwarded.min 0
+imivplapa22a001;imivplapa22a001:open_files.used.critical 96554
+imivplapa22a001;imivplapa22a001:df_inode._dev_sda3.critical 98
+imivplapa22a001;imivplapa22a001:irqstats.i30.graph_data_size normal
+imivplapa22a001;imivplapa22a001:if_.down.graph no
+imivplapa22a001;imivplapa22a001:selinux_avcstat.frees.max 1000000000
+imivplapa22a001;imivplapa22a001:irqstats.iIWI.label IRQ work interrupts
+imivplapa22a001;imivplapa22a001:irqstats.i0.graph_data_size normal
+imivplapa22a001;imivplapa22a001:users.pty.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.iMCE.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.i49.graph_data_size normal
+imivplapa22a001;imivplapa22a001:threads.threads.info The current number of threads.
+imivplapa22a001;imivplapa22a001:selinux_avcstat.allocations.info Number of AVC entries allocated.
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.graph_args --base 1000 --logarithmic
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.wrio.draw LINE1
+imivplapa22a001;imivplapa22a001:users.tty.graph_data_size normal
+imivplapa22a001;imivplapa22a001:cpu.idle.info Idle CPU time
+imivplapa22a001;imivplapa22a001:irqstats.i57.label eth0-rxtx-1
+imivplapa22a001;imivplapa22a001:memcached_counters.memcache_bytes_allocated.min 0
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.graph_category disk
+imivplapa22a001;imivplapa22a001:irqstats.i47.min 0
+imivplapa22a001;imivplapa22a001:cpu.nice.draw STACK
+imivplapa22a001;imivplapa22a001:irqstats.i40.info Interrupt 40, for device(s): pciehp
+imivplapa22a001;imivplapa22a001:df_inode.graph_args --upper-limit 100 -l 0
+imivplapa22a001;imivplapa22a001:cpu.graph_args --base 1000 -r --lower-limit 0 --upper-limit 200
+imivplapa22a001;imivplapa22a001:diskstats_throughput.graph_vlabel Bytes/${graph_period} read (-) / write (+)
+imivplapa22a001;imivplapa22a001:proc_pri.graph_order low high locked
+imivplapa22a001;imivplapa22a001:fw_packets.received.update_rate 300
+imivplapa22a001;imivplapa22a001:selinux_avcstat.frees.draw STACK
+imivplapa22a001;imivplapa22a001:forks.forks.min 0
+imivplapa22a001;imivplapa22a001:interrupts.ctx.type DERIVE
+imivplapa22a001;imivplapa22a001:postfix_mailvolume.volume.type DERIVE
+imivplapa22a001;imivplapa22a001:entropy.graph_scale no
+imivplapa22a001;imivplapa22a001:memory.free.draw STACK
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda.graph_category disk
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda.graph_order util
+imivplapa22a001;imivplapa22a001:diskstats_throughput.graph_info This graph shows averaged throughput for the given disk in bytes.  Higher throughput is usualy linked with higher service time/latency (separate graph).  The graph base is 1024 yeilding Kibi- and Mebi-bytes.
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cache_misses.update_rate 300
+imivplapa22a001;imivplapa22a001:if_err_.rcvd.update_rate 300
+imivplapa22a001;imivplapa22a001:load.load.label load
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_total_connections.max 5000
+imivplapa22a001;imivplapa22a001:cpu.system.label system
+imivplapa22a001;imivplapa22a001:irqstats.iIWI.update_rate 300
+imivplapa22a001;imivplapa22a001:netstat.resets.type DERIVE
+imivplapa22a001;imivplapa22a001:threads.graph_info This graph shows the number of threads.
+imivplapa22a001;imivplapa22a001:memcached_counters.memcache_curr_items.label Current items
+imivplapa22a001;imivplapa22a001:irqstats.iMCE.type DERIVE
+imivplapa22a001;imivplapa22a001:fw_packets.graph_order received forwarded
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_total_connections.min 0
+imivplapa22a001;imivplapa22a001:memcached_bytes.memcache_bytes_read.label Bytes read
+imivplapa22a001;imivplapa22a001:apache_accesses.accesses80.min 0
+imivplapa22a001;imivplapa22a001:diskstats_throughput.graph_args --base 1024
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.rdio.graph_data_size normal
+imivplapa22a001;imivplapa22a001:df_inode.graph_order _dev_sda3 _dev_shm _dev_sda1
+imivplapa22a001;imivplapa22a001:if_.down.max 100000000
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cmd_set.max 5000
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.avgwait.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda.graph_vlabel % busy
+imivplapa22a001;imivplapa22a001:irqstats.i37.label pciehp
+imivplapa22a001;imivplapa22a001:irqstats.iPMI.graph_data_size normal
+imivplapa22a001;imivplapa22a001:proc_pri.low.draw AREA
+imivplapa22a001;imivplapa22a001:proc_pri.locked.update_rate 300
+imivplapa22a001;imivplapa22a001:memcached_counters.memcache_curr_connections.update_rate 300
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.avgwait.draw LINE1
+imivplapa22a001;imivplapa22a001:irqstats.i1.type DERIVE
+imivplapa22a001;imivplapa22a001:open_inodes.max.graph_data_size normal
+imivplapa22a001;imivplapa22a001:df_inode._dev_sda1.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i8.min 0
+imivplapa22a001;imivplapa22a001:processes.graph_category processes
+imivplapa22a001;imivplapa22a001:apache_processes.idle80.graph_data_size normal
+imivplapa22a001;imivplapa22a001:cpu.graph_info This graph shows how CPU time is spent.
+imivplapa22a001;imivplapa22a001:load.graph_title Load average
+imivplapa22a001;imivplapa22a001:apache_processes.free80.colour ccff00
+imivplapa22a001;imivplapa22a001:cpu.irq.info CPU time spent handling interrupts
+imivplapa22a001;imivplapa22a001:forks.graph_title Fork rate
+imivplapa22a001;imivplapa22a001:irqstats.i53.update_rate 300
+imivplapa22a001;imivplapa22a001:open_files.graph_category system
+imivplapa22a001;imivplapa22a001:forks.forks.max 100000
+imivplapa22a001;imivplapa22a001:selinux_avcstat.frees.label frees
+imivplapa22a001;imivplapa22a001:selinux_avcstat.hits.info Number of access vector hits.
+imivplapa22a001;imivplapa22a001:selinux_avcstat.reclaims.type DERIVE
+imivplapa22a001;imivplapa22a001:cpu.nice.type DERIVE
+imivplapa22a001;imivplapa22a001:users.graph_vlabel Users
+imivplapa22a001;imivplapa22a001:diskstats_iops.graph_width 400
+imivplapa22a001;imivplapa22a001:irqstats.i52.min 0
+imivplapa22a001;imivplapa22a001:irqstats.i43.info Interrupt 43, for device(s): pciehp
+imivplapa22a001;imivplapa22a001:apache_volume.graph_category apache
+imivplapa22a001;imivplapa22a001:uptime.graph_vlabel uptime in days
+imivplapa22a001;imivplapa22a001:apache_processes.free80.update_rate 300
+imivplapa22a001;imivplapa22a001:cpu.irq.type DERIVE
+imivplapa22a001;imivplapa22a001:if_.graph_title traffic
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.wrio.update_rate 300
+imivplapa22a001;imivplapa22a001:swap.swap_out.update_rate 300
+imivplapa22a001;imivplapa22a001:if_.up.max 100000000
+imivplapa22a001;imivplapa22a001:memory.swap_cache.draw STACK
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.wrio.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i25.info Interrupt 25, for device(s): pciehp
+imivplapa22a001;imivplapa22a001:processes.uninterruptible.colour ffa500
+imivplapa22a001;imivplapa22a001:vmstat.wait.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda.wrbytes.min 0
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.avgwrrqsz.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i8.info Interrupt 8, for device(s): rtc0
+imivplapa22a001;imivplapa22a001:memory.committed.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.iMCE.min 0
+imivplapa22a001;imivplapa22a001:netstat.established.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i54.label pciehp
+imivplapa22a001;imivplapa22a001:irqstats.i0.min 0
+imivplapa22a001;imivplapa22a001:df_inode._dev_shm.label /dev/shm
+imivplapa22a001;imivplapa22a001:processes.uninterruptible.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.iERR.label ERR
+imivplapa22a001;imivplapa22a001:memory.swap.update_rate 300
+imivplapa22a001;imivplapa22a001:diskstats_utilization.graph_width 400
+imivplapa22a001;imivplapa22a001:irqstats.i48.update_rate 300
+imivplapa22a001;imivplapa22a001:selinux_avcstat.hits.graph_data_size normal
+imivplapa22a001;imivplapa22a001:if_.down.graph_data_size normal
+imivplapa22a001;imivplapa22a001:fw_packets.graph_args --base 1000 -l 0
+imivplapa22a001;imivplapa22a001:irqstats.i29.type DERIVE
+imivplapa22a001;imivplapa22a001:irqstats.i15.type DERIVE
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cmd_get.update_rate 300
+imivplapa22a001;imivplapa22a001:if_.graph_args --base 1000
+imivplapa22a001;imivplapa22a001:memory.graph_info This graph shows what the machine uses memory for.
+imivplapa22a001;imivplapa22a001:memcached_counters.memcache_bytes_allocated.cdef memcache_bytes_allocated,1024,/
+imivplapa22a001;imivplapa22a001:cpu.user.min 0
+imivplapa22a001;imivplapa22a001:selinux_avcstat.misses.type DERIVE
+imivplapa22a001;imivplapa22a001:irqstats.i16.info Interrupt 16, for device(s): vmci
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda_wrbytes.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i28.update_rate 300
+imivplapa22a001;imivplapa22a001:netstat.graph_period second
+imivplapa22a001;imivplapa22a001:irqstats.iMCP.min 0
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda.util.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.iERR.type DERIVE
+imivplapa22a001;imivplapa22a001:if_err_.txdrop.negative rxdrop
+imivplapa22a001;imivplapa22a001:irqstats.graph_args --base 1000 --logarithmic
+imivplapa22a001;imivplapa22a001:netstat.passive.type DERIVE
+imivplapa22a001;imivplapa22a001:apache_volume.graph_title Apache volume
+imivplapa22a001;imivplapa22a001:memory.page_tables.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.i44.info Interrupt 44, for device(s): pciehp
+imivplapa22a001;imivplapa22a001:irqstats.i40.graph_data_size normal
+imivplapa22a001;imivplapa22a001:df.graph_vlabel %
+imivplapa22a001;imivplapa22a001:postfix_mailqueue.hold.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.i44.min 0
+imivplapa22a001;imivplapa22a001:irqstats.iTLB.info Interrupt TLB, for device(s): TLB shootdowns
+imivplapa22a001;imivplapa22a001:irqstats.iTHR.type DERIVE
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cmd_get.draw LINE2
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.svctm.min 0
+imivplapa22a001;imivplapa22a001:memcached_counters.memcache_bytes_allocated.info Bytes allocated (KiB)
+imivplapa22a001;imivplapa22a001:netstat.graph_vlabel TCP connections
+imivplapa22a001;imivplapa22a001:apache_volume.volume80.update_rate 300
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.svctm.update_rate 300
+imivplapa22a001;imivplapa22a001:proc_pri.locked.info The number of processes that have pages locked into memory (for real-time and custom IO)
+imivplapa22a001;imivplapa22a001:postfix_mailqueue.hold.graph_data_size normal
+imivplapa22a001;imivplapa22a001:processes.stopped.draw STACK
+imivplapa22a001;imivplapa22a001:swap.swap_out.max 100000
+imivplapa22a001;imivplapa22a001:irqstats.i14.label ata_piix
+imivplapa22a001;imivplapa22a001:netstat.failed.max 50000
+imivplapa22a001;imivplapa22a001:irqstats.iCAL.update_rate 300
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cmd_get.info Number of GET commands seen
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda.wrbytes.negative rdbytes
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda_avgwait.update_rate 300
+imivplapa22a001;imivplapa22a001:memcached_bytes.memcache_bytes_read.info Bytes read from network
+imivplapa22a001;imivplapa22a001:irqstats.i14.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i38.update_rate 300
+imivplapa22a001;imivplapa22a001:vmstat.graph_title VMstat
+imivplapa22a001;imivplapa22a001:irqstats.i49.label pciehp
+imivplapa22a001;imivplapa22a001:irqstats.i29.graph_data_size normal
+imivplapa22a001;imivplapa22a001:netstat.resets.max 50000
+imivplapa22a001;imivplapa22a001:irqstats.i39.type DERIVE
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cmd_get.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i0.type DERIVE
+imivplapa22a001;imivplapa22a001:cpu.idle.min 0
+imivplapa22a001;imivplapa22a001:entropy.graph_order entropy
+imivplapa22a001;imivplapa22a001:interrupts.ctx.min 0
+imivplapa22a001;imivplapa22a001:memcached_bytes.memcache_bytes_read.draw LINE2
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda_util.info Utilization of the device
+imivplapa22a001;imivplapa22a001:df._dev_sda3.label /
+imivplapa22a001;imivplapa22a001:fw_packets.forwarded.label Forwarded
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda_rdio.graph no
+imivplapa22a001;imivplapa22a001:apache_volume.volume80.type DERIVE
+imivplapa22a001;imivplapa22a001:irqstats.iTRM.info Interrupt TRM, for device(s): Thermal event interrupts
+imivplapa22a001;imivplapa22a001:fw_packets.forwarded.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.i31.min 0
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_total_connections.update_rate 300
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cmd_get.type DERIVE
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda.rdbytes.label invisible
+imivplapa22a001;imivplapa22a001:selinux_avcstat.misses.update_rate 300
+imivplapa22a001;imivplapa22a001:cpu.graph_category system
+imivplapa22a001;imivplapa22a001:swap.swap_out.negative swap_in
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda_wrbytes.min 0
+imivplapa22a001;imivplapa22a001:forks.graph_args --base 1000 -l 0
+imivplapa22a001;imivplapa22a001:df.graph_scale no
+imivplapa22a001;imivplapa22a001:if_err_.txdrop.label drops
+imivplapa22a001;imivplapa22a001:irqstats.i58.type DERIVE
+imivplapa22a001;imivplapa22a001:df_inode._dev_sda3.label /
+imivplapa22a001;imivplapa22a001:netstat.failed.type DERIVE
+imivplapa22a001;imivplapa22a001:df_inode.graph_vlabel %
+imivplapa22a001;imivplapa22a001:irqstats.i26.label pciehp
+imivplapa22a001;imivplapa22a001:processes.uninterruptible.info The number of uninterruptible processes (usually IO).
+imivplapa22a001;imivplapa22a001:vmstat.sleep.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.i14.info Interrupt 14, for device(s): ata_piix
+imivplapa22a001;imivplapa22a001:irqstats.i46.graph_data_size normal
+imivplapa22a001;imivplapa22a001:open_files.used.label open files
+imivplapa22a001;imivplapa22a001:netstat.failed.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda.graph_title Disk utilization for /dev/sda
+imivplapa22a001;imivplapa22a001:irqstats.i8.label rtc0
+imivplapa22a001;imivplapa22a001:irqstats.iMIS.label MIS
+imivplapa22a001;imivplapa22a001:processes.runnable.draw STACK
+imivplapa22a001;imivplapa22a001:forks.forks.update_rate 300
+imivplapa22a001;imivplapa22a001:if_.up.min 0
+imivplapa22a001;imivplapa22a001:swap.swap_out.label swap
+imivplapa22a001;imivplapa22a001:irqstats.i51.type DERIVE
+imivplapa22a001;imivplapa22a001:cpu.guest.draw STACK
+imivplapa22a001;imivplapa22a001:if_err_.collisions.label collisions
+imivplapa22a001;imivplapa22a001:postfix_mailqueue.active.update_rate 300
+imivplapa22a001;imivplapa22a001:open_files.used.update_rate 300
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cmd_get.max 5000
+imivplapa22a001;imivplapa22a001:irqstats.iNMI.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i36.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.i52.label pciehp
+imivplapa22a001;imivplapa22a001:threads.graph_vlabel number of threads
+imivplapa22a001;imivplapa22a001:selinux_avcstat.hits.min 0
+imivplapa22a001;imivplapa22a001:memcached_counters.memcache_curr_connections.cdef memcache_curr_connections,100,*
+imivplapa22a001;imivplapa22a001:irqstats.iNMI.update_rate 300
+imivplapa22a001;imivplapa22a001:processes.processes.colour c0c0c0
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.avgwait.info Average wait time for an I/O from request start to finish (includes queue times et al)
+imivplapa22a001;imivplapa22a001:memory.slab.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i53.min 0
+imivplapa22a001;imivplapa22a001:irqstats.i26.type DERIVE
+imivplapa22a001;imivplapa22a001:processes.dead.colour ff0000
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.avgrdrqsz.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.avgwrwait.warning 0:1
+imivplapa22a001;imivplapa22a001:selinux_avcstat.misses.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.iTLB.label TLB shootdowns
+imivplapa22a001;imivplapa22a001:fw_packets.received.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_throughput.graph_title Throughput per device
+imivplapa22a001;imivplapa22a001:entropy.graph_title Available entropy
+imivplapa22a001;imivplapa22a001:irqstats.i36.graph_data_size normal
+imivplapa22a001;imivplapa22a001:selinux_avcstat.hits.max 1000000000
+imivplapa22a001;imivplapa22a001:memory.page_tables.info Memory used to map between virtual and physical memory addresses.
+imivplapa22a001;imivplapa22a001:cpu.graph_period second
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.rdio.draw LINE1
+imivplapa22a001;imivplapa22a001:irqstats.i26.min 0
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda_avgwait.label sda
+imivplapa22a001;imivplapa22a001:if_.up.label bps
+imivplapa22a001;imivplapa22a001:apache_accesses.graph_order accesses80
+imivplapa22a001;imivplapa22a001:selinux_avcstat.frees.type DERIVE
+imivplapa22a001;imivplapa22a001:irqstats.iMIS.type DERIVE
+imivplapa22a001;imivplapa22a001:irqstats.i47.type DERIVE
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda.wrbytes.update_rate 300
+imivplapa22a001;imivplapa22a001:netstat.passive.label passive
+imivplapa22a001;imivplapa22a001:open_inodes.graph_order used max
+imivplapa22a001;imivplapa22a001:memory.active.update_rate 300
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cmd_set.update_rate 300
+imivplapa22a001;imivplapa22a001:memcached_counters.memcache_bytes_allocated.draw LINE2
+imivplapa22a001;imivplapa22a001:postfix_mailvolume.volume.label throughput
+imivplapa22a001;imivplapa22a001:memory.buffers.label buffers
+imivplapa22a001;imivplapa22a001:irqstats.i51.label pciehp
+imivplapa22a001;imivplapa22a001:diskstats_utilization.graph_category disk
+imivplapa22a001;imivplapa22a001:irqstats.i24.min 0
+imivplapa22a001;imivplapa22a001:irqstats.iTLB.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.iRES.info Interrupt RES, for device(s): Rescheduling interrupts
+imivplapa22a001;imivplapa22a001:irqstats.i48.label pciehp
+imivplapa22a001;imivplapa22a001:irqstats.i1.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.iTRM.type DERIVE
+imivplapa22a001;imivplapa22a001:netstat.failed.update_rate 300
+imivplapa22a001;imivplapa22a001:if_err_.trans.type COUNTER
+imivplapa22a001;imivplapa22a001:postfix_mailqueue.graph_order active deferred maildrop incoming corrupt hold
+imivplapa22a001;imivplapa22a001:open_inodes.used.label open inodes
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cmd_set.type DERIVE
+imivplapa22a001;imivplapa22a001:irqstats.iMCP.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.rdio.min 0
+imivplapa22a001;imivplapa22a001:if_err_.collisions.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.i30.min 0
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.avgwrrqsz.type GAUGE
+imivplapa22a001;imivplapa22a001:postfix_mailqueue.incoming.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_utilization.graph_order sda_util
+imivplapa22a001;imivplapa22a001:selinux_avcstat.reclaims.draw STACK
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.wrio.negative rdio
+imivplapa22a001;imivplapa22a001:diskstats_throughput.graph_order sda_rdbytes sda_wrbytes
+imivplapa22a001;imivplapa22a001:processes.uninterruptible.label uninterruptible
+imivplapa22a001;imivplapa22a001:memory.mapped.draw LINE2
+imivplapa22a001;imivplapa22a001:irqstats.i53.graph_data_size normal
+imivplapa22a001;imivplapa22a001:apache_accesses.accesses80.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.avgrdwait.graph_data_size normal
+imivplapa22a001;imivplapa22a001:selinux_avcstat.allocations.type DERIVE
+imivplapa22a001;imivplapa22a001:irqstats.i39.info Interrupt 39, for device(s): pciehp
+imivplapa22a001;imivplapa22a001:diskstats_throughput.graph_width 400
+imivplapa22a001;imivplapa22a001:irqstats.i17.type DERIVE
+imivplapa22a001;imivplapa22a001:irqstats.iMIS.update_rate 300
+imivplapa22a001;imivplapa22a001:cpu.idle.draw STACK
+imivplapa22a001;imivplapa22a001:irqstats.i16.type DERIVE
+imivplapa22a001;imivplapa22a001:memcached_bytes.memcache_bytes_written.update_rate 300
+imivplapa22a001;imivplapa22a001:selinux_avcstat.misses.min 0
+imivplapa22a001;imivplapa22a001:irqstats.i51.info Interrupt 51, for device(s): pciehp
+imivplapa22a001;imivplapa22a001:irqstats.i54.update_rate 300
+imivplapa22a001;imivplapa22a001:proc_pri.high.info The number of high-priority processes (tasks)
+imivplapa22a001;imivplapa22a001:postfix_mailvolume.graph_scale yes
+imivplapa22a001;imivplapa22a001:apache_accesses.accesses80.max 1000000
+imivplapa22a001;imivplapa22a001:processes.dead.graph_data_size normal
+imivplapa22a001;imivplapa22a001:memcached_rates.graph_args --base 1000
+imivplapa22a001;imivplapa22a001:postfix_mailqueue.active.graph_data_size normal
+imivplapa22a001;imivplapa22a001:apache_processes.graph_vlabel processes
+imivplapa22a001;imivplapa22a001:selinux_avcstat.graph_category system
+imivplapa22a001;imivplapa22a001:cpu.user.info CPU time spent by normal programs and daemons
+imivplapa22a001;imivplapa22a001:irqstats.i9.info Interrupt 9, for device(s): acpi
+imivplapa22a001;imivplapa22a001:diskstats_latency.graph_vlabel Average IO Wait (seconds)
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_total_items.draw LINE2
+imivplapa22a001;imivplapa22a001:processes.zombie.graph_data_size normal
+imivplapa22a001;imivplapa22a001:memcached_counters.graph_vlabel Totals
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.avgrdrqsz.graph no
+imivplapa22a001;imivplapa22a001:irqstats.iMIS.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.avgwrwait.draw LINE1
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda_avgwait.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i17.label ioc0
+imivplapa22a001;imivplapa22a001:if_err_.rxdrop.label drops
+imivplapa22a001;imivplapa22a001:netstat.passive.max 50000
+imivplapa22a001;imivplapa22a001:netstat.passive.update_rate 300
+imivplapa22a001;imivplapa22a001:vmstat.graph_order wait sleep
+imivplapa22a001;imivplapa22a001:netstat.failed.label failed
+imivplapa22a001;imivplapa22a001:memory.graph_category system
+imivplapa22a001;imivplapa22a001:load.graph_order load
+imivplapa22a001;imivplapa22a001:memcached_counters.memcache_curr_connections.info Number of connections*100
+imivplapa22a001;imivplapa22a001:processes.paging.update_rate 300
+imivplapa22a001;imivplapa22a001:netstat.resets.update_rate 300
+imivplapa22a001;imivplapa22a001:processes.paging.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i56.label eth0-rxtx-0
+imivplapa22a001;imivplapa22a001:irqstats.i35.label pciehp
+imivplapa22a001;imivplapa22a001:df_inode._dev_shm.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.iLOC.min 0
+imivplapa22a001;imivplapa22a001:diskstats_iops.graph_category disk
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cache_misses.draw LINE2
+imivplapa22a001;imivplapa22a001:irqstats.iTHR.info Interrupt THR, for device(s): Threshold APIC interrupts
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda.graph_args --base 1000 --lower-limit 0 --upper-limit 100 --rigid
+imivplapa22a001;imivplapa22a001:irqstats.iPMI.min 0
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.avgrdrqsz.draw LINE1
+imivplapa22a001;imivplapa22a001:processes.paging.colour 00aaaa
+imivplapa22a001;imivplapa22a001:irqstats.i38.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i28.graph_data_size normal
+imivplapa22a001;imivplapa22a001:selinux_avcstat.graph_title SELinux Access Vector Cache
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda_rdbytes.label sda
+imivplapa22a001;imivplapa22a001:memcached_counters.memcache_bytes_allocated.graph_data_size normal
+imivplapa22a001;imivplapa22a001:if_err_.collisions.type COUNTER
+imivplapa22a001;imivplapa22a001:users.X.draw AREASTACK
+imivplapa22a001;imivplapa22a001:swap.graph_args -l 0 --base 1000
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.avgrdwait.info Average wait time for a read I/O from request start to finish (includes queue times et al)
+imivplapa22a001;imivplapa22a001:users.other.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.iLOC.label Local timer interrupts
+imivplapa22a001;imivplapa22a001:netstat.active.info The number of active TCP openings per second.
+imivplapa22a001;imivplapa22a001:processes.stopped.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.graph_order svctm avgwait avgrdwait avgwrwait
+imivplapa22a001;imivplapa22a001:uptime.uptime.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i44.label pciehp
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cache_misses.max 5000
+imivplapa22a001;imivplapa22a001:forks.graph_category processes
+imivplapa22a001;imivplapa22a001:irqstats.i7.update_rate 300
+imivplapa22a001;imivplapa22a001:memory.swap.label swap
+imivplapa22a001;imivplapa22a001:users.pts.label pts
+imivplapa22a001;imivplapa22a001:users.graph_category system
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.avgwrrqsz.draw LINE1
+imivplapa22a001;imivplapa22a001:processes.runnable.label runnable
+imivplapa22a001;imivplapa22a001:processes.sleeping.info The number of sleeping processes.
+imivplapa22a001;imivplapa22a001:cpu.guest.label guest
+imivplapa22a001;imivplapa22a001:memcached_bytes.memcache_bytes_written.draw LINE2
+imivplapa22a001;imivplapa22a001:update 1
+imivplapa22a001;imivplapa22a001:netstat.failed.min 0
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cache_hits.max 5000
+imivplapa22a001;imivplapa22a001:df.graph_title Disk usage in percent
+imivplapa22a001;imivplapa22a001:irqstats.iMCP.label Machine check polls
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.graph_order rdio wrio avgrdrqsz avgwrrqsz
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.rdio.type GAUGE
+imivplapa22a001;imivplapa22a001:open_inodes.max.label inode table size
+imivplapa22a001;imivplapa22a001:vmstat.sleep.label I/O sleep
+imivplapa22a001;imivplapa22a001:if_.up.update_rate 300
+imivplapa22a001;imivplapa22a001:if_err_.graph_args --base 1000
+imivplapa22a001;imivplapa22a001:memcached_rates.graph_title Memcached - Commands
+imivplapa22a001;imivplapa22a001:netstat.graph_args --base 1000 --logarithmic
+imivplapa22a001;imivplapa22a001:memory.committed.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda_wrbytes.update_rate 300
+imivplapa22a001;imivplapa22a001:fw_packets.forwarded.type DERIVE
+imivplapa22a001;imivplapa22a001:fw_packets.forwarded.draw LINE2
+imivplapa22a001;imivplapa22a001:memory.mapped.update_rate 300
+imivplapa22a001;imivplapa22a001:selinux_avcstat.lookups.colour ff0000
+imivplapa22a001;imivplapa22a001:irqstats.i28.label pciehp
+imivplapa22a001;imivplapa22a001:interrupts.intr.max 100000
+imivplapa22a001;imivplapa22a001:netstat.established.info The number of currently open connections.
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda.util.type GAUGE
+imivplapa22a001;imivplapa22a001:irqstats.i45.label pciehp
+imivplapa22a001;imivplapa22a001:memcached_rates.graph_order memcache_cache_hits memcache_cache_misses memcache_cmd_get memcache_cmd_set memcache_total_connections memcache_total_items
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_total_connections.info New connections*100
+imivplapa22a001;imivplapa22a001:memcached_rates.graph_category memcache
+imivplapa22a001;imivplapa22a001:irqstats.i43.update_rate 300
+imivplapa22a001;imivplapa22a001:open_inodes.used.info The number of currently open inodes.
+imivplapa22a001;imivplapa22a001:interrupts.ctx.graph_data_size normal
+imivplapa22a001;imivplapa22a001:memcached_bytes.graph_title Memcached - Network traffic
+imivplapa22a001;imivplapa22a001:memcached_counters.memcache_bytes_allocated.update_rate 300
+imivplapa22a001;imivplapa22a001:apache_processes.idle80.draw STACK
+imivplapa22a001;imivplapa22a001:memcached_counters.memcache_curr_items.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i43.graph_data_size normal
+imivplapa22a001;imivplapa22a001:uptime.uptime.label uptime
+imivplapa22a001;imivplapa22a001:irqstats.iTHR.min 0
+imivplapa22a001;imivplapa22a001:if_.up.info Traffic of the  interface. Maximum speed is 100 Mb/s.
+imivplapa22a001;imivplapa22a001:memory.active.draw LINE2
+imivplapa22a001;imivplapa22a001:irqstats.i52.update_rate 300
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.svctm.label Device IO time
+imivplapa22a001;imivplapa22a001:processes.paging.draw STACK
+imivplapa22a001;imivplapa22a001:memory.slab.info Memory used by the kernel (major users  are caches like inode, dentry, etc).
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.graph_vlabel seconds
+imivplapa22a001;imivplapa22a001:apache_volume.volume80.graph_data_size normal
+imivplapa22a001;imivplapa22a001:postfix_mailqueue.corrupt.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda_rdio.type GAUGE
+imivplapa22a001;imivplapa22a001:memcached_bytes.memcache_bytes_written.max 1000000
+imivplapa22a001;imivplapa22a001:apache_accesses.accesses80.info The number of accesses (pages and other items served) globally on the Apache server
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda.util.min 0
+imivplapa22a001;imivplapa22a001:memory.buffers.info Block device (e.g. harddisk) cache. Also where "dirty" blocks are stored until written.
+imivplapa22a001;imivplapa22a001:irqstats.i45.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i43.type DERIVE
+imivplapa22a001;imivplapa22a001:if_err_.graph_title errors
+imivplapa22a001;imivplapa22a001:postfix_mailqueue.incoming.label incoming
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda_util.label sda
+imivplapa22a001;imivplapa22a001:irqstats.i42.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.avgwait.label IO Wait time
+imivplapa22a001;imivplapa22a001:apache_volume.graph_order volume80
+imivplapa22a001;imivplapa22a001:selinux_avcstat.lookups.type DERIVE
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda.wrbytes.label Bytes
+imivplapa22a001;imivplapa22a001:memory.cached.graph_data_size normal
+imivplapa22a001;imivplapa22a001:memcached_bytes.graph_args --base 1000
+imivplapa22a001;imivplapa22a001:irqstats.i41.label pciehp
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda.rdbytes.draw LINE1
+imivplapa22a001;imivplapa22a001:irqstats.iMCE.graph_data_size normal
+imivplapa22a001;imivplapa22a001:forks.graph_order forks
+imivplapa22a001;imivplapa22a001:memory.graph_title Memory usage
+imivplapa22a001;imivplapa22a001:selinux_avcstat.graph_args -l 0 --base 1000
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda.graph_args --base 1024
+imivplapa22a001;imivplapa22a001:cpu.irq.label irq
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda.util.info Utilization of the device in percent. If the time spent for I/O is close to 1000msec for a given second, the device is nearly 100% saturated.
+imivplapa22a001;imivplapa22a001:apache_accesses.accesses80.label port 80
+imivplapa22a001;imivplapa22a001:memory.active.label active
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.svctm.draw LINE1
+imivplapa22a001;imivplapa22a001:irqstats.iTRM.graph_data_size normal
+imivplapa22a001;imivplapa22a001:memory.slab.update_rate 300
+imivplapa22a001;imivplapa22a001:memory.committed.label committed
+imivplapa22a001;imivplapa22a001:load.graph_category system
+imivplapa22a001;imivplapa22a001:apache_processes.free80.label free slots 80
+imivplapa22a001;imivplapa22a001:if_err_.rxdrop.type COUNTER
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda_rdio.update_rate 300
+imivplapa22a001;imivplapa22a001:if_.down.update_rate 300
+imivplapa22a001;imivplapa22a001:users.graph_printf %3.0lf
+imivplapa22a001;imivplapa22a001:irqstats.i28.type DERIVE
+imivplapa22a001;imivplapa22a001:postfix_mailvolume.volume.min 0
+imivplapa22a001;imivplapa22a001:interrupts.intr.label interrupts
+imivplapa22a001;imivplapa22a001:if_.down.type DERIVE
+imivplapa22a001;imivplapa22a001:selinux_avcstat.allocations.draw STACK
+imivplapa22a001;imivplapa22a001:uptime.uptime.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.i42.min 0
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda_avgwait.min 0
+imivplapa22a001;imivplapa22a001:if_err_.rxdrop.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.avgrdwait.min 0
+imivplapa22a001;imivplapa22a001:irqstats.i58.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i25.min 0
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_cmd_get.label GET requests
+imivplapa22a001;imivplapa22a001:irqstats.i58.min 0
+imivplapa22a001;imivplapa22a001:irqstats.i56.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.graph_title Average latency for /dev/sda
+imivplapa22a001;imivplapa22a001:interrupts.intr.info Interrupts are events that alter sequence of instructions executed by a processor. They can come from either hardware (exceptions, NMI, IRQ) or software.
+imivplapa22a001;imivplapa22a001:irqstats.iLOC.type DERIVE
+imivplapa22a001;imivplapa22a001:fw_packets.graph_category network
+imivplapa22a001;imivplapa22a001:apache_processes.busy80.draw AREA
+imivplapa22a001;imivplapa22a001:memory.free.graph_data_size normal
+imivplapa22a001;imivplapa22a001:memcached_counters.memcache_curr_connections.draw LINE2
+imivplapa22a001;imivplapa22a001:processes.sleeping.colour 0022ff
+imivplapa22a001;imivplapa22a001:load.load.info 5 minute load average
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.graph_title IOs for /dev/sda
+imivplapa22a001;imivplapa22a001:netstat.resets.info The number of TCP connection resets.
+imivplapa22a001;imivplapa22a001:cpu.system.graph_data_size normal
+imivplapa22a001;imivplapa22a001:memory.active.graph_data_size normal
+imivplapa22a001;imivplapa22a001:cpu.iowait.info CPU time spent waiting for I/O operations to finish when there is nothing else to do.
+imivplapa22a001;imivplapa22a001:memcached_bytes.memcache_bytes_written.type COUNTER
+imivplapa22a001;imivplapa22a001:diskstats_latency.graph_width 400
+imivplapa22a001;imivplapa22a001:users.other.colour FF0000
+imivplapa22a001;imivplapa22a001:processes.processes.info The total number of processes.
+imivplapa22a001;imivplapa22a001:cpu.softirq.min 0
+imivplapa22a001;imivplapa22a001:irqstats.i16.min 0
+imivplapa22a001;imivplapa22a001:diskstats_latency.graph_title Disk latency per device
+imivplapa22a001;imivplapa22a001:postfix_mailvolume.graph_vlabel bytes / ${graph_period}
+imivplapa22a001;imivplapa22a001:df._dev_shm.critical 98
+imivplapa22a001;imivplapa22a001:vmstat.sleep.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda_wrio.type GAUGE
+imivplapa22a001;imivplapa22a001:memcached_counters.graph_category memcache
+imivplapa22a001;imivplapa22a001:cpu.softirq.type DERIVE
+imivplapa22a001;imivplapa22a001:irqstats.i54.min 0
+imivplapa22a001;imivplapa22a001:postfix_mailqueue.graph_vlabel Mails in queue
+imivplapa22a001;imivplapa22a001:irqstats.i24.graph_data_size normal
+imivplapa22a001;imivplapa22a001:selinux_avcstat.allocations.min 0
+imivplapa22a001;imivplapa22a001:df_inode._dev_sda3.warning 92
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.graph_args --base 1000
+imivplapa22a001;imivplapa22a001:df_inode._dev_sda1.label /boot
+imivplapa22a001;imivplapa22a001:load.graph_scale no
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_total_connections.draw LINE2
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_total_items.type DERIVE
+imivplapa22a001;imivplapa22a001:memcached_bytes.memcache_bytes_read.type COUNTER
+imivplapa22a001;imivplapa22a001:cpu.system.info CPU time spent by the kernel in system activities
+imivplapa22a001;imivplapa22a001:irqstats.i24.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.i38.info Interrupt 38, for device(s): pciehp
+imivplapa22a001;imivplapa22a001:irqstats.i25.graph_data_size normal
+imivplapa22a001;imivplapa22a001:diskstats_utilization.sda.util.draw LINE1
+imivplapa22a001;imivplapa22a001:irqstats.i40.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.i57.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.i47.graph_data_size normal
+imivplapa22a001;imivplapa22a001:memcached_rates.graph_vlabel /${graph_period}
+imivplapa22a001;imivplapa22a001:irqstats.i43.min 0
+imivplapa22a001;imivplapa22a001:open_files.max.update_rate 300
+imivplapa22a001;imivplapa22a001:cpu.iowait.draw STACK
+imivplapa22a001;imivplapa22a001:irqstats.i40.label pciehp
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda_wrio.negative sda_rdio
+imivplapa22a001;imivplapa22a001:threads.graph_title Number of threads
+imivplapa22a001;imivplapa22a001:irqstats.iERR.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.iRES.label Rescheduling interrupts
+imivplapa22a001;imivplapa22a001:irqstats.i1.graph_data_size normal
+imivplapa22a001;imivplapa22a001:selinux_avcstat.frees.colour 00ff7f
+imivplapa22a001;imivplapa22a001:cpu.graph_title CPU usage
+imivplapa22a001;imivplapa22a001:users.tty.colour 00FF00
+imivplapa22a001;imivplapa22a001:threads.graph_order threads
+imivplapa22a001;imivplapa22a001:irqstats.i33.min 0
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda.wrbytes.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i50.update_rate 300
+imivplapa22a001;imivplapa22a001:interrupts.intr.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i52.info Interrupt 52, for device(s): pciehp
+imivplapa22a001;imivplapa22a001:entropy.entropy.graph_data_size normal
+imivplapa22a001;imivplapa22a001:df._dev_sda3.critical 98
+imivplapa22a001;imivplapa22a001:irqstats.iRES.min 0
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda.rdio.graph no
+imivplapa22a001;imivplapa22a001:cpu.nice.info CPU time spent by nice(1)d programs
+imivplapa22a001;imivplapa22a001:selinux_avcstat.frees.graph_data_size normal
+imivplapa22a001;imivplapa22a001:threads.threads.label threads
+imivplapa22a001;imivplapa22a001:irqstats.i50.min 0
+imivplapa22a001;imivplapa22a001:cpu.nice.label nice
+imivplapa22a001;imivplapa22a001:apache_processes.graph_order busy80 idle80
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.svctm.type GAUGE
+imivplapa22a001;imivplapa22a001:diskstats_latency.graph_order sda_avgwait
+imivplapa22a001;imivplapa22a001:fw_packets.graph_vlabel Packets/${graph_period}
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.avgrdwait.update_rate 300
+imivplapa22a001;imivplapa22a001:proc_pri.graph_args --base 1000 -l 0
+imivplapa22a001;imivplapa22a001:irqstats.graph_order i0 i1 i7 i8 i9 i12 i14 i15 i16 i17 i24 i25 i26 i27 i28 i29 i30 i31 i32 i33 i34 i35 i36 i37 i38 i39 i40 i41 i42 i43 i44 i45 i46 i47 i48 i49 i50 i51 i52 i53 i54 i55 i56 i57 i58 iNMI iLOC iSPU iPMI iIWI iRES iCAL iTLB iTRM iTHR iMCE iMCP iERR iMIS
+imivplapa22a001;imivplapa22a001:irqstats.i45.info Interrupt 45, for device(s): pciehp
+imivplapa22a001;imivplapa22a001:memory.inactive.draw LINE2
+imivplapa22a001;imivplapa22a001:diskstats_latency.graph_args --base 1000
+imivplapa22a001;imivplapa22a001:netstat.graph_category network
+imivplapa22a001;imivplapa22a001:apache_accesses.graph_args --base 1000
+imivplapa22a001;imivplapa22a001:apache_processes.busy80.graph_data_size normal
+imivplapa22a001;imivplapa22a001:irqstats.i12.update_rate 300
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda.wrbytes.type GAUGE
+imivplapa22a001;imivplapa22a001:memory.graph_order apps page_tables swap_cache slab cached buffers free swap
+imivplapa22a001;imivplapa22a001:interrupts.intr.min 0
+imivplapa22a001;imivplapa22a001:diskstats_iops.sda_wrio.label sda
+imivplapa22a001;imivplapa22a001:port 4949
+imivplapa22a001;imivplapa22a001:if_err_.graph_order rcvd trans
+imivplapa22a001;imivplapa22a001:if_err_.txdrop.update_rate 300
+imivplapa22a001;imivplapa22a001:irqstats.i1.info Interrupt 1, for device(s): i8042
+imivplapa22a001;imivplapa22a001:irqstats.i29.min 0
+imivplapa22a001;imivplapa22a001:irqstats.i7.type DERIVE
+imivplapa22a001;imivplapa22a001:irqstats.i35.update_rate 300
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda_avgwait.info Average wait time for an I/O request
+imivplapa22a001;imivplapa22a001:selinux_avcstat.reclaims.info Number of current total reclaimed AVC entries. If this keeps changing, you may need to increase the cache size (/selinux/avc/cache_threshold).
+imivplapa22a001;imivplapa22a001:irqstats.i32.graph_data_size normal
+imivplapa22a001;imivplapa22a001:if_.up.cdef up,8,*
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda_rdbytes.update_rate 300
+imivplapa22a001;imivplapa22a001:if_err_.graph_info This graph shows the amount of errors, packet drops, and collisions on the  network interface.
+imivplapa22a001;imivplapa22a001:users.graph_args --base 1000 -l 0
+imivplapa22a001;imivplapa22a001:open_files.max.graph_data_size normal
+imivplapa22a001;imivplapa22a001:selinux_avcstat.lookups.max 1000000000
+imivplapa22a001;imivplapa22a001:diskstats_throughput.sda_wrbytes.draw LINE1
+imivplapa22a001;imivplapa22a001:memcached_rates.memcache_total_connections.label New connections*100
+imivplapa22a001;imivplapa22a001:diskstats_latency.sda.avgwait.type GAUGE
+imivplapa22a001;imivplapa22a001:netstat.graph_info This graph shows the TCP activity of all the network interfaces combined.
+imivplapa22a001;imivplapa22a001:interrupts.graph_vlabel interrupts & ctx switches / ${graph_period}
+imivplapa22a001;imivplapa22a001:vmstat.graph_vlabel process states
+imivplapa22a001;imivplapa22a001:irqstats.i31.label pciehp
+imivplapa22a001;imivplapa22a001:irqstats.i8.type DERIVE
+imivplapa22a001;imivplapa22a001:proc_pri.locked.graph_data_size normal
+imivplapa22a001;imivplapa22a001:swap.graph_vlabel pages per ${graph_period} in (-) / out (+)
+imivplapa22a001;imivplapa22a001:use_node_name 0
