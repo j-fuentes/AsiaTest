@@ -22,11 +22,7 @@ RUN wget -nv http://www.mirrorservice.org/sites/ftp.apache.org/lucene/solr/$SOLR
 RUN tar -C /opt --extract --file /opt/solr-$SOLR_VERSION.tgz
 RUN mv /opt/solr-$SOLR_VERSION/example /opt/solr
 RUN rm -rf /opt/solr-$SOLR_VERSION.tgz /opt/solr-$SOLR_VERSION
-
 WORKDIR /opt/solr
-
-
-
 #Install Munin
 RUN apt-get -y install munin
 #Install SSH
