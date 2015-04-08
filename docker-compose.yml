@@ -1,0 +1,30 @@
+# solr:
+#   build: ./agent
+#   hostname: solr
+#   volumes:
+#     - ./solr/data:/opt/solr
+#   external-links:
+#     - puppetmaster:master
+# mysql:
+#   build: ./agent
+#   hostname: mysql
+#   volumes:
+#     - ./mysql/data:/tmp/data
+#   external-links:
+#     - puppetmaster:master
+apache:
+  build: ./basecentos
+  hostname: apache
+  volumes:
+    - ./data/var/lib/munin:/var/lib/munin
+    - ./data/var/www:/var/www
+  ports:
+    - "8080:80"
+    - "8888:88"
+    - "2121:21"
+    - "2222:22"
+  external_links:
+    - puppetmaster:master
+  #links:
+  #  - solr
+  #  - mysql
