@@ -1,16 +1,16 @@
 node default { }
 
 # hostname = mysql
-node 'mysql' {
-  include mysql
-}
+#node 'mysql.*' {
+#  include mysql
+#}
 
 # hostname = apache
-node 'apache' {
+node 'apache.home' {
   include apache
 }
 
 # hostname = solr
-node 'solr' {
-  include solr
-}
+#node 'solr.*' {
+#  include solr
+#}

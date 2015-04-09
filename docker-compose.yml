@@ -16,7 +16,6 @@ apache:
   build: ./basecentos
   hostname: apache
   volumes:
-    - ./data/var/lib/munin:/var/lib/munin
     - ./data/var/www:/var/www
   ports:
     - "8080:80"

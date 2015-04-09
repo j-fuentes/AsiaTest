@@ -1,73 +1,102 @@
 class apache {
-  $phpmodules = [ "php", "php-mysql", "php-gd", "php-imap", "php-ldap", "php-odbc", "php-pear", "php-xml", "php-xmlrpc", "php-mbstring", "php-mcrypt", "php-mssql", "php-snmp", "php-soap", "php-tidy", "curl", "curl-devel", "php-pecl-apc"]
+
+  $phpmodules = [ "php", "php-mysql", "php-gd", "php-imap", "php-ldap", "php-odbc", "php-pear", "php-xml", "php-xmlrpc", "php-mbstring", "php-mcrypt", "php-mssql", "php-snmp", "php-soap", "php-tidy", "curl", "php-pecl-apc"]
   $javapackages = [ "java-1.6.0-openjdk", "java-1.6.0-openjdk-devel" ]
   $dependencies = [ "cyrus-sasl-devel", "zlib-devel", "gcc-c++" ]
-  $libmemcaches = [ "memcached.x86_64", "php-pecl-memcached.x86_64" ]
+  $libmemcaches = [ "memcached.x86_64" ]
   $otherpackages = [ "wget", "tar", "vsftpd", "ftp", "openssh-server" ]
 
-  package { $phpmodules: ensure => "installed" }
-  package { $javapackages: ensure => "installed" }
-  package { $dependencies: ensure => "installed" }
-  package { $libmemcaches: ensure => "installed" }
-  package { $otherpackages: ensure => "installed" }
+  package { $otherpackages: ensure => "installed", require => Exec["update-yum"] }
 
-  # Get libmemcached
-  file {"/tmp/libmemcached-1.0.16.tar.gz":
-    owner   => "root",
-    group   => "root",
-    mode    => 0775,
-    ensure  => present,
-    content => download_content('https://launchpad.net/libmemcached/1.0/1.0.16/+download/libmemcached-1.0.16.tar.gz'),
-    notify  => Exec["unpackLibMemcached"]
-  }
 
-  # Unpack libmemcached
-  exec {"unpackLibMemcached":
-    command     => "tar -xvf /tmp/libmemcached-1.0.16.tar.gz && chown -R root:root /tmp/libmemcached-1.0.16",
-    cwd         => "/tmp",
-    refreshonly => true,
-    notify      => Exec["installLibMemcached"]
-  }
+  # yum update
+  exec { "update-yum": path => ['/usr/bin', '/usr/sbin', '/bin'], command => "yum update -y", }
 
-  # Instal libmemcached
-  exec { "installLibMemcached":
-    cwd             => "/tmp/libmemcached-1.0.16",
-    command     => "/tmp/libmemcached-1.0.16/configure --disable-memcached-sasl && make && make install",
-    logoutput   => true,
-    refreshonly => true,
-    notify      => Exec["installMemcached"]
-    }
+  # install curl-devel. This bypass yum list checking that returns !0 and makes puppet stop the installation of this package.
+  exec { "install-curl-devel": path => ['/usr/bin', '/usr/sbin', '/bin'], command => "yum install curl-devel", require => Exec["update-yum"], }
 
-  # Install memcached with pecl
-  exec { "installMemcached":
-      cwd             => "/tmp/libmemcached-1.0.16",
-      command     => "pecl install memcached",
-      logoutput   => true,
-      refreshonly => true,
-      notify      => Exec["enableMemcachedForPHP"]
+  # install php-pecl-memcached.x86_64. This bypass yum list checking that returns !0 and makes puppet stop the installation of this package.
+  exec { "install-php-pecl-memcached.x86_64": path => ['/usr/bin', '/usr/sbin', '/bin'], command => "yum install php-pecl-memcached.x86_64", require => Exec["update-yum"], }
+
+  # add EPEL and REMI repo (needed to install some modules)
+  exec { "epelrepo": path => ['/usr/bin', '/usr/sbin', '/bin'], cwd => "/tmp", command => "wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm && wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm && rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm && yum update -y", unless => "ls /tmp/remi-release-6*.rpm",}
+
+
+  package { $phpmodules: ensure => "installed", require => [ Exec["update-yum"], Exec["epelrepo"] ], }
+  package { $javapackages: ensure => "installed", require => Exec["update-yum"], }
+  package { $dependencies: ensure => "installed", require => Exec["update-yum"], }
+  package { $libmemcaches: ensure => "installed", require => Exec["update-yum"], }
+
+
+
+   # Unpack libmemcached
+   exec {"unpackLibMemcached":
+     path => ['/usr/bin', '/usr/sbin', '/bin'],
+     command     => "wget https://launchpad.net/libmemcached/1.0/1.0.16/+download/libmemcached-1.0.16.tar.gz && tar -xvf /tmp/libmemcached-1.0.16.tar.gz && chown -R root:root /tmp/libmemcached-1.0.16",
+     cwd         => "/tmp",
+     refreshonly => true,
+     notify      => Exec["installLibMemcached"]
+   }
+
+   # Instal libmemcached
+   exec { "installLibMemcached":
+     cwd             => "/tmp/libmemcached-1.0.16",
+     path => ['/usr/bin', '/usr/sbin', '/bin'],
+     command     => "/tmp/libmemcached-1.0.16/configure --disable-memcached-sasl && make && make install",
+     logoutput   => true,
+     refreshonly => true,
+     notify      => Exec["installMemcached"]
+     }
+
+   # Install memcached with pecl
+   exec { "installMemcached":
+       cwd             => "/tmp/libmemcached-1.0.16",
+       path => ['/usr/bin', '/usr/sbin', '/bin'],
+       command     => "pecl install memcached",
+       logoutput   => true,
+       refreshonly => true,
+       notify      => Exec["enableMemcachedForPHP"]
       }
 
-  # Enable memcached for PHP
-  exec { "enableMemcachedForPHP":
-      command     => "echo 'extension=memcached.so' > /etc/php.d/memcached.ini",
-      logoutput   => true,
-      refreshonly => true
-      }
+   # Enable memcached for PHP
+   exec { "enableMemcachedForPHP":
+       path => ['/usr/bin', '/usr/sbin', '/bin'],
+       command     => "echo 'extension=memcached.so' > /etc/php.d/memcached.ini",
+       logoutput   => true,
+       refreshonly => true
+       }
 
   # Apache and common modules from pupept core
   include apache
-  include apache::mod::php
-  include apache::mod::cgi
-  include apache::mod::userdir
-  include apache::mod::disk_cache
-  include apache::mod::proxy_http
 
-  # ASIA virtualhost
-  apache::vhost { 'asia.es':
-    port    => 80,
-    docroot => '/var/www/asia',
+  file {'/etc/httpd/conf/httpd.conf':
+    ensure => file,
+    source => "puppet:///modules/apache/etc/httpd/conf/httpd.conf",
+  }
+
+  file {'/etc/httpd/conf/magic':
+    ensure => file,
+    source => 'puppet:///modules/apache/etc/httpd/conf/magic',
+  }
+
+  file {'/etc/httpd/conf.d/munin.conf':
+    ensure => file,
+    source => 'puppet:///modules/apache/etc/httpd/conf.d/munin.conf',
+  }
+
+  file {'/etc/httpd/conf.d/php.conf':
+    ensure => file,
+    source => 'puppet:///modules/apache/etc/httpd/conf.d/php.conf',
+  }
+
+  file {'/etc/httpd/conf.d/welcome.conf':
+    ensure => file,
+    source => 'puppet:///modules/apache/etc/httpd/conf.d/welcome.conf',
+  }
+
+  file {'/etc/munin/munin.conf':
+    ensure => file,
+    source => 'puppet:///modules/apache/etc/munin/munin.conf',
   }
 
 }
-
-# Reference: https://github.com/puppetlabs/puppetlabs-apache
