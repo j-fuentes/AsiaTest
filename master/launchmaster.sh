@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $1 = "-b" ]
+if [ "$1" = "-b" ]
   then
   docker build -t jfuentes/puppetmaster .
 fi
