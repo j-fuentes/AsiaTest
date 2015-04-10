@@ -13,10 +13,10 @@ class apache {
   exec { "update-yum": path => ['/usr/bin', '/usr/sbin', '/bin'], command => "yum update -y", }
 
   # install curl-devel. This bypass yum list checking that returns !0 and makes puppet stop the installation of this package.
-  exec { "install-curl-devel": path => ['/usr/bin', '/usr/sbin', '/bin'], command => "yum install curl-devel", require => Exec["update-yum"], }
+  exec { "install-curl-devel": path => ['/usr/bin', '/usr/sbin', '/bin'], command => "yum install -y curl-devel", require => Exec["update-yum"], }
 
   # install php-pecl-memcached.x86_64. This bypass yum list checking that returns !0 and makes puppet stop the installation of this package.
-  exec { "install-php-pecl-memcached.x86_64": path => ['/usr/bin', '/usr/sbin', '/bin'], command => "yum install php-pecl-memcached.x86_64", require => Exec["update-yum"], }
+  exec { "install-php-pecl-memcached.x86_64": path => ['/usr/bin', '/usr/sbin', '/bin'], command => "yum install -y php-pecl-memcached.x86_64", require => Exec["update-yum"], }
 
   # add EPEL and REMI repo (needed to install some modules)
   exec { "epelrepo": path => ['/usr/bin', '/usr/sbin', '/bin'], cwd => "/tmp", command => "wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm && wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm && rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm && yum update -y", unless => "ls /tmp/remi-release-6*.rpm",}
@@ -94,9 +94,14 @@ class apache {
     source => 'puppet:///modules/apache/etc/httpd/conf.d/welcome.conf',
   }
 
+  file {'/etc/munin/':
+    ensure => directory,
+  }
+
   file {'/etc/munin/munin.conf':
     ensure => file,
     source => 'puppet:///modules/apache/etc/munin/munin.conf',
+    require => File["/etc/munin"],
   }
 
 }
