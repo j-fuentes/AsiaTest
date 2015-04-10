@@ -1,9 +1,0 @@
-
-/* Generals */
-a{ color: #0069e1}
-
-/* Menu - tb-megamenu  */
-
-#zone-menu-wrapper .tb-megamenu .nav > .active > a,#zone-menu-wrapper .tb-megamenu .nav > .active > a:hover,#zone-menu-wrapper .tb-megamenu .nav > .active > a:focus{
-	background-color:#0069e1;
-}

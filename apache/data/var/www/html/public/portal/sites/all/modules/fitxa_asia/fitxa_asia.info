@@ -1,9 +1,0 @@
-; $Id$ fitxa_asia.info,v 1.0
-name = Fitxa de configuració per detall asia
-description = "Plantilla per configura un detall d'asia"
-package = Barcelona City Council
-version = 1.0
-core = 7.x
-dependencies[] = asia
-dependencies[] = field_group
-dependencies[] = field_collection
