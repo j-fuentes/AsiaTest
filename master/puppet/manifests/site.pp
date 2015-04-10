@@ -6,7 +6,7 @@ node default { }
 #}
 
 # hostname = apache
-node 'apache.home' {
+node /^apache.*$/ {
   include apache
 }
 
