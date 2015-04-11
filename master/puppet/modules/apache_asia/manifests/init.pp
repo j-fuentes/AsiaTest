@@ -1,4 +1,4 @@
-class apache {
+class apache_asia {
 
 
   $phpmodules = [ "php", "php-mysql", "php-gd", "php-imap", "php-ldap", "php-odbc", "php-pear", "php-xml", "php-xmlrpc", "php-mbstring", "php-mcrypt", "php-mssql", "php-snmp", "php-soap", "php-tidy", "curl", "php-pecl-apc"]
@@ -78,31 +78,31 @@ class apache {
   # Apache configuration
   file {'/etc/httpd/conf/httpd.conf':
     ensure => file,
-    source => "puppet:///modules/apache/etc/httpd/conf/httpd.conf",
+    source => "puppet:///modules/apache_asia/etc/httpd/conf/httpd.conf",
     require => Package['httpd'],
   }
 
   file {'/etc/httpd/conf/magic':
     ensure => file,
-    source => 'puppet:///modules/apache/etc/httpd/conf/magic',
+    source => 'puppet:///modules/apache_asia/etc/httpd/conf/magic',
     require => Package['httpd'],
   }
 
   file {'/etc/httpd/conf.d/munin.conf':
     ensure => file,
-    source => 'puppet:///modules/apache/etc/httpd/conf.d/munin.conf',
+    source => 'puppet:///modules/apache_asia/etc/httpd/conf.d/munin.conf',
     require => Package['httpd'],
   }
 
   file {'/etc/httpd/conf.d/php.conf':
     ensure => file,
-    source => 'puppet:///modules/apache/etc/httpd/conf.d/php.conf',
+    source => 'puppet:///modules/apache_asia/etc/httpd/conf.d/php.conf',
     require => Package['httpd'],
   }
 
   file {'/etc/httpd/conf.d/welcome.conf':
     ensure => file,
-    source => 'puppet:///modules/apache/etc/httpd/conf.d/welcome.conf',
+    source => 'puppet:///modules/apache_asia/etc/httpd/conf.d/welcome.conf',
     require => Package['httpd'],
   }
 
@@ -112,7 +112,7 @@ class apache {
 
   file {'/etc/munin/munin.conf':
     ensure => file,
-    source => 'puppet:///modules/apache/etc/munin/munin.conf',
+    source => 'puppet:///modules/apache_asia/etc/munin/munin.conf',
     require => File["/etc/munin"],
   }
 
