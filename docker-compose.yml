@@ -5,13 +5,13 @@
 #     - ./solr/data:/opt/solr
 #   external-links:
 #     - puppetmaster:master
-# mysql:
-#   build: ./agent
-#   hostname: mysql
-#   volumes:
-#     - ./mysql/data:/tmp/data
-#   external-links:
-#     - puppetmaster:master
+mysql:
+  build: ./basecentos
+  hostname: mysql
+  ports:
+    - "3306:3306"
+  external_links:
+    - puppetmaster:master
 apache:
   build: ./basecentos
   hostname: apache
