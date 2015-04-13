@@ -9,14 +9,12 @@ mysql:
   build: ./basecentos
   hostname: mysql
   ports:
-    - "3306:3306"
+    - "0.0.0.0:8086:3306"
   external_links:
     - puppetmaster:master
 apache:
   build: ./basecentos
   hostname: apache
-  volumes:
-    - ./data/var/www:/var/www
   ports:
     - "8080:80"
     - "8888:88"
@@ -24,6 +22,6 @@ apache:
     - "2222:22"
   external_links:
     - puppetmaster:master
-  #links:
+  links:
   #  - solr
-  #  - mysql
+    - mysql

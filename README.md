@@ -11,7 +11,7 @@ A puppet master can be deployed in another container and it will command the set
 - Puppet master container: __Running__
 - Generic puppet agents containers: __Running and being commanded by master__
 - Apache container: __Up and running.__
-- Mysql container: __ON GOING.__
+- Mysql container: __Up and running.__
 - Solr container: __ON GOING.__
 
 ## Deploy instructions
@@ -34,3 +34,7 @@ Puppet master denies to configure agents by default. In order to allow the maste
 
 ## Manual agent launching
 Follow this instructions to manually test puppet agent configuration
+
+## Notes
+
+- '/master/puppet/modules/mysql_asia/files/database.sql' must exists but it is not uploaded because it is too heavy.
