@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<banners> 
+    <div class="banners">
+        <a href="http://www.novaxarxabus.bcn.cat/es/"> 
+            <img src="/tpl/guiabcn/images/bus_es.jpg" alt="nueva red de bus" />
+        </a>
+        <a href="http://creativa.barcelona.cat/"> 
+            <img src="/tpl/guiabcn/images/creativa_es.jpg" alt="Barcelona creativa" />
+        </a>
+        <a href="http://www.parkguell.cat/es"> 
+            <img src="/tpl/guiabcn/images/baner_guia_park_guell.jpg" alt="Park Güell" />
+        </a>
+    </div>
+</banners> 

@@ -1,0 +1,26 @@
+<?php
+
+/**
+* @file
+* Asia gmapmarker module Install
+*
+*/
+function asia_gmapmarker_guia_install() {
+// Inicialitza variables del mòdul
+  variable_set('gmcanal', '');
+  variable_set('gmnr', 100);
+  variable_set('gmactivelist', array(1 => 1, 2 => 2));
+  variable_set('gmtipus', array(1 => 1, 2 => 2));
+  variable_set('gmzoom', '12');
+  variable_set('gmlatlngx','41.39479');
+  variable_set('gmlatlngy','2.148768');		
+  
+} 
+
+function asia_gmapmarker_guia_uninstall() {
+// Borra variables del mòdul
+  variable_del('gmcanal');
+  variable_del('gmnr');
+  variable_del('gmactivelist');
+  variable_del('gmtipus');
+}

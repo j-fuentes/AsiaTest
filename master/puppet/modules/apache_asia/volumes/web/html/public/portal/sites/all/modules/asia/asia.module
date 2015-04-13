@@ -1,0 +1,461 @@
+<?php
+// $Id: asia.module, v1.5 2014/03/25
+
+/**
+* @file
+* Module Asia
+*
+*/
+
+
+
+/******************************/
+/* Includes necessaris        */
+/******************************/
+
+include ('functions-asia.php');
+
+
+/**
+ * Implementation of hook_init().
+ */
+ 
+
+
+function asia_init() {
+  global $language;
+  $base_url=$GLOBALS['base_url'];
+  $list_amplada = variable_get('asia_list_amplada', '');
+  $map_amplada = variable_get('asia_maplist_amplada', '');
+  $carpeta = $base_url . '/' . drupal_get_path('module', 'asia');   
+  $config = variable_get('asia_config_resultats', '');
+  $configSearch = variable_get('settings_cercaavancada', '');   
+  $configSearch2 = variable_get('settings_cercaavancada_prefixada', '');   
+
+   //Si el calendari esta activat en el block de cerca avançada
+  drupal_add_js(drupal_get_path('module', 'asia') . '/js/jquery.scrollfollow.js');
+  drupal_add_js(drupal_get_path('module', 'asia') . '/js/jquery-ready-asia.js');
+  drupal_add_js(array('base_url' => $base_url, 'list_amplada' => $list_amplada, 'map_amplada' => $map_amplada, 'carpeta' => $carpeta), 'setting');
+  
+  if ( $configSearch[1]==1 || $configSearch2[1]==1) {
+    drupal_add_css(drupal_get_path('module', 'asia') . '/css/datepicker.css');
+    drupal_add_js(drupal_get_path('module', 'asia') . '/js/datepicker.js');
+  }
+  //Si Ajax esta activat en asia.admin.inc
+  if ($config[3] == 3) {
+    drupal_add_js(drupal_get_path('module', 'asia') . '/js/jquery-ajax-asia.js');
+  }
+  
+  drupal_add_css(drupal_get_path('module', 'asia') . '/css/asia.css');  
+  drupal_add_js('http://maps.googleapis.com/maps/api/js?sensor=false', 'external');
+}
+
+
+
+
+
+
+
+/**
+ * Implementation of hook_menu().
+ */
+
+function asia_menu() {
+  /* 
+  - Detall Agenda/Equipament 
+    arguments: identificador de l'acte o equipament.
+  - Llistat Agenda/Equipament
+  - Gestió Admin del módul 
+  */
+  
+  $items = array();
+  
+  $items['detall/%'] = array(
+      'page callback' => 'asia_detall',
+    'title' => '',
+    'access arguments' => array('access content'),
+    'page arguments' => array(1),
+    );
+
+
+  
+  /*****/
+  
+  $items['llistat'] = array(
+    'page callback' => 'llistat',
+    'title' => '',
+    'access arguments' => array('access content'),
+    );
+  
+  
+  
+    
+  $items['especialitat/%'] = array(
+    'page callback' => 'especialitat',
+    'title' => '',
+    'access arguments' => array('access content'),
+      'page arguments' => array(1),
+    );
+  $items['admin/config/asia'] = array(
+    'title' => 'Managing Asia requests',
+    'description' => 'Configure asia.',
+    'position' => 'left',
+    'weight' => -30,   
+    'access arguments' => array('administer site configuration'),    
+  );
+  $items['admin/config/asia/settings'] = array(
+    'title' => 'Settings',
+    'description' => 'Asia request settings.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('asia_configuracion'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'asia.admin.inc',
+    'weight' => -10,
+  
+  );
+  $items['admin/config/asia/pagelist'] = array(
+    'title' => 'List page',
+    'description' => 'Asia Settings for list page.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('asia_pagelist_configuracion'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'asia-list.admin.inc',
+    'weight' => -9,
+  
+  );
+   $items['admin/config/asia/pagedetail'] = array(
+    'title' => 'Detail page',
+    'description' => 'Asia Settings for detail page.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('asia_pagedetail_configuracion'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'asia-detail.admin.inc',
+    'weight' => -8,
+  
+  );
+  $items['admin/config/asia/pagefilters'] = array(
+    'title' => 'Filters page',
+    'description' => 'Asia Settings for filters page.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('asia_pagefilters_configuracion'),
+    'access arguments' => array('administer site configuration'),
+    'access callback' => TRUE,
+    'file' => 'asia-filters.admin.inc',
+    'weight' => -8,
+  
+  );
+     
+    return $items;
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+
+ 
+function asia_theme($existing, $type, $theme, $path) {
+  return array(
+    'asia_detall' => array(
+       'variables' => array('arrXml' => NULL),
+       'template' => 'templates/detall-asia',      
+       'path' => drupal_get_path('module', 'asia'),       
+    ),
+    'asia_llistat' => array(
+      'variables' => array('dis' => NULL),
+      'template' => 'templates/llistat',                 
+      'path' => drupal_get_path('module', 'asia'),
+    ),
+    'asia_cercador' => array(
+      'variables' => array('dis' => NULL),
+        'template' => 'templates/cercador',        
+        'path' => drupal_get_path('module', 'asia'),
+    ),
+    'asia_mapa_districtes' => array(      
+         'template' => 'templates/mapa-districtes',            
+        'path' => drupal_get_path('module', 'asia'),
+    ),
+    'asia_cercador_avancat' => array(
+      'variables' => array('dis' => NULL, 'settings_cercaavancada' => NULL , 'canal' => NULL),
+        'template' => 'templates/cercador-avancat',          
+        'path' => drupal_get_path('module', 'asia'),
+    ),
+    'asia_cercador_avancat_prefixat' => array(
+      'variables' => array('dis' => NULL, 'settings_cercaavancada_prefixada' => NULL , 'canal' => NULL),
+        'template' => 'templates/cercador-avancat-prefixat',          
+        'path' => drupal_get_path('module', 'asia'),
+    ),
+    'especialitat' => array(
+      'variables' => array('arrXml' => NULL),
+        'template' => 'templates/especialitat',            
+        'path' => drupal_get_path('module', 'asia'),
+    ),    
+  );
+}
+
+
+/**
+ * Implementation of hook_block().
+ */
+
+
+  
+function asia_block_info() {
+    
+    $blocks[0] = array(
+      'info' => t('ASIA: Keyword search form'), 
+      'weight' => 0, 
+      'status' => 1, 
+      'region' => 'Disabled',
+    );
+   $blocks[1] = array(
+      'info' => t('ASIA: District map'), 
+      'weight' => 0, 
+      'status' => 1, 
+      'region' => 'Disabled',
+    );
+  
+  $blocks[2] = array(
+      'info' => t('ASIA: Advanced search form'), 
+      'weight' => 0, 
+      'status' => 1, 
+      'region' => 'Disabled',
+    );
+  
+  $blocks[3] = array(
+      'info' => t('ASIA: Advanced search form (prefixed by code0 / code1)'), 
+      'weight' => 0, 
+      'status' => 1, 
+      'region' => 'Disabled',
+    );
+  
+    return $blocks;
+}
+function asia_block_view($delta = '') {
+   //Recull idioma
+  global $language;
+  $lang = $language->language; 
+  
+  
+    switch ($delta) {
+      case 0:
+        $block = array(
+          'subject' => t('Keyword search form'), 
+          'content' => mostra_form_cerca_paraula(),
+        );
+        break;
+    case 1:          
+        $block = array(
+          'subject' => t('Search for your centre by district'), 
+          'content' => mostra_form_mapa_districtes(),
+        );
+      break;
+  case 2:
+    // Recollir variable de configuració "Activar recollida de districte"
+  
+    $settings_cercaavancada = variable_get('settings_cercaavancada', '');
+   
+    // Si esta activada la recollida de variable 
+    // Inicia i recull la variable districte si ve
+  
+    $subject = t('Advanced search form');
+  
+    if ($settings_cercaavancada[2]==2) {
+      $districtstr ="";
+      if (isset($_GET["districtstr"])) {
+        $districtstr = $_GET["districtstr"];
+      }
+      // Si ve districte canvia el titol del block
+      if (hasValue($districtstr)) {
+        
+        switch ($lang) {
+         case 'ca':    
+          $subject = "Cerca avançada en el districte " . parsejaComilles($districtstr);
+         break;
+         case 'es':    
+          $subject = "Búsqueda avanzada en el distrito " . parsejaComilles($districtstr);
+         break;
+        default:  
+           $subject = "Advanced search in the " . parsejaComilles($districtstr) . " district";
+        break;  
+        }
+        
+      }
+      
+    }
+    
+        $block = array(
+          'subject' => $subject,          
+          'content' => mostra_form_cerca_avancada(),
+        );
+      break;
+    case 3:
+    // Recollir variable de configuració "Activar recollida de districte"
+  
+    $settings_cercaavancada_prefixada = variable_get('settings_cercaavancada_prefixada', '');
+   
+    // Si esta activada la recollida de variable 
+    // Inicia i recull la variable districte si ve
+  
+    $subject = t('Advanced search form');
+    if ($settings_cercaavancada_prefixada[2]==2) {
+      $districtstr ="";
+      if (isset($_GET["districtstr"])) {
+        $districtstr = $_GET["districtstr"];
+      }
+      // Si ve districte canvia el titol del block
+      if (hasValue($districtstr)) {
+        
+        switch ($lang) {
+         case 'ca':    
+          $subject = "Cerca avançada en el districte " . parsejaComilles($districtstr);
+         break;
+         case 'es':    
+          $subject = "Búsqueda avanzada en el distrito " . parsejaComilles($districtstr);
+         break;
+        default:  
+           $subject = "Advanced search in the " . parsejaComilles($districtstr) . " district";
+        break;  
+        }
+        
+      }
+      
+    }
+    
+        $block = array(
+          'subject' => $subject,          
+          'content' => mostra_form_cerca_avancada_prefixada(),
+        );
+      break;      
+    
+    }
+    return $block;
+  }
+  
+function asia_block_configure($delta = '') {  
+        
+    switch ($delta) {
+    
+    case 1:
+      // Codi 0 i 1 del mapa 
+            
+      $form['codi0_mapa'] = array(
+        '#type' => 'textfield', 
+        '#title' => t("Search under first-level classification of what’s on or amenities tree (code0)"), 
+        '#default_value' => variable_get('code0Mapa', ''),
+      );
+      
+      
+      
+      $form['codi1_mapa'] = array(
+        '#type' => 'textfield', 
+        '#title' => t("Search under second-level classification of what’s on or amenities tree (code1)"), 
+        '#default_value' => variable_get('code1Mapa', ''),
+      );
+      // Mostrem un checkbox per la selecció del tipus de visualització:
+      
+      if (variable_get('arraySelectMap', 0)) $default = variable_get('arraySelectMap', 0);      
+      else $default = array(1, 2); /* default  => array(1, 2) */
+      
+      $form['item'] = array(
+        '#type' => 'checkboxes', 
+        '#title' => t('Search display by district'), 
+        '#default_value' => $default,
+        '#options' => array(
+            1 => 'Mapa',
+            2 => 'Llistat',
+        ),
+      );
+      
+      // Mostrem un textfield per saber l'amplada desitjada:
+      if (variable_get('widthMap', 0)) $default = variable_get('widthMap', 0);      
+      else $default = 211;
+              
+      $form['item2'] = array(
+        '#type' => 'textfield', 
+        '#title' => t('Map width'), 
+        '#default_value' => $default,
+      );      
+      
+      return $form;
+    break;
+    case 2:
+      // Canal, Codi 0 i 1 de la cerca avançada
+      $form['codi0_cerca'] = array(
+        '#type' => 'textfield', 
+        '#title' => t("Search under first-level classification of what’s on or amenities tree (code0)"), 
+        '#default_value' => variable_get('code0Cerca', ''),
+      );      
+      
+      $form['codi1_cerca'] = array(
+        '#type' => 'textfield', 
+        '#title' => t("Search under second-level classification of what’s on or amenities tree (code1)"), 
+        '#default_value' => variable_get('code1Cerca', ''),
+      );
+      
+      // Mostrem un checkbox per la selecció del tipus de visualització:
+      $form['settings_cercaavancada'] = array(
+        '#type' => 'checkboxes', 
+        '#title' => t('Settings'), 
+        '#default_value' => variable_get('settings_cercaavancada',  array(1 => 1, 2 => 0)), /* '#default_value' => array(1, 2), */
+        '#options' => array(
+            1 => t('Calendar'),
+            2 => t('Prepend district. If enabled, the default search is the district that is given by URL, if not a generic search.'),    
+           ),
+      );
+      return $form;
+    break;
+    case 3:
+      // Canal, Codi 0 i 1 de la cerca avançada
+      $form['codi0_cerca_prefixada'] = array(
+        '#type' => 'textfield', 
+        '#title' => t("Search under first-level classification of what’s on or amenities tree (code0)"), 
+        '#default_value' => variable_get('code0Cerca_prefixada', ''),
+      );      
+      
+      $form['codi1_cerca_prefixada'] = array(
+        '#type' => 'textfield', 
+        '#title' => t("Search under second-level classification of what’s on or amenities tree (code1)"), 
+        '#default_value' => variable_get('code1Cerca_prefixada', ''),
+      );
+      
+      // Mostrem un checkbox per la selecció del tipus de visualització:
+      $form['settings_cercaavancada_prefixada'] = array(
+        '#type' => 'checkboxes', 
+        '#title' => t('Settings'), 
+        '#default_value' => variable_get('settings_cercaavancada_prefixada',  array(1 => 1, 2 => 0)), /* '#default_value' => array(1, 2), */
+        '#options' => array(
+            1 => t('Calendar'),
+            2 => t('Prepend district. If enabled, the default search is the district that is given by URL, if not a generic search.'),    
+           ),
+      );
+      return $form;
+    break;
+  }
+  
+}
+function asia_block_save($delta = '', $edit = array()) { 
+    
+    switch ($delta) {
+    case 1:
+      // Guardem en 'arraySelectMap' l'opció escollida i 'widthMap':
+      variable_set('code0Mapa', $edit['codi0_mapa']);
+      variable_set('code1Mapa', $edit['codi1_mapa']);
+      variable_set('arraySelectMap', $edit['item']);
+      variable_set('widthMap', $edit['item2']);      
+    break;
+    case 2:
+      // Guardem en 'settings_cercaavancada' l'opció escollida:    
+      variable_set('code0Cerca', $edit['codi0_cerca']);
+      variable_set('code1Cerca', $edit['codi1_cerca']);
+      variable_set('settings_cercaavancada', $edit['settings_cercaavancada']);
+    break;
+    case 3:
+      // Guardem en 'settings_cercaavancada' l'opció escollida:    
+      variable_set('code0Cerca_prefixada', $edit['codi0_cerca_prefixada']);
+      variable_set('code1Cerca_prefixada', $edit['codi1_cerca_prefixada']);
+      variable_set('settings_cercaavancada_prefixada', $edit['settings_cercaavancada_prefixada']);
+    break;
+  }
+}
+
+

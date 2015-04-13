@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<brand>
+  <div id="brand" class="v2012 collapsed">
+    <div class="brand-wrapper">
+      <div class="main">
+        <div class="logotype">
+          <a href="http://www.bcn.cat/">
+            <img src="http://www.bcn.cat/assets/images/brand/banner/2012/logo-ajment.png" alt="Logotip de l'Ajuntament de Barcelona. Enllaç a la pàgina principal del web de Barcelona" height="43" width="130" />
+          </a>
+        </div>
+        <div class="navigation">
+          <ul class="options">
+            <li>
+              <a href="http://www.bcn.cat/catala/laciutat/">La Ciutat</a>
+            </li>
+            <li>
+              <a href="http://www.bcn.cat/ajuntament/">L'Ajuntament</a>
+            </li>
+            <li>
+              <a href="http://www.bcn.cat/turisme/">Turisme</a>
+            </li>
+            <li>
+              <a href="http://www.bcn.cat/negocis/">Negocis</a>
+            </li>
+            <li>
+              <a href="http://www.bcn.cat/tramits/">Tràmits</a>
+            </li>
+            <li class="last more">
+              <a href="#">Més</a>
+              <ul>
+                <li>
+                  <a href="http://www.bcn.cat/guia/">Plànol BCN</a>
+                </li>
+                <li>
+                  <a href="http://www.bcn.cat/comanar/">Com s'hi va</a>
+                </li>
+                <li>
+                  <a href="http://www.bcn.cat/guiabarcelona/">Guia BCN</a>
+                </li>
+                <li>
+                  <a href="http://www.bcn.cat/mobil/">Serveis al mòbil</a>
+                </li>
+                <li>
+                  <a href="http://www.bcn.cat/ca/webs_bcn.html">Webs BCN</a>
+                </li>
+                <li>
+                  <a href="http://www.bcn.cat/transit/">Estat del trànsit</a>
+                </li>
+                <li class="search">
+                  <form id="brand-form" method="post" action="http://w10.bcn.cat/APPS/cercagsa/search.do?idioma=ca">
+                    <div>
+                      <label for="brand-search">Cerca</label>
+                      <input type="text" id="brand-search" name="q" value="" />
+                      <input type="image" class="send" src="http://www.bcn.cat/assets/images/brand/banner/2012/lupa.png" value="" alt="Cerca del web de l'Ajuntament de Barcelona" />
+                    </div>
+                  </form>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="social">
+            <li>
+              <a href="http://www.facebook.com/bcn.cat" title="Barcelona.cat">
+                <img src="http://www.bcn.cat/assets/images/brand/banner/2012/social-facebook-bw.png" alt="Icona del Facebook. Enllaç al Facebook oficial de l'Ajuntament de Barcelona" height="24" width="24" />
+              </a>
+            </li>
+            <li>
+              <a href="http://twitter.com/barcelona_cat" title="@barcelona_cat">
+                <img src="http://www.bcn.cat/assets/images/brand/banner/2012/social-twitter-bw.png" alt="Icona del Twitter. Enllaç al Twitter oficial de l'Ajuntament de Barcelona" height="24" width="24" />
+              </a>
+            </li>
+            <li class="last">
+              <a href="http://www.youtube.com/wwwbcncat" title="Barcelona.cat">
+                <img src="http://www.bcn.cat/assets/images/brand/banner/2012/social-youtube-bw.png" alt="Icona del Youtube. Enllaç al Youtube oficial de l'Ajuntament de Barcelona" height="24" width="24" />
+              </a>
+            </li>
+          </ul>
+          <ul class="languages">
+            <li class="active">
+              <span>CAT</span>
+            </li>
+            <li>
+              <a href="http://guia.bcn.cat/guia-barcelona.html?idma=es" title="Castellano" hreflang="es" lang="es" xml:lang="es">CAS</a>
+            </li>
+            <li class="last">
+              <a href="http://guia.bcn.cat/guia-barcelona.html?idma=en" title="English" hreflang="en" lang="en" xml:lang="en">ENG</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</brand>

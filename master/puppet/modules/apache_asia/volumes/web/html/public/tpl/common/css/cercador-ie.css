@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+#marc-web{font-size:1.01em; }
+ form{ margin:0; padding:0;}
+ #formulari{padding-left:0; padding-right:0; }
+#formulari .section ul li input{ background:none #0D8ED1; border:0;}
+
+li#cerca-avansada{ display:inline; margin-right:189px;}
+li#input-cercar { margin-left:401px;}
+
+li#pg-cercar{ display:none;}
+
+#div-cerca-av{ margin-left:188px;}
+
+.tabform{margin-top:19px;}
+
+
+#magrada span{ left:84px;}

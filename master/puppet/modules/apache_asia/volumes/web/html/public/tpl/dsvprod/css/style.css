@@ -1,0 +1,1913 @@
+body {
+background-color:#f6f6f6;
+background-image:url(../img/cabecera_interior.jpg);
+background-position:center 45px;
+background-repeat:no-repeat;
+font-size: 62.5%;
+font-family:Arial, Helvetica, sans-serif;
+padding:0px;
+margin:0px;
+}
+#home
+{
+background-color:#f6f6f6;
+background-image:url(../img/cabecera_home.jpg); !important;
+background-position:center 45px;
+background-repeat:no-repeat;
+font-size: 62.5%;
+font-family:Arial, Helvetica, sans-serif;
+padding:0px;
+margin:0px;
+}
+a{
+text-decoration:none;
+}
+a:hover {
+text-decoration:none;
+color:#0993d0;
+}
+
+.caixa ul li.publics a{
+font-weight:bold;
+}
+.caixa ul li.concertats a{ color:#cf0245 !important;
+font-weight:bold;
+}
+.caixa ul li.privats a{ color:#228001 !important;
+font-weight:bold;
+} 
+ 
+.shadow {
+-moz-box-shadow:0 0 4px 0 rgba(194, 194, 194, 0.8);
+-webkit-box-shadow:0 0 4px 0 rgba(194, 194, 194, 0.8);
+box-shadow:0 0 4px 0 rgba(194, 194, 194, 0.8);
+}
+::-webkit-input-placeholder {
+color: #7C7C7C;
+font-size:1.1em;
+}
+ 
+:-moz-placeholder {
+color: #7C7C7C;
+font-size:1.1em;
+}
+ 
+:-ms-input-placeholder {
+color: #7C7C7C;
+font-size:1.1em;
+}
+ 
+.clear-both
+{
+clear:both;
+}
+.border-none
+{
+border:0px !important;
+
+}
+/*barra escoles*/
+ 
+#navegacio-separada #menu-principal {
+margin-bottom: 20px;
+position: relative;
+}
+#navegacio-separada #menu-principal a:hover {
+text-decoration: none;
+}
+#navegacio-separada #menu-principal.expanded {
+height: 70px;
+}
+#navegacio-separada #menu-principal ul {
+background: url("../img/menu_bg.gif") repeat scroll 0 0 #878787;
+color: #FFFFFF;
+font-family: "Open Sans";
+font-size: 12px;
+font-weight: 400;
+width: 100%;
+}
+#navegacio-separada #menu-principal ul:after {
+clear: both;
+content: ".";
+display: block;
+height: 0;
+visibility: hidden;
+}
+#navegacio-separada #menu-principal ul li {
+-moz-box-sizing: border-box;
+background: url("../img/menu_bg.gif") repeat scroll 0 0 #878787;
+border-color: #A3A3A3 #737373 #737373 #A3A3A3;
+border-style: solid;
+border-width: 1px;
+float: left;
+list-style: none outside none;
+margin: 0;
+padding: 0;
+text-align: center;
+box-sizing:border-box;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+}
+#navegacio-separada #menu-principal.item3 ul li {
+width: 33.334%;
+}
+ 
+#navegacio-separada #menu-principal.item4 ul li {
+width: 25%;
+}
+#navegacio-separada #menu-principal.item4 ul li.last {
+/* width: 24.1%;*/
+}
+ 
+#navegacio-separada #menu-principal.item5 ul li {
+width: 20%;
+}
+#navegacio-separada #menu-principal.item6 ul li {
+width: 16.667%;
+}
+#navegacio-separada #menu-principal.item7 ul li {
+width: 14.28%;
+}
+#navegacio-separada #menu-principal.item7 ul {
+width: 101%;
+}
+#navegacio-separada #menu-principal ul li a {
+background: url("../img/raquo.gif") no-repeat scroll 1px 6px transparent;
+color: #FFFFFF;
+line-height: 3em;
+padding-left: 10px;
+}
+#navegacio-separada #menu-principal ul li:hover {
+background: url("../img/menu_bg_actiu.gif") repeat scroll 0 0 #F1F1F1;
+border-color: #FFFFFF #FFFFFF #D8D8D8;
+border-style: solid;
+border-width: 1px;
+cursor: pointer;
+ 
+}
+#navegacio-separada #menu-principal ul li:hover a {
+background: url("../img/raquo1.gif") no-repeat scroll 1px 6px transparent;
+color: #000000;
+}
+#navegacio-separada #menu-principal ul li:hover li a {
+background: none repeat scroll 0 0 transparent;
+color: #737373;
+}
+#navegacio-separada #menu-principal ul li.active-trail {
+background: none repeat scroll 0 0 #F1F1F1;
+border-color: #FFFFFF #FFFFFF #D8D8D8;
+border-style: solid;
+border-width: 1px;
+height: 37px;
+}
+#navegacio-separada #menu-principal ul li.active-trail a {
+background: url("../img/raquo-actiu.gif") no-repeat scroll 1px 9px transparent;
+color: #000000;
+padding-left: 14px;
+}
+#navegacio-separada #menu-principal ul ul {
+background: none repeat scroll 0 0 #F0F0F0;
+left: -1px;
+padding-left: 31px;
+position: relative;
+width: 894px;
+z-index: 100;
+}
+#navegacio-separada #menu-principal ul li ul li {
+background: none repeat scroll 0 0 #F0F0F0;
+border: medium none;
+width: auto !important;
+}
+#navegacio-separada #menu-principal ul li ul li:hover {
+border: 0 none;
+color: #000000;
+}
+#navegacio-separada #menu-principal ul li.active-trail ul li a {
+background: none repeat scroll 0 0 #F1F1F1;
+border-left: 1px solid #FFFFFF;
+border-right: 1px solid #D8D8D8;
+color: #737373;
+padding: 0 8px;
+}
+#navegacio-separada #menu-principal ul li.active-trail ul li a {
+background: none repeat scroll 0 0 transparent;
+color: #737373;
+}
+#navegacio-separada #menu-principal ul li.active-trail ul li a:hover {
+background: none repeat scroll 0 0 transparent;
+color: #000000;
+}
+#navegacio-separada #menu-principal ul li ul li a.active {
+color: #000000;
+}
+#navegacio-separada #menu-principal ul li.active-trail ul li.active-trail {
+border: 0 none;
+}
+#navegacio-separada #menu-principal ul li ul li.first a {
+background: none repeat scroll 0 0 #F1F1F1;
+border-left: medium none;
+padding-left: 0;
+}
+#navegacio-separada #menu-principal ul li ul li.last a {
+border-right: medium none;
+}
+#navegacio-separada #menu-principal ul li.nolink span {
+background: url("../img/raquo.gif") no-repeat scroll 1px 6px transparent;
+line-height: 3em;
+padding-left: 10px;
+}
+#navegacio-separada #menu-principal ul li.nolink.active-trail span {
+background: url("../img/raquo-actiu.gif") no-repeat scroll 1px 9px transparent;
+color: #000000;
+}
+#navegacio-separada #menu-principal ul li.nolink.active-trail:hover span {
+background: url("../img/raquo-actiu.gif") no-repeat scroll 1px 9px transparent;
+color: #000000;
+}
+#navegacio-separada #menu-principal ul li.nolink:hover {
+background: url("../img/menu_bg_actiu.gif") repeat scroll 0 0 #F1F1F1;
+border-color: #FFFFFF #FFFFFF #D8D8D8;
+border-style: solid;
+border-width: 1px;
+color: #000000;
+height: 37px;
+}
+#navegacio-separada #menu-principal ul li.nolink:hover span {
+background: url("../img/raquo1.gif") no-repeat scroll 1px 6px transparent;
+}
+#navegacio-separada #menu-principal ul li.nolink ul {
+display: none;
+}
+#navegacio-separada #menu-principal ul li.nolink.active-trail ul {
+display: block;
+}
+#navegacio-separada #menu-principal ul ul ul {
+display: none;
+}
+ 
+ 
+/*menu mobile home*/
+ 
+ #navegacio-home 
+ {
+	 width:96% !important; margin:5px 2%; position:relative; 
+ }
+ #navegacio-home #menu-principal {
+margin-bottom: 20px;
+position: relative;
+}
+#navegacio-home #menu-principal a:hover {
+text-decoration: none;
+}
+#navegacio-home #menu-principal.expanded {
+height: 70px;
+}
+#navegacio-home #menu-principal ul {
+background: url("../img/menu_bg.gif") repeat scroll 0 0 #878787;
+color: #FFFFFF;
+font-family: "Open Sans";
+font-size: 12px;
+font-weight: 400;
+width: 100%;
+}
+#navegacio-home #menu-principal ul:after {
+clear: both;
+content: ".";
+display: block;
+height: 0;
+visibility: hidden;
+}
+#navegacio-home #menu-principal ul li {
+-moz-box-sizing: border-box;
+background: url("../img/menu_bg.gif") repeat scroll 0 0 #878787;
+border-color: #A3A3A3 #737373 #737373 #A3A3A3;
+border-style: solid;
+border-width: 1px;
+list-style: none outside none;
+margin: 0;
+padding: 0;
+text-align: center;
+box-sizing:border-box;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+} 
+#navegacio-home #menu-principal.item4 ul li {
+width: 100%;
+}
+#navegacio-home #menu-principal.item4 ul li.last {
+/* width: 24.1%;*/
+}
+ 
+#navegacio-home #menu-principal ul li a {
+	font-family:'Open sans';
+background: url("../img/mobile/menu-home-raquo.jpg") no-repeat scroll 25px 4px transparent;
+color: #000000;
+line-height: 3em;
+padding-left: 2.1em;
+}
+#navegacio-home #menu-principal ul li:hover {
+		font-family:'Open sans';
+background: url("../img/mobile/menu-home-bg_actiu.jpg") repeat scroll 0 0 #0d8ed1 !important;
+border-color: #FFFFFF #FFFFFF #D8D8D8;
+border-style: solid;
+border-width: 1px;
+cursor: pointer;
+ 
+}
+#navegacio-home #menu-principal ul li:hover a {
+background: url("../img/mobile/menu-home-raquo_2.jpg") no-repeat scroll 25px 4px transparent;
+color: #fff !important;
+}
+#navegacio-home #menu-principal ul li:hover li a {
+background: none repeat scroll 0 0 transparent;
+color: #737373;
+}
+#navegacio-home #menu-principal ul li.active-trail {
+background: none repeat scroll 0 0 #F1F1F1;
+border-color: #FFFFFF #FFFFFF #D8D8D8;
+border-style: solid;
+border-width: 1px;
+height: 37px;
+}
+#navegacio-home #menu-principal ul li.active-trail a {
+background: url("../img/raquo-actiu.gif") no-repeat scroll 1px 9px transparent;
+color: #000000;
+padding-left: 14px;
+}
+
+#navegacio-home #menu-principal ul li ul li:hover {
+border: 0 none;
+color: #000000;
+}
+#navegacio-home #menu-principal ul li.active-trail ul li a {
+background: none repeat scroll 0 0 #F1F1F1;
+border-left: 1px solid #FFFFFF;
+border-right: 1px solid #D8D8D8;
+color: #737373;
+padding: 0 8px;
+}
+#navegacio-home #menu-principal ul li.active-trail ul li a {
+background: none repeat scroll 0 0 transparent;
+color: #737373;
+}
+#navegacio-home #menu-principal ul li.active-trail ul li a:hover {
+background: none repeat scroll 0 0 transparent;
+color: #000000;
+}
+
+ 
+ 
+/*barra escoles fin*/
+ 
+ 
+ 
+#marc-web {
+/*padding-bottom: 15em !important;*/
+width:auto;
+}
+.wrapper-escoles:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+ 
+}
+.wrapper-escoles {
+height:100%;
+margin:0 auto;
+max-width:925px;
+}
+ 
+.wrapper-escoles h1 {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+padding:25px 0;
+ 
+}
+.wrapper-escoles h1 a {
+color:#FFF;
+font-family:'Open Sans', Verdana, Geneva, sans-serif;
+font-size:2.5em;
+font-weight:700;
+letter-spacing:-1px;
+padding:25px 0;
+text-shadow:1px 1px 1px rgba(0,0,0,0.19);
+}
+.wrapper-escoles h1 a:hover {
+color:#FFF;
+font-family:'Open Sans', Verdana, Geneva, sans-serif;
+font-size:2.5em;
+font-weight:700;
+letter-spacing:-1px;
+padding:25px 0;
+text-shadow:1px 1px 1px rgba(0,0,0,0.19);
+}
+ 
+.wrapper-escoles h1 span {
+font-size:1em;
+font-weight:lighter;
+letter-spacing:-1px;
+}
+ 
+.nav-escoles {
+border-radius:3px;
+display:inline-block;
+height:41px;
+list-style-type:none;
+width:100%;
+}
+ 
+.nav-escoles li {
+background-image:url(../img/main-nav-bg.png);
+background-repeat:repeat-x;
+border-left:solid 1px #A2A2A2;
+border-right:solid 1px #727272;
+color:#FFF;
+float:left;
+font-family:'Open Sans';
+font-size:12px;
+line-height:39px;
+text-align:center;
+width:24%;
+}
+ 
+.nav-escoles li.selected
+{
+background-position:0px -40px;
+border-left:0px;
+}
+ 
+.nav-escoles li:last-child {
+border:0;
+border-left:solid 1px #A2A2A2;
+width: 26.99%;
+}
+ 
+.nav-escoles li a {
+background-image:url(../img/sprites.png);
+background-position:11px 15px;
+background-repeat:no-repeat;
+color:#FFF;
+padding:10px 10px 10px 18px;
+}
+.nav-escoles li.selected a {
+background-image:url(../img/sprites.png);
+background-position:6px -8px;
+background-repeat:no-repeat;
+color:#000;
+padding:10px 10px 10px 18px;
+}
+ 
+ 
+.main_pic {
+margin-top:15px;
+width:100%;
+}
+ 
+.container {
+background-color:#FFF;
+border:0px;
+margin-top:15px;
+
+padding:20px;
+width:414px;
+}
+.container_big
+{
+background-color:#FFF;
+border:solid 1px #E8E8E8;
+margin-top:15px;
+padding:2em 3em 3em 3em;
+width:865px;
+min-height:25em;
+height:auto !important;
+}
+ 
+.container h2 {
+border-bottom:dotted 1px #989898;
+font-family:'Open sans';
+font-size:1.8em;
+line-height:1.5em;
+margin-bottom:1.3em;
+clear:both;
+font-weight:300;
+letter-spacing:-0.05em;
+}
+h2.header2 {
+border-bottom:dotted 1px #989898;
+font-family:'Open sans';
+font-size:1.7em;
+line-height:1.5em;
+margin-bottom:8px;
+}
+ 
+.container p.intro {
+color:#666;
+font-family:Arial, Helvetica, sans-serif;
+font-size:1.2em;
+padding:0.5em 0;
+}
+ 
+.container strong {
+color:#000;
+font-weight:700;
+}
+ 
+.container_big p
+{
+font-size:1.2em;
+color:#666666;
+line-height:1.2em;
+padding-bottom:1.3em;	
+}
+.container a.pdf
+{
+background-image:url(../img/pdf.png);
+background-repeat:no-repeat;
+height:25px;
+padding-left:20px;
+padding-bottom:5px;
+color:#0d8ed1;
+font-size:1.3em;
+}
+.container a.pdf
+{
+text-decoration:none;
+}
+.container a.pdf span
+{
+color:#666666;	
+font-size:1em;
+}
+.container h3
+{
+padding:1.5em 0 0 0;
+font-family:'Open sans';
+font-size:1.5em;
+line-height:2em;
+font-weight:normal;
+border-bottom:solid 1px #e6e6e6;
+}
+ .container h3.border-none{ padding-top:0.4em; letter-spacing:-0.05em;}
+.container ul.district {
+float:left;
+line-height:19px;
+list-style-type:none;
+margin:28px 0 5px 10px;
+}
+ 
+.container ul.district-big {
+margin-top:20px; border-right:solid 1px #E5E5E5; padding-right:60px;
+}
+.container ul.district li a {
+background-image:url(../img/sprites.png);
+background-position:0 -48px;
+background-repeat:no-repeat;
+border-bottom:dotted 1px #0d8ed1;
+color:#0d8ed1;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+margin-top:5px;
+padding-left:10px;
+}
+.container ul.district li a {
+text-decoration:none;
+}
+#mapa-districtes
+{
+background-image:url(../img/rosa_vents.png);
+background-repeat:no-repeat;
+background-position:right top;
+margin-top: 10px;
+height:auto;
+overflow:hidden;
+}
+#mapa-districtes h3
+{
+padding:1.5em 0 0 0;
+font-family:'Open sans';
+font-size:1.5em;
+line-height:2em;
+font-weight:normal;
+border-bottom:none;
+}
+#mapa-districtes #map
+{
+ 
+margin-top:25px;
+margin-left:35px;
+}
+.pull-left {
+float:left;
+}
+#mapa-districtes img{
+margin:-27px 0 0 205px;
+ 
+}
+.pull-left #mapa-districtes img{ float:right; margin:23px 0 0;}
+.pull-right {
+float:right;
+}
+ 
+.container:after
+{
+clear:both;
+}
+ 
+.container #search {
+background-color:#f2f2f2;
+padding:10px 0 25px 10px;
+width:98%;
+}
+.container #search.ca {
+ 
+padding:10px 0 36px 10px;
+ 
+}
+.container #search p {
+padding-top:1.2em;
+}
+ 
+.container #search p.extras {
+padding-top:5em;
+position:relative;
+font-size:1em;
+}
+ 
+.container #search label,legend {
+color:#000;
+font-family:Arial, Helvetica, sans-serif;
+font-size:1.1em;
+font-weight:normal;
+}
+ 
+.container #search input.text-big {
+background-image:url(../img/form_text_bg.gif);
+background-repeat:repeat-x;
+border-bottom:solid 1px #e2e7e7;
+border-left:solid 1px #b9bebe;
+border-right:solid 1px #b9bebe;
+border-top:0;
+font-family:Arial, Helvetica, sans-serif;
+height:22px;
+margin-top:5px;
+padding:0 3px;
+width:96%;
+}
+ 
+.container #search select {
+background-image:url(../img/form_text_bg.gif);
+background-repeat:repeat-x;
+border-bottom:solid 1px #e2e7e7;
+border-left:solid 1px #b9bebe;
+border-right:solid 1px #b9bebe;
+border-top:0;
+color:#7C7C7C;
+font-family:Arial, Helvetica, sans-serif;
+font-size:1.1em;
+height:22px;
+margin-top:5px;
+padding-top:2px;
+}
+ 
+.container #search select.select-big {
+width:36.2em;
+}
+ 
+.container #search select.select-med {
+width:19.7em;
+}
+ 
+.container #search ul.serveis_list {
+height:auto;
+list-style-type:none;
+margin-bottom:-.4px;
+overflow:hidden;
+padding-top:10px;
+}
+ 
+.container #search ul.serveis_list li {
+float:left;
+height:35px;
+}
+ 
+.container #search ul.serveis_list li .check-serveis {
+display:inline;
+margin:6px 8px 0 0;
+vertical-align:middle;
+width:auto;
+}
+ 
+/*Estilos para directori_escoles.htm*/
+ 
+#search .directorifont
+{
+font-size:1em;
+ 
+}
+#search .p-extra
+{
+width:402px;
+padding-left:20px;
+}
+#search .p-extra label
+{
+width:100%;
+clear:both;
+font-size:1em;
+}
+#search .p-extra input.text-big
+{
+width:90%;
+clear:both;
+}
+#search .p-extra select.select-big
+{
+width:93%;
+clear:both;
+}
+#search fieldset.tipus-extra
+{
+padding-left:20px;
+}
+ 
+#search p.extra-directori
+{
+padding-top:0em !important;
+}
+ 
+ 
+ 
+/*Estilos para directori_escoles.htm*/
+ 
+ 
+ 
+.container fieldset
+{
+border: 0 none;
+display: block;
+margin: 1.3em 0 1.1em;
+padding: 0;
+width:99%;
+}
+.container fieldset legend
+{
+color: #000000;
+display: block;
+font-size: 1.2em;
+margin: 1em 0 0.5em;
+padding: 0;
+}
+.container fieldset ul li
+{
+background: none repeat scroll 0 0 transparent;
+float: left;
+margin-bottom: 0em;
+padding: 0.7em;
+}
+ 
+.container fieldset ul li input
+{
+display: inline;
+padding: 0;
+vertical-align: middle;
+width: auto;
+}
+.container fieldset ul li label
+{
+background: url("../img/sprites.png") no-repeat scroll left top transparent;
+color: #666666 !important;
+display: inline-block;
+font-size: 1.1em ;
+font-weight:normal !important;
+height: auto;
+line-height: 1.1em;
+margin-bottom: 0;
+margin-left: 0.3em;
+overflow: hidden;
+padding-left: 2.7em;
+vertical-align: middle;
+}
+.container fieldset ul li.menjador label
+{
+background-position: 0 -122px;
+height: 1.9em;
+padding-top: 0.6em;
+width: 9em;
+}
+ 
+ 
+.container fieldset ul li.acollida label {
+background-position: 0 -175px;
+height: 2.5em;
+width: 9em;
+}
+ 
+ 
+.container fieldset ul li.cuina label {
+background-position: 0 -149px;
+height: 1.9em;
+padding-top: 0.6em;
+width: 9em;
+}
+ 
+.container fieldset ul li.extraescolars label {
+background-position: 0 -96px;
+height: 2.5em;
+width: 10em;
+}
+ 
+#bulleti
+{
+position:relative;
+}
+#bulleti input.text-form {
+background-image:url(../img/form_text_bg.gif);
+background-repeat:repeat-x;
+border-bottom:solid 1px #e2e7e7;
+border-left:solid 1px #b9bebe;
+border-right:solid 1px #b9bebe;
+border-top:0;
+font-family:Arial, Helvetica, sans-serif;
+height:22px;
+margin-top:5px;
+padding:0 3px;
+width:96%;
+}
+#bulleti select {
+background-image: url("../img/form_text_bg.gif");
+background-repeat: repeat-x;
+border-style: none solid solid;
+border-width: 0 1px 1px;
+color: #7C7C7C;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 1em;
+height: 22px;
+margin-top: 5px;
+padding-top: 2px;
+}
+#bulleti .submit {	
+ 
+background-image: url("../img/button_blue.png");
+background-repeat:repeat-x;
+border: 0 none;
+border-radius:3px;
+color: #FFFFFF;
+cursor: pointer;
+font-family: 'Open Sans';
+font-size: 1.2em;
+font-weight: 700;
+padding: 2px 0 1px 3px;
+position: absolute;
+right:10px;
+bottom:30px;
+text-shadow: 1px 1px 3px #036C9E;
+width: 80px;
+ 
+}
+#bulleti .submit:hover
+{
+background-image: url("../img/button_blue_on.png");
+}
+#label-bulleti-nom
+{
+position:absolute; left:15px; top:21px; color:#666
+}
+#label-bulleti-email
+{
+position:absolute; left:190px; top:21px; color:#666;
+}
+ 
+ 
+.container #search .submit {
+background-repeat:no-repeat;
+background-image:url(../img/lupa.gif);
+border:0;
+font-family: 'Open Sans';
+/*border-color: -moz-use-text-color #B9BEBE #E2E7E7;*/
+/*border-radius:.3em;*/
+bottom:0;
+font-weight:700;
+text-shadow: 1px 1px 3px #036c9e;
+filter: dropshadow(color=#036c9e, offx=1, offy=1);
+color:#FFF;
+cursor:pointer;
+font-weight:700;
+padding:3px 0 3px 13px;
+position:absolute;
+right:30px;
+font-size:1.2em;
+width:90px;
+ 
+}
+.container #search .submit:hover {
+background-image:url('../img/lupa_on.gif');
+}
+ 
+.footer-escoles {
+background-color:#FFF;
+background-image:url(../img/footer_white_bg.gif);
+background-position:top;
+background-repeat:repeat-x;
+bottom:50px;
+height:50px;
+width:100%;
+z-index:155;
+left:0px;
+}
+ 
+.footer-inner {
+margin:0 auto;
+overflow:hidden;
+text-align:center;
+text-wrap:supress;
+width:830px;
+margin-top:40px;
+ 
+}
+ 
+.footer-inner p {
+background-image:url(../img/cc.png);
+background-position:left center;
+background-repeat:no-repeat;
+border-right:solid 1px #e6e6e6;
+color:#666;
+float:left;
+font-family:'Open sans';
+font-size:1em !important;
+padding:20px 33px 22px 35px;
+}
+ 
+.footer-inner ul {
+display:inline-block;
+float:left;
+font-family:'Open sans';
+font-size:1.2em;
+height:20px;
+list-style-type:none;
+padding:18px 33px 18px 35px;
+}
+ 
+.footer-inner ul li {
+float:left;
+line-height:15px;
+padding-left:5px;
+}
+ 
+.footer-inner ul li.first a {
+/*border-right:solid 1px #ccc;*/
+padding-right:10px;
+ 
+}
+ 
+.footer-base {
+background-color:#000;
+background-image:url(../img/footer_white_bg.gif);
+background-position:top;
+background-repeat:repeat-x;
+bottom:0;
+height:50px;
+width:100%;
+z-index:155;
+left:0px;
+}
+ 
+.footer-base div {
+margin:0 auto;
+overflow:hidden;
+text-align:center;
+text-wrap:supress;
+width:925px;
+}
+ 
+.footer-base div p {
+color:#FFF;
+font-family:'Open sans';
+font-size:1.2em;
+font-weight:700;
+padding:18px 0;
+}
+ 
+.footer-inner p a,.footer-inner ul li a {
+color:#0d8ed1;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ul#fil-ariadna {
+color: #666666;
+float: none;
+font-size: 1em;
+margin-bottom: 3.1em;
+}
+ 
+ul#fil-ariadna li {
+background: url("../img/raquo-filariadna.gif") no-repeat scroll right center transparent;
+display: inline;
+float: left;
+margin-right: 0.3em;
+padding-right: 1em;
+}
+ul#fil-ariadna li.last {
+background: none repeat scroll 0 0 transparent;
+}
+ 
+ul#fil-ariadna li a {
+color: #0D8ED1;
+text-decoration: none;
+}
+ 
+.escoles-accordion
+{
+margin:1em 0 0 1em;
+}
+ 
+.escoles-accordion span.header
+{
+color:#0d8ed1; font-family:Arial, Helvetica, sans-serif; font-size:1.3em;
+background-image:url(../img/sprites.png);
+background-position:0px -48px;
+background-repeat:no-repeat;
+padding-left:10px;
+margin-top:20px;
+line-height:1.4em;
+cursor:pointer;
+}
+.escoles-accordion span.active
+{
+color:#0d8ed1; font-family:Arial, Helvetica, sans-serif; font-size:1.3em;
+background-image:url(../img/sprites.png);
+background-position:0px -69px;
+background-repeat:no-repeat;
+padding-left:10px;
+margin-top:20px;
+cursor:pointer;
+}
+.escoles-accordion .accordion-p
+{
+padding:0.5em 1em;
+}
+.accordion-alone-p
+{
+padding:1em 1em;
+}
+ 
+ 
+.taula-escoles
+{
+width:99%;
+border:solid 1px #e6e6e6;
+color:#666666;
+font-size:1.2em;
+margin-top:0.5em;
+margin-bottom:2em;
+margin-left:10px;
+border-bottom:0px;
+}
+.taula-escoles td, .taula-escoles th
+{
+padding:0.85em;
+border-bottom:solid 1px #e6e6e6;
+ 
+}
+.taula-escoles td.escola-anchor, .taula-escoles th
+{
+border-right:solid 1px #e6e6e6;
+width:40%;
+text-align:left;
+font-weight:normal;
+}
+.taula-escoles td.escola-horari
+{
+width:60%;
+}
+.taula-escoles td a, .taula-escoles th a
+{
+color:#0993d0;
+}
+ 
+ 
+/*Webs-destacades [Carrusel]*/
+ 
+.webs-destacadas-escoles
+{
+margin-top:1.8em !important;
+}
+#webs-destacadas {
+clear: both;
+height: 1%;
+margin: 0 auto;
+position: relative;
+width: 93em;
+}
+#webs-destacadas div {
+}
+.bloc {
+background: url("http://www.bcn.cat/imatges_accessible/img10/pestanya_sup.gif") no-repeat scroll left top transparent;
+}
+.bloc-end {
+background: url("http://www.bcn.cat/imatges_accessible/img10/pestanya_inf.gif") no-repeat scroll right bottom transparent;
+height: auto;
+margin-left: 0.4em;
+margin-top: 0;
+overflow: hidden;
+}
+ 
+#webs-destacadas .bloc-end {
+background: url("http://www.bcn.cat/imatges_accessible/img10/pestanya_inf_dest.gif") no-repeat scroll right bottom transparent;
+padding-right: 0;
+}
+#webs-destacadas .bloc-end div {
+margin: 2.8em 3em 3em;
+overflow: hidden;
+position: relative;
+width: 85.7em;
+}
+#webs-destacadas h2 {
+color: #013365;
+margin-bottom: 0.8em;
+margin-left: 1.3em;
+margin-top: 1em;
+}
+#webs-destacadas ul {
+display: inline;
+font-size: 1em !important;
+left: 0;
+margin: 0;
+padding: 0;
+position: relative;
+width: 1000em;
+}
+#webs-destacadas ul li {
+background: url("http://www.bcn.cat/imatges_accessible/img10/bg_lidestaquem.gif") no-repeat scroll left top transparent;
+float: left;
+height: 13.9em;
+margin-bottom: 1em;
+margin-right: 1em;
+padding: 1.6em 1.6em 1em 1.8em;
+width: 10em;
+}
+#webs-destacadas ul li img {
+display: block;
+margin-bottom: 0.3em;
+}
+#webs-destacadas ul li p {
+color: #000000;
+font-family: tahoma,verdana;
+font-size: 1em;
+margin: 0;
+padding: 0;
+}
+#webs-destacadas ul li a {
+border: 0 none;
+color: #000000;
+display: block;
+font-size: 1em;
+height: 100%;
+line-height: 1.1em;
+text-decoration: none;
+width: 100%;
+}
+#webs-destacadas ul li.fla a {
+height: auto;
+}
+#webs-destacadas ul li a:hover {
+text-decoration: none;
+}
+#webs-destacadas ul li a span {
+clear: both;
+}
+body.js #webs-destacadas ul {
+display: block;
+overflow: hidden;
+}
+body.js #webs-destacadas ul li {
+margin-bottom: 0;
+}
+#webs-destacadas ul:after {
+clear: both;
+content: ".";
+display: block;
+height: 0;
+visibility: hidden;
+}
+#webs-destacadas img#dret, #webs-destacadas img#esq {
+position: absolute;
+top: 9.4em;
+}
+#webs-destacadas #dret {
+right: 0.3em;
+}
+#webs-destacadas #esq {
+left: 0.4em;
+}
+ 
+ 
+/*Prescripcio matricula*/
+.tipus_matricula
+{
+width:100%; margin-top:3em
+}
+.tipus_matricula ul{
+margin:0 0.9em;
+}
+.tipus_matricula ul:after
+{
+clear: both;
+content: ".";
+display: block;
+height: 0;
+visibility: hidden;
+}
+.tipus_matricula .item
+{
+width:48%; padding:1em 0; border-top:solid 1px #e7e7e7; height:64px;
+}
+.tipus_matricula .item div
+{
+
+}
+.tipus_matricula .item div a
+{
+font-size:1.2em; color:#0d8ed1; 
+background-image:url(../img/arrow-right-blue.png); background-position:0px 4px; background-repeat:no-repeat; padding-left:0.75em; display:inline-block;
+}
+.tipus_matricula .item div span{
+font-size:1.2em; color:#666; 
+background-image:url(../img/arrow-right-grey.gif); background-position:0px 4px; background-repeat:no-repeat; padding-left:0.75em; display:inline-block;
+} 
+.tipus_matricula .item div a:hover
+{
+text-decoration:none;
+}
+.tipus_matricula .item .tag-pendent
+{
+padding:0.2em 1em 0.2em 0.75em; float:left; margin-top:0.7em; margin-right:0.2em; background-color:#F6F6F6; color:#494949; font-family:'Open sans'; font-weight:bold;
+}
+.tipus_matricula .item .tag-tancat
+{
+padding:0.2em 1em; float:left; margin-top:0.7em; margin-right:0.2em; background-color:#F6F6F6; color:#dc002d; font-family:'Open sans'; font-weight:bold;
+}
+/*Prescripcio matricula fin*/
+ 
+ 
+ 
+/*portes obertes mapa*/
+.portes-obertes-text
+{
+padding:1.8em 0 1em 0;
+}
+.mapa-big
+{
+background-color:#F6F6F6; padding:27px;
+}
+ 
+.mapa-big #mapa-districtes
+{
+margin-top:0px;
+}
+ 
+/*fin : portes obertes mapa*/
+ 
+/*banner-susbscrite*/
+#banner-subscriute:after
+{
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+ 
+#banner-subscriute
+{
+float:left; padding:2px; margin-top:15px; width:453px;
+ 
+}
+#banner-subscriute a img{ display:block;}
+ 
+#form-suscription
+{
+width:100%; background-color:#fff; height:0px;
+}
+#form-suscription #bulleti
+{
+display:none; padding:10px;
+}
+#form-suscription #bulleti .form-nom
+{
+width:150px;
+}
+#form-suscription #bulleti .form-email
+{
+width:250px;
+}
+#form-suscription #bulleti .form-titularitat
+{
+width:100%; margin-top:10px; font-size:1.1em; color:#666666;
+}
+#form-suscription #bulleti .extra-subscriute
+{
+padding:2em 0
+}
+#form-suscription #bulleti .accept-label
+{
+font-size:1.2em; color:#666666;
+}
+ 
+ 
+/*banner-susbscrite fin*/
+ 
+ 
+/* Banner home*/
+ 
+.banner_home
+{
+width:925px; height:263px; overflow:hidden; position:relative;
+}
+ 
+.banner_home .fondo
+{
+display:block; position:absolute; left:0px; bottom:0px;
+}
+ 
+.nen_1
+{
+display:block; position:absolute; left:100px; bottom:-493px;
+}
+.nen_2
+{
+display:block; position:absolute; left:100px; bottom:-493px;
+}
+.nen_3
+{
+display:block; position:absolute; left:100px; bottom:-493px;
+}
+ 
+.text_1
+{
+display:none; position:absolute; left:0px; bottom:0px;
+}
+.text_2
+{
+display:none; position:absolute; left:0px; bottom:0px;
+}
+.text_3
+{
+display:none; position:absolute; left:0px; bottom:0px;
+}
+.tots
+{
+display:block; position:absolute; left:0px; bottom:0px;
+}
+ 
+/*Guia escoles*/
+ 
+#compartir dl dt {
+background: url("/tpl/escoles/images/raquo-comparteix.gif") no-repeat scroll right 6px transparent;
+color: #013365;
+float: left;
+font-size: 1.1em;
+font-weight: bold;
+line-height: 1.4em;
+margin-right: 0.55em;
+padding-right: 0.9em;
+vertical-align: top;
+}
+
+.mobile-hide{ display:block}
+.mobile-show{ display:none}
+ 
+
+/* Mobile versions */
+body:after {
+		content: 'normal';
+		display: none;
+	}
+
+@media screen and  (max-device-width: 640px), (max-width: 640px){		
+
+body:after {
+			content: 'mobile'
+		}
+
+.menu-corner{
+	position: absolute;
+	right: -7px;
+	top: 3.4%;
+	z-index: 1000;
+}
+
+#brand.v2012 .brand-wrapper .logotype img {
+	width:136px!important;
+	height:48px!important
+}
+
+
+.brand-wrapper div {
+
+}
+#brand.v2012 .brand-wrapper .main {
+	height:51px!important;
+	width:auto!important;
+}
+#brand.v2012 .brand-wrapper {
+	height:51px!important;
+}
+#brand {
+	height:51px!important;
+	box-shadow:0 0 8px #666;
+	-moz-box-shadow:0 0 8px #666;
+	-webkit-box-shadow:0 0 8px #666
+}
+
+/** body **/
+
+body{ background: #f2f2f2;
+	}
+	body.mobile{ -webkit-text-size-adjust: none;}
+
+html{
+	height: 100%;
+  
+}
+html.nav-expand, body.nav-expand {
+  overflow:hidden;
+  position:relative; 
+}
+
+
+
+body.mobile #marc-web{ position:relative; clear:both;}
+
+
+
+
+/** Barra */
+#brand.v2012 .brand-wrapper .main{ width:auto;}
+#brand .options, #brand .social{ display:none;}	
+
+/* Navegacio */
+#navegacio-separada{ display:none;}
+
+
+#fil-ariadna{ display:none; }
+
+/* Containers */
+
+#marc-web{background: url(../img/mobile/bg-body.gif) center -70px repeat-x ;  }
+
+.wrapper-escoles{ width:100%; max-width:100%; margin-top:0px;}
+.wrapper-escoles .container{ width:89.1%; padding-left:3.2%; padding-right:3.2%; margin:0 auto;}
+
+
+.container_big p{ font-size:12px;}
+
+.wrapper-escoles h1{ font-size:17px; padding:15px 0;}
+.wrapper-escoles h1 a, .wrapper-escoles h1 a:hover{ font-size: 20px;}
+.container h2{ font-size:15px;  width:100%; line-height:1em;}
+
+
+/* taula */
+.taula-escoles{ width:98%; overflow:hidden;}
+.taula-escoles td.escola-anchor, .taula-escoles th {
+    display: inline-table;
+    width: 100%;
+	padding-right:.98em;
+}
+.taula-escoles td.escola-horari {
+    display: block;
+	 width: 96%;
+	 padding-top:0;
+}
+.taula-escoles th { border:0; padding-bottom:0;}
+.taula-escoles td a{ font-size:13px;}
+
+/* Footers */
+.footer-base div{ width:auto;}
+.footer-escoles div{ width:auto;}
+
+
+.menu, #menu-principal{
+	/*overflow:auto;*/
+	height:100%;
+	background:none!important;
+}
+
+#navegacio-separada{
+    background: #fff;
+    display: block;
+    height: 100%;
+    /*left: -80%;*/
+	left: -160%;
+    position: absolute;
+    top: 0;
+	padding-top:0;
+    width: 80%;
+}
+#navegacio-separada #menu-principal ul li {
+background: url(../img/mobile/bg-menu.jpg) repeat-x top!important;
+border:none;
+height:45px;
+text-align:left;
+
+
+}
+#navegacio-separada #menu-principal ul li.active-trail {
+height:45px;
+
+}
+
+#navegacio-separada #menu-principal ul li {
+	font-size:14px;
+}
+
+/**mobile**/
+
+body.mobile #navegacio-separada #menu-principal ul li { float:none; width:100%; border:0;}
+
+body.mobile #navegacio-separada #menu-principal ul li a{color: #434343; display:block; padding-left:8.5%; height:45px; background:url(../img/mobile/raquo-menu.png) no-repeat; background-position:6.5%; font-weight:300; letter-spacing:-0.02em;-webkit-transition:background .3s ease-in;
+	-moz-transition:background .3s ease-in;
+	-ms-transition:background .3s ease-in;
+	-o-transition:background .3s ease-in;
+	transition:background .3s ease-in } 
+body.mobile #navegacio-separada #menu-principal ul li a:hover{
+	border:0; 
+	color:#fff; 
+	background: url(../img/mobile/raquo-menu-on.png) no-repeat #0d8ed1; 
+	background-position:6.5% ;
+    -webkit-transition:background .08s ease-in;
+	-moz-transition:background .08s ease-in;
+	-ms-transition:background .08s ease-in;
+	-o-transition:background .08s ease-in;
+	transition:background .08s ease-in }
+
+body.mobile #navegacio-separada #menu-principal ul li a:hover{ text-decoration:none!important}
+
+
+body.mobile img#bt-menu{
+	width:35px;
+	float:left;	
+    margin: 3.5% 4.4% 3% 2%;
+ 
+}
+
+body.mobile h1{ float:left; font-size:17px; margin:0.4% 1.1%;}
+	body.mobile h2{ font-size:15px; margin-bottom:0.8em;}
+	
+	
+/* formulari */	
+	
+	body.mobile .container #search{ background-color: transparent;
+    display: block;
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    padding: 0.7em 0 0;
+    width: 100%;}
+	body.mobile .container #search p{ margin:0; padding:0; width:100%; float:left; padding-right:1%; padding-bottom:1.4em;}
+
+	body.mobile .wrapper-escoles .container{ clear:both; padding-top:1em;}
+		
+	body.mobile #search .p-extra{ width:100%;}
+	body.mobile #search .p-extra input.text-big{ width:97%; font-size:12px; height:auto;}
+		
+	body.mobile #search .p-extra label, body.mobile .container #search label, body.mobile .container fieldset legend{ font-size:14px;}
+	body.mobile #search .p-extra select{ width:100%; font-size:12px; height:auto;}
+		
+	body.mobile #search fieldset.tipus-extra{ margin:0; padding:0;}
+	body.mobile .container fieldset ul li{ width:100%; margin:0; padding:0 0 1.9em; }
+	body.mobile .container fieldset ul li label { background:none; height:auto; overflow:hidden; width:auto; padding:0; font-size:13px;}
+	body.mobile .container fieldset ul li input{ margin:0; vertical-align:middle;}
+
+	
+
+			 #llista-resultats .paginador a.anterior{ float:left;}
+	body.mobile .container #search p.extras{ padding-bottom:0;}
+		
+	/* footer */
+	body.mobile .footer-escoles{ height:auto; overflow:hidden; margin-top:1.4em;}
+	body.mobile .footer-inner { margin-top:0;}
+	body.mobile .footer-inner p{
+			background-position: 7px center;
+			padding:22px 10px 1em 34px;
+		}
+
+
+/** Cerca i detall **/
+
+
+#col-0, #accions, #compartir, #mapa, #mapa h3, .icona{ display:none;}
+#col-1{ width:auto; padding-bottom:0; clear:both; float:none;}
+#contenidor{ padding:0; width:95.2%; clear:both; margin:0 auto;}
+#contenidor-2{ margin:0; padding:4% 0; }
+
+#llista-resultats{ width:auto; float:none;}
+#llista-resultats .par{ background:none;}
+#llista-resultats #listfoto{ display:none;}
+#resultats{ margin:0; }
+#llista-resultats .dades p{ color:#666666; }
+#llista-resultats div{ border-top:1px solid #e6e6e6; padding: 1.4em 3.4em 1.4em 1.2em}
+
+#ajx-search { margin:0 auto; width:93.6%;}
+#ajx-search h2{ color:#666; font-size:11px; float: left;  padding-top: 10px;}
+#ajx-search h2 span{ font-weight:bold;}
+
+#vista-llistat{ float:right; font-size:11px;}
+
+#mapa{ width:100%;}
+
+
+
+#llista-resultats .paginador ul {  position:absolute; width:100%; top:29px; }
+body.mobile .container #search .submit, #llista-resultats .paginador a.seguent, #llista-resultats .paginador a.anterior, #vista-llistat{ 
+	clear:both; position:relative; right:0; font-size:1.4em; float:right; font-weight:400; background:url(../img/mobile/button_blue_mobile.jpg) repeat-x top left;-webkit-border-radius: 10px; border-radius: 10px; color:#fff; padding:10px 5%!important; width:auto;}
+		#llista-resultats .paginador a.seguent, #llista-resultats .paginador a.anterior{ font-size:1.2em;  top:0; clear:none; }
+		#llista-resultats .paginador a.anterior{ float:left;}
+
+#vista-llistat{ clear:none;}
+
+
+/*-------home-----------*/
+
+/*mobile home navegacio*/
+
+#home
+{
+background-color:#f6f6f6;
+background-image:none;
+background-position:center 45px;
+background-repeat:no-repeat;
+font-size: 62.5%;
+font-family:Arial, Helvetica, sans-serif;
+padding:0px;
+margin:0px;
+}
+
+
+
+#navegacio-home{
+    background: #fff;
+    display: block;
+    height: 100%;
+    /*left: -80%;*/
+    width: 80%;
+}
+
+#navegacio-home #menu-principal ul li {
+background: url(../img/mobile/menu-home-bg.jpg) repeat-x top !important;
+border-color: #FFFFFF #FFFFFF #D8D8D8;
+border-style: solid;
+border-width: 1px;
+height:65px;
+text-align:left;
+}
+
+#navegacio-home #menu-principal ul li.active-trail {
+height:45px;
+
+}
+
+#navegacio-home #menu-principal ul li {
+	font-family:'Open sans';
+	font-size:1.6em;
+	overflow:hidden;
+	font-weight:400 !important;
+}
+
+
+.banner_home
+{  clear:both}
+
+
+.mobile-hide{ display:none}
+.mobile-show{ display:inline}
+
+
+
+/*prescripcio matricula*/
+
+.tipus_matricula
+{
+width:100%; margin-top:3em
+}
+.tipus_matricula ul{
+margin:0 0.9em;
+}
+.tipus_matricula ul:after
+{
+clear: both;
+content: ".";
+display: block;
+height: 0;
+visibility: hidden;
+}
+.tipus_matricula .item
+{
+width:100%; padding:1em 0; border-top:solid 1px #e7e7e7; height:auto; min-height:24px;
+}
+.tipus_matricula .item div
+{
+
+}
+.tipus_matricula .item div a
+{
+font-size:1.2em; color:#0d8ed1; 
+background-image:url(../img/arrow-right-blue.png); background-position:0px 4px; background-repeat:no-repeat; padding-left:0.75em; display:inline-block;
+}
+.tipus_matricula .item div span{
+font-size:1.5em; 
+background-image:url(../img/arrow-right-blue.gif); background-position:0px 4px; background-repeat:no-repeat; padding-left:0.75em; display:inline-block;
+} 
+.tipus_matricula .item div a:hover
+{
+text-decoration:none;
+}
+.tipus_matricula .item .tag-pendent
+{
+	display:none;
+padding:0.2em 1em 0.2em 0.75em; float:left; margin-top:0.7em; margin-right:0.2em; background-color:#F6F6F6; color:#494949; font-family:'Open sans'; font-weight:bold;
+}
+.tipus_matricula .item .tag-tancat
+{
+	display:none;
+padding:0.2em 1em; float:left; margin-top:0.7em; margin-right:0.2em; background-color:#F6F6F6; color:#dc002d; font-family:'Open sans'; font-weight:bold;
+}
+/*Prescripcio matricula fin*/
+
+/*Mapa portes obertes*/
+
+
+#mapa-districtes h3
+{
+padding:0 0 0;
+font-family:'Open sans';
+font-size:1.5em;
+font-weight:normal;
+border-bottom:none;
+}
+
+#mapa-districtes
+{
+background-image:none;
+background-repeat:no-repeat;
+background-position:right top;
+margin-top: 10px;
+height:auto;
+overflow:hidden;
+}
+.container ul.district{
+	width:100%;
+}
+.container ul.district li {
+	border-top:solid 1px #E7E7E7;
+	width:100%;
+}
+.container ul.district li a {
+	border:none;
+background-image:url(../img/sprites.png);
+background-position:0 -48px;
+background-repeat:no-repeat;
+color:#0d8ed1;
+font-family:Arial, Helvetica, sans-serif;
+margin-top:4px;
+background-image: url("../img/arrow-right-blue.gif");
+background-position: 0 15px;
+background-repeat: no-repeat;
+display: inline-block;
+font-size: 1.5em;
+padding-left: 0.75em;
+width:100%;
+padding:0.5em  0.75em;
+}
+.container ul.district-big {
+margin-top:20px; border-right:none; padding-right:60px;
+}
+
+
+/*Acordeon escoles*/
+
+.escoles-accordion span.header
+{
+color:#0d8ed1; font-family:Arial, Helvetica, sans-serif; font-size:1.3em;
+background-image:url(../img/sprites.png);
+background-position:0px -48px;
+background-repeat:no-repeat;
+padding-left:10px;
+margin-top:20px;
+line-height:1.4em;
+cursor:pointer;
+}
+.escoles-accordion span.active
+{
+color:#0d8ed1; font-family:Arial, Helvetica, sans-serif; font-size:1.3em;
+background-image:url(../img/sprites.png);
+background-position:0px -69px;
+background-repeat:no-repeat;
+padding-left:10px;
+margin-top:20px;
+cursor:pointer;
+}
+
+/*detall cerca*/
+#col-detall-0 {
+    float: left;
+    margin-right: 29px;
+    padding: 1.4em 1.5em;
+    width: 93%;
+}
+.torna-llistat
+{
+	margin:40px 4px; background-image::url(../img/mobile/raquo-menu.png);
+}
+.torna-llistat a{
+font-weight:bold; font-size:1.4em;
+
+}
+
+#col-detall-0 img
+{
+	margin-bottom:10px !important;
+}
+
+#navegacio-home #menu-principal ul li a:focus
+{
+	background-color:transparent;
+	outline:none;
+}
+.banner-mobile
+{
+clear:both; margin:0px auto; width:98%; padding:0px 0.5em;	
+}
+
+}
+/*@media screen and (max-device-width: 321px) and (max-device-width: 480px)  {	
+
+
+
+	body.mobile{ background:#FFFF00;-webkit-text-size-adjust: none;}
+	body.mobile #search .p-extra label, body.mobile .container #search label, body.mobile .container fieldset legend{ font-size:21px!important;}
+	body.mobile h1{ font-size:25px; }
+	body.mobile h2{ font-size:22px;}
+	body.mobile #search .p-extra label, body.mobile .container fieldset legend{ font-size:21px;}
+	body.mobile .container #search label {font-size:14px;}
+	body.mobile #search .p-extra select{ font-size:18px;}
+	body.mobile #search .p-extra input.text-big{ font-size:18px;}
+	body.mobile .container fieldset ul li input{ margin:0; vertical-align:bottom;}
+	body.mobile .container #search .submit{ font-size:16px; background:url(../img/bg-boto.jpg) repeat-x top left;padding: 0 0 3px;-webkit-border-radius: 6px; border-radius: 6px; background:url(../img/bg-boto640.jpg) repeat-x top left; height:46px; width:110px; }
+}*/
+
+@media screen and  (max-device-width: 320px){	
+
+
+
+	body.mobile{ -webkit-text-size-adjust: none; }
+	
+
+}
+
+@media screen and (max-width: 240px) {	
+
+	.wrapper-escoles{ clear:both;}
+	.wrapper-escoles h1 a, .wrapper-escoles h1 a:hover{ font-size:15px!important;}
+	
+	#brand.v2012{ position:relative;}
+	
+	#brand.v2012 .brand-wrapper .logotype img {
+		height: auto !important;
+		width: 50% !important;
+	}
+	
+	#brand.v2012 .brand-wrapper .navigation ul.languages{ padding:0!important; position:absolute; top:10px; right:0;}
+	.brand-wrapper div {
+	
+	}
+	#brand.v2012 .brand-wrapper .main {
+		height:30px!important;
+		width:auto!important;
+	}
+	#brand.v2012 .brand-wrapper {
+		height:36px!important;
+	}
+	#brand {
+		height:30px!important;
+		box-shadow:0 0 8px #666;
+		-moz-box-shadow:0 0 8px #666;
+		-webkit-box-shadow:0 0 8px #666
+	}
+	
+	#navegacio-separada #menu-principal ul li {
+		font-size:12px;
+	}
+
+	#navegacio-separada #menu-principal ul li a { line-height:3.5em;  background-position:6%;}
+
+}

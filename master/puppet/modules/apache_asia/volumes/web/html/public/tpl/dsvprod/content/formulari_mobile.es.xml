@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formulari>
+   
+		<div class="banner-mobile">
+        	<img src="/tpl/dsvprod/img/es/banner_home_mobile.jpg" class="mobile-show" width="100%"  />
+        </div>
+    	<div id="navegacio-home" class="mobile-show shadow">
+         	<div class="item4" id="menu-principal"> 
+                 <ul class="menu overflowhidden">
+                    <li class="first leaf"><a href="../tpl/dsvprod/ca/directori_escoles.htm">Directorio de escuelas</a></li>
+                    <li class="leaf"><a href="../tpl/dsvprod/ca/portes_obertes_mapa.htm">Jornadas de puertas abiertas</a></li>
+                    <li class="leaf"><a href="../tpl/dsvprod/ca/preinscripcion_matricula.htm">Preinscripción y matriculación</a></li>
+                    <li class="last leaf"><a href="../tpl/dsvprod/ca/beques_i_ajuts.htm">Becas y ayudas</a></li>
+                </ul>		
+            </div>
+        </div>
+        
+      
+</formulari>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<brand>
+<div class="v2012 collapsed" id="brand">
+    <div class="brand-wrapper">
+      <div class="main">
+        <div class="logotype"><a href="http://www.bcn.cat/"><img height="43" width="130" alt="Logotip de l'Ajuntament de Barcelona. Enllaç a la pàgina principal del web de Barcelona" src="http://www.bcn.cat/assets/images/brand/banner/2012/logo-ajment.png" /></a></div>
+        <div class="navigation">
+          <ul class="options">
+            <li><a href="http://www.bcn.cat/catala/laciutat/">La Ciutat</a></li>
+            <li><a href="http://www.bcn.cat/ajuntament/">L'Ajuntament</a> </li>
+            <li><a href="http://www.bcn.cat/turisme/">Turisme</a></li>
+            <li><a href="http://www.bcn.cat/negocis/">Negocis</a> </li>
+            <li><a href="http://www.bcn.cat/tramits/">Tràmits</a> </li>
+            <li class="last more">
+                <a href="#">Més</a>
+                <ul>
+                  <li><a href="http://www.bcn.cat/guia/">Plànol BCN</a></li>
+                  <li><a href="http://www.bcn.cat/comanar/">Com s'hi va</a></li>
+                  <li><a href="http://www.bcn.cat/guiabarcelona/">Guia BCN</a></li>
+                  <li><a href="http://www.bcn.cat/mobil/">Serveis al mòbil</a></li>
+                  <li><a href="http://www.bcn.cat/ca/webs_bcn.html">Webs BCN</a></li>
+                  <li><a href="http://www.bcn.cat/transit/">Estat del trànsit</a></li>
+                  <li class="search">
+                    <form action="http://w10.bcn.cat/APPS/cercagsa/search.do?idioma=ca" method="post">
+                      <div>
+                        <label for="brand-search">Cerca</label>
+                        <input type="text" value="" name="q" id="brand-search" />
+                        <input type="image" alt="Cerca del web de l'Ajuntament de Barcelona" value="" src="http://www.bcn.cat/assets/images/brand/banner/2012/lupa.png" class="send" />
+                      </div>
+                    </form>
+                  </li>
+                </ul>
+            </li>
+          </ul>
+          <ul class="social">
+            <li><a title="Barcelona.cat" href="http://www.facebook.com/bcn.cat"><img height="24" width="24" alt="Icona del Facebook. Enllaç al Facebook oficial de l'Ajuntament de Barcelona" src="http://www.bcn.cat/assets/images/brand/banner/2012/social-facebook-bw.png" /></a></li>
+            <li><a title="@barcelona_cat" href="http://twitter.com/barcelona_cat"><img height="24" width="24" alt="Icona del Twitter. Enllaç al Twitter oficial de l'Ajuntament de Barcelona" src="http://www.bcn.cat/assets/images/brand/banner/2012/social-twitter-bw.png" /></a></li>
+            <li class="last"><a title="Barcelona.cat" href="http://www.youtube.com/wwwbcncat"><img height="24" width="24" alt="Icona del Youtube. Enllaç al Youtube oficial de l'Ajuntament de Barcelona" src="http://www.bcn.cat/assets/images/brand/banner/2012/social-youtube-bw.png" /></a></li>
+          </ul>
+          <ul class="languages">
+            <li class="active"><span>CAT</span></li>
+            <li class="last"><a lang="es" xml:lang="es" hreflang="es" title="Castellano" href="http://www.bcn.cat/guiaescoles/es/">CAS</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
+</brand> 

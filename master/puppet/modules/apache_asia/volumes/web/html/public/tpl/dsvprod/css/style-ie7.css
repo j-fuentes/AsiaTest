@@ -1,0 +1,28 @@
+#navegacio-separada #menu-principal ul li.last
+{
+	width:24.1%;
+}
+.container #search .submit
+{
+	background-image: url("../img/lupa_bg.jpg");
+    border: 1px solid #6EBBE3;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+    bottom: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 2px 0px 2px 30px;
+    position: absolute;
+    right: 30px;
+}
+.container fieldset ul li.acollida {
+	clear:both;
+}
+.container #search p.extras {
+padding-top:4.5em;
+position:relative;
+}
+
+.footer-inner{ margin-top:0;}
+
+#webs-destacadas{ margin-bottom:40px;}

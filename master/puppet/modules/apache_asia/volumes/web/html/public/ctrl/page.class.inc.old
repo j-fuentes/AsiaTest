@@ -1,0 +1,595 @@
+<?php
+/**
+ * Guia de Barcelona - Agenda and Directory
+ *
+ * This file is part of Guia Barcelona v1.0.0
+ * Class Page definition file
+ * @author Elazos Software Factory  - May 2004
+ **/
+/**
+ * Class Authentification definition file
+ **/
+require_once("ctrl/xml.class.inc");
+require_once("ctrl/utils.class.inc");
+/**
+ * Handles page layout.
+ * Executes php files in a layout structure of blocks header, Blocks left, Blocks central, Blocks Right and Blocks footer.
+ * Using add_<blocks> methods you add php file to the layout and you execute using page->out.
+ * Page->out method returns the generated html page.
+ * @author Elazos Software Factory
+ * @version 1.0
+ * @package Site
+ */
+class page extends utils { //extends Auth{
+	var $pagetitle;
+	var $onload="";
+	var $pagedesc="";
+	var $file_nav=_NAVFILE;
+	var $file_xslt;
+	var $solr="";
+	var $theme_dir = _THEME_DIR;
+	var $charset="UTF-8"; //ISO-8859-1
+	var $outputcharset = "UTF-8";
+	var $keywords="";
+	var $html_out;
+	var $block;
+	var $central;
+	var $jscript=array();
+	var $page_msg=array();
+	var $vars=array();
+	var $vars_ste=array();
+	var $show_pst=true;
+	var $show_msg=True;
+	var $pg_title=True;
+	var $url;
+	var $notfound = false;
+	var $languages = "ca,es,en"; 
+	/**
+	 * Get the url paramters and puts them into the class array var called vars
+	 * @author Elazos Software Factory
+	 * @access public
+	 * @return boolean True if get parameters
+	 */
+	function get_page_params(){
+
+		if (array_key_exists("SCRIPT_NAME",$_SERVER) && $_SERVER["SCRIPT_NAME"]=="/handler.php"){
+			if (!$this->ConvertPermalink()) return false;
+			else {
+				if(count($this->vars)!=0) return true;
+			}
+		}
+
+		if (array_key_exists("QUERY_STRING",$_SERVER)){
+			$this->url = "http://".$_SERVER["SERVER_NAME"].htmlspecialchars($_SERVER["REQUEST_URI"]);
+			$qstring=$_SERVER["QUERY_STRING"];
+		} else $qstring="";
+
+		if ($qstring!=""){
+			$qstring=urldecode($qstring);  // needed when url comming from xml file
+			parse_str($qstring,$_GET);     // when urlencode $_GET not working
+
+			if ("url="==substr($qstring,0,4)){
+				parse_str($qstring);
+				if (isset($url) && $url!=""){
+					if (!$vars=$this->url_decrypt($url)) return false;
+					$this->vars=$vars;
+					return true;
+				} else return false;
+			}
+
+			if (($pos=strpos($qstring,"data="))>0){
+				parse_str(substr($qstring,($pos),strpos(substr($qstring,($pos),strlen($qstring)),"&")));
+				if (!$this->cryptar) $data = str_replace(",","&",$data);
+				if (!$vars=$this->url_decrypt($data)) return false;
+				$this->vars=$vars;
+				if (array_key_exists("list_del",$_GET)){
+					$this->vars["list_del"]=$_GET["list_del"];
+				}
+				return true;
+			}
+
+			if (!$this->cryptar){
+				parse_str($qstring, $this->vars);
+				return true;
+			}
+
+		} elseif (isset($_POST)){
+
+			if (array_key_exists("form1_data",$_POST)){
+				if (!$this->cryptar) $_POST["form1_data"] = str_replace(",","&",$_POST["form1_data"]);
+				if (!$vars=$this->url_decrypt($_POST["form1_data"])) return false;
+				$this->vars=$vars;
+				return true;
+			}
+
+		}
+		return false;
+	}
+	/**
+	 * Convert a permalink to a variables
+	 *
+	 */
+	private function ConvertPermalink(){
+
+		$vars = explode("/",$_SERVER['REQUEST_URI']);
+
+		if (count($vars)>=3){
+			switch ($vars[1]) {
+				case "rss":
+					if (count($vars)==3 && $vars[2]!=""){
+						$this->send_headers();
+						header("Content-Type: text/xml");
+						readfile('http://10.254.162.15:8080/solr/select/?stylesheet=&q=*:*&fq=class:"'.ucfirst(strtolower(str_replace('-','+',$vars[2]))).'"%20+type:AG&rows=10&wt=xslt&tr=rss.xsl&sort=lastupdatedate%20desc');
+					}
+					die;
+					break;
+				case "widget":
+					$this->send_headers();
+					header("Content-Type: text/xml");
+					readfile('http://10.254.162.15:8080/solr/select/?stylesheet=&q=*:*&fq=class:"'.ucfirst(strtolower(str_replace('-','+',$vars[2]))).'"%20+type:AG&rows=4&wt=xslt&tr=widgetrss.xsl&sort=lastupdatedate%20desc');
+					die;
+					break;
+					// Canals
+				default:
+					if ($this->IsCanal($vars[1])){
+						$this->getParamsFromPermalink($vars[2]);
+						//echo "vars2.... :".$vars[2];
+						//if($vars[2]=="" || $this->HomeURLs4SEO($vars[2])) return true;
+						return true;
+					} else
+					$this->send_notfound();
+					break;
+			}
+		} else {
+			switch ($vars[1]) {
+				case "rss":
+					$this->vars["pg"]=$vars[1];
+					return true;
+					break;
+				default:
+					if ($this->IsCanal($vars[1]))return true;
+					if ($this->getParamsFromPermalink($vars[1])) return true;
+					if($this->HomeURLs4SEO($vars[1])) return true;
+					//return true;
+					break;
+			}
+		}
+		$this->send_notfound();
+		return false;
+	}
+	/**
+	 * Gets parameters pg and id_doc and idma from a permalink
+	 *
+	 * @param String $strLink
+	 * @return True on success o false
+	 */	
+	private function getParamsFromPermalink($strLink){
+		//$tmp = substr($strLink,(strrpos($strLink,"_")+1));
+		//$entity_id = substr($tmp,0,strpos($tmp,"."));
+		 
+		$tmpArray = explode("_",$strLink);
+		if (count($tmpArray)==2)
+		   $entity_id = substr($tmpArray[1],0,strpos($tmpArray[1],"."));
+		   else {
+		   $entity_id = $tmpArray[1];
+		   $idma = substr($tmpArray[2],0,strpos($tmpArray[2],"."));
+		   if (strlen($idma)==2 && strpos($this->languages,$idma)!==FALSE) $_GET["idma"]= $idma;
+		   }
+		if (is_numeric($entity_id)){
+			$this->vars["pg"]="detall";
+			$this->vars["id_doc"]=$entity_id;
+			return true;
+		} else return false;
+	}
+	/**
+	 * Check if string is a Canal.
+	 *
+	 * @param unknown_type $strFolder
+	 * @return unknown
+	 */
+	private function IsCanal($strFolder){
+		$aCanal = split(",",_CANALS);
+		foreach($aCanal as $strCanal){
+			if ($strCanal==$strFolder) {$this->theme_dir=$strFolder."/";return true;}
+		}
+		return false;
+	}
+	/**
+	 * Check if any URL request is a URL that sends to home.
+	 * Used to index URL to home.
+	 *
+	 */
+	private function  HomeURLs4SEO($url){
+		$UrlList2Home = array("guia-barcelona.html","agenda-barcelona.html","barcelona-guide.html");
+		$url = parse_url($url);
+		if(array_key_exists("path",$url)){
+			if(($key=array_search($url["path"], $UrlList2Home))!==FALSE) {
+				$this->pagetitle = ucwords(str_replace("-"," ",substr($UrlList2Home[$key],0,stripos($UrlList2Home[$key],".html"))));
+				return true;
+			}
+		}
+		return false;
+	}
+	/**
+	 * Saves to the session cookie the current pg and url.
+	 * It will be used by the navigator manager to redirect to the next url
+	 * @author Elazos Software Factory
+	 * @access public
+	 */
+	function state(){
+		$xml= new xml;
+		if ($db = $xml->GetXMLTree($this->file_nav.".xml")){
+
+			$layout = $db["NAVIGATOR"][0]["PAGE"][0];
+
+			//If no pg is set then take home from layout
+			if (!isset($this->vars["pg"]) && array_key_exists("HOME_CENTRAL",$layout)) {
+				//$this->add_central(_DirBLOCKS.$layout["HOME_CENTRAL"][0]["VALUE"].".inc");
+				$this->vars["pg"]=$layout["HOME_CENTRAL"][0]["VALUE"];
+				$pg=$this->vars["pg"];
+				if (array_key_exists("ATTRIBUTES",$layout["HOME_CENTRAL"][0])) $this->vars["htm"]=$layout["HOME_CENTRAL"][0]["ATTRIBUTES"]["XML"];
+			}
+
+			if (is_array($this->vars_ste) && isset($this->vars_ste) && is_array($this->vars)){
+				//if(substr($_SERVER["QUERY_STRING"],0,4)=="url=") $url=true;else $url=false;
+				$state=$this->vars_ste;
+				$num=count($state);
+				if (array_key_exists("pg",$this->vars)) $pg=$this->vars["pg"];else $pg=NULL;
+				if ($num>0) $pag_ant=$state[($num-1)]["pg"];else $pag_ant="";
+				$in_state=false;
+
+				for ($i=0;$i<$num-2;$i++) if ($pg==$state[$i]["pg"]) {$in_state=true;break;};
+				if (!$in_state && array_key_exists("PG",$db["NAVIGATOR"][0])) {
+
+					foreach ($db["NAVIGATOR"][0]["PG"] as $pags) {
+						foreach ($pags["NAV"] as $pag) {
+							//print_r($pag);
+							if ($pg==$pag["PREV"][0]["VALUE"]
+							&& $state[($num-1)]["pg"]==$pags["ATTRIBUTES"]["NAME"]
+							&& $pag["ACTION"][0]["VALUE"]=="add") {unset($state[($num-1)]);break 2;}
+
+							$action="";
+							if ($pg==$pags["ATTRIBUTES"]["NAME"])							{
+
+								if ($pag["PREV"][0]["VALUE"]==$pag_ant) $action=$pag["ACTION"][0]["VALUE"];
+								if ($pag["PREV"][0]["VALUE"]=="any") $action=$pag["ACTION"][0]["VALUE"];
+								if (array_key_exists("REDIR",$pag)) $this->vars["redir"]=$pag["REDIR"][0]["VALUE"];
+
+								switch($action){
+									case "home":
+
+										$state=array();
+										$state[0]["pg"]=$this->vars["pg"];
+										$state[0]["url"]="";//$_SERVER["QUERY_STRING"];
+										if (isset($this->vars["nm"])) $state[0]["nm"]=$this->vars["nm"];
+										break 3;
+
+									case "reset":
+										$state=array();
+										$state[0]["pg"]="home";
+										$state[0]["url"]="";//$_SERVER["QUERY_STRING"];
+										$state[0]["nm"]=_HOME;
+										$state[1]["pg"]=$this->vars["pg"];
+										$state[1]["url"]=$_SERVER["QUERY_STRING"];
+										if (isset($this->vars["nm"])) $state[1]["nm"]=$this->vars["nm"];
+										//else $state[1]["nm"]=_UNTITLED;
+										break 3;
+									case "add":
+										$state[$num]["pg"]=$this->vars["pg"];
+										$state[$num]["url"]=$_SERVER["QUERY_STRING"];
+										if (isset($this->vars["nm"])) $state[$num]["nm"]=$this->vars["nm"];
+										if (array_key_exists("NEXT",$pag)) $state[$num]["next"]=$pag["NEXT"][0]["VALUE"];
+										break 3;
+									case "current":
+										$state[$num-1]["pg"]=$this->vars["pg"];
+										$state[$num-1]["url"]=$_SERVER["QUERY_STRING"];
+										if (isset($this->vars["nm"])) $state[$num-1]["nm"]=$this->vars["nm"];
+										break 3;
+									case "delete":
+										unset($state[$num-1]);
+										break 3;
+									case "nothing":
+										break 3;
+									default:
+										//echo $pag->next;
+										break ;
+								}
+							}
+						}
+					}
+				} else {
+					for ($z=$i+1;$z<$num;$z++) unset($state[$z]);
+				}
+				//Fin guardar estado
+			} else {
+				if (isset($this->vars["pg"])) {
+					$pg=$this->vars["pg"];
+					$state=array();
+					$state[0]["pg"]="home";
+					$state[0]["url"]="";//$_SERVER["QUERY_STRING"];
+					$state[0]["nm"]=_HOME;
+					if ($this->vars["pg"]!="home") {
+						$state[1]["pg"]=$this->vars["pg"];
+						$state[1]["url"]=$_SERVER["QUERY_STRING"];
+						if (isset($this->vars["nm"])) $state[1]["nm"]=$this->vars["nm"];
+					}
+				} else $state=NULL;
+			}
+
+			if (isset($state)) $this->vars_ste=$state;
+			// create the layout of the page
+			if (array_key_exists("XSLT",$layout)) $this->file_xslt=$layout["XSLT"][0]["VALUE"];
+			if (array_key_exists("SOLR",$layout)) $this->solr=$layout["SOLR"][0]["VALUE"];
+			if (array_key_exists("MSG",$layout)) {
+				$this->set_cookie_state(""._CkSTATE."", $this->vars_ste);
+				$this->show_msg=true; }
+				else $this->show_msg=false;
+				if (array_key_exists("PGTITLE",$layout)) $this->pg_title=true; else $this->pg_title=false;
+				if ((!isset($action) || $action=="") && array_key_exists("PG",$db["NAVIGATOR"][0]))
+				foreach ($db["NAVIGATOR"][0]["PG"] as $pags)
+				if ($pg==$pags["ATTRIBUTES"]["NAME"]) break;
+				$this->block=array_merge($layout,$pags );
+				//print_r($this->block);echo "\n**************************\n";
+				//print_r($this->central);echo "\n**************************\n";
+				if (is_array($this->central)){
+					unset($this->block["HOME_CENTRAL"]);
+					if (array_key_exists("CENTRAL",$this->block)) $this->block=array_merge($this->block, array( "CENTRAL"=>array(0=>array_merge_recursive ($this->central["CENTRAL"][0],$this->block["CENTRAL"][0]))));
+					else $this->block=array_merge($this->block, $this->central);
+
+				}
+				unset($this->block["PGTITLE"]);
+				unset($this->block["MSG"]);
+				unset($this->block["XSLT"]);
+				unset($this->block["ATTRIBUTES"]);
+				unset($this->block["NAV"]);
+				//print_r($this->block);echo "*****************************\n";
+		}
+	}
+	/**
+	 * Calls a url depending on the navigator manager.
+	 * Uses the php function header("location: url")
+	 * Defines redirection on var action:
+	 * action=1 go to num-2.
+	 * action=2 no redirect goes to current url num-1.
+	 * action=3 go to $this->vars[redir] node and param vars.
+	 * @author Elazos Software Factory
+	 * @access public
+	 * @param string variables needed for redirection ex: "id_account=34"
+	 */
+	function redirect($vars=Null){
+		$state=$this->vars_ste;
+		$go=null;
+		if (array_key_exists("redir",$this->vars)){
+			$action=1;
+			if ($this->vars["redir"]!="") {
+				$action=3;
+				if (isset($vars)) $vars="&".$vars;else $vars="";
+				$go=$this->url_encrypt("pg=".$this->vars["redir"].$vars);
+			}
+		} else $action=2;
+
+		$num=count($state);
+
+		switch($action) {
+			case 1:
+				$go=$state[$num-2]["url"];
+				unset($state[$num-1]);
+				unset($state[$num-2]);
+				$this->vars_ste=$state;
+				break;
+			case 2:
+				$go=$state[$num-1]["url"];
+				unset($state[$num-1]);
+				$this->vars_ste=$state;
+				break;
+			default:
+				break;
+		}
+		//echo $action."<br/>".$go;die();
+		if ($go!="") header ("Location: ".LK_PAG.htmlspecialchars_decode($go));else header ("Location: ".LK_HOME_ADM."");
+
+	}
+	/**
+	 * Adds a jscript file to the class array var to be displayed at the head section of the page
+	 * @author Elazos Software Factory
+	 * @access public
+	 * @param array Php File names. layout array[position]=filename(inluding path file)
+	 */
+	function add_jscript($new_jscript){
+		$n=count($this->jscript);
+		$this->jscript[(int)$n]=$new_jscript;
+	}
+	/**
+	 * Sends headers of the page with properties like cache-control, expires, pragma and last-modified info
+	 * @author Elazos Software Factory
+	 * @access private
+	 */
+	function send_headers(){
+		if ($this->notfound){
+			header("HTTP/1.1 404 Not Found");
+		}else{
+			header("Expires: Mon, 26 Jul 2003 05:00:00 GMT");    // Fecha en el pasado
+			header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); // Indica que siempre ha sido modificada
+			header("Cache-Control: no-store, no-cache, must-revalidate");  // HTTP/1.1
+			header("Cache-Control: post-check=0, pre-check=0", false);
+			header("Pragma: no-cache");                          // HTTP/1.0
+			header('Access-Control-Allow-Origin: *');
+		}
+	}
+	/**
+	 * Makes an include for each php file pass in the paramenter array.
+	 * Every php file has to use $this->html_out var to print anything.
+	 * @author Elazos Software Factory
+	 * @access private
+	 * @param arrar List of php files to include. Layout array[position]=filename(including path file)
+	 * @return string Html generated by php files
+	 */
+	function exec_blocks($php_files) {
+		$this->html_out="";
+		if (is_array($php_files)) {
+			reset($php_files);
+			foreach ($php_files as $xth_file_name) {
+				$xth_file_name = _DirBLOCKS.$xth_file_name["VALUE"].".inc";
+				if($xth_file_name!="" && file_exists($xth_file_name)) include($xth_file_name);
+			}
+		}
+		return $this->html_out;
+	}
+	/**
+	 * Enter description here...
+	 *
+	 * @param unknown_type $nameBlock
+	 */
+	function includeBlock($nameBlock){
+		$xth_file_name = _DirBLOCKS.$nameBlock.".inc";
+		if(file_exists($xth_file_name)) include($xth_file_name);
+	}
+	/**
+	 * Takes a XML file and add content
+	 *
+	 * @param unknown_type $xml_files
+	 * @return unknown
+	 */
+	function exec_copy($xml_files){
+
+		$out="";
+		if (is_array($xml_files)) {
+			reset($xml_files);
+			foreach ($xml_files as $xth_file_name) {
+				$htm = $xth_file_name["VALUE"];
+				if (file_exists(_TPLDIR."/".$this->theme_dir."/"._DirHTMLS.$htm."."._IDIOMA.".xml")) {
+					if (substr(phpversion(),0,1)=="5") {
+						$xp = new XsltProcessor();
+
+						// create a DOM document and load the XSL stylesheet
+						$xsl = new DomDocument;
+						$xsl->load('includes/content.xsl');
+						$xsl->getElementsByTagName('output')->item(0)->setAttribute('encoding',$this->outputcharset);
+
+						// import the XSL styelsheet into the XSLT process
+						$xp->importStylesheet($xsl);
+						$xml_doc = new DomDocument;
+						$xml_doc->loadXML(file_get_contents(_TPLDIR."/".$this->theme_dir."/"._DirHTMLS.$htm."."._IDIOMA.".xml"));
+						$out.= $xp->transformToXML($xml_doc);
+					}
+				} else $this->html_out .=""._NO_AV_LG."";
+			}
+		}
+		return $out;
+	}
+	/**
+	 * Handles the languaje cookie*.
+	 * If doesn't exists returns the default languaje code "es"
+	 * @author Elazos Software Factory
+	 * @access public
+	 * @param string languaje Code to save in the cookie
+	 * @return string Languaje code to use on the require_once or false
+	 */
+	function cookie_idioma($parm_idma=NULL){
+		if (array_key_exists("debug", $_GET)) { $this->html_out .= print_r($_COOKIE, true);}
+		if (isset($parm_idma)) {
+			if (file_exists(""._DirLANGS."lang_$parm_idma".FILE_EXT.".inc")) {
+				if (array_key_exists("debug", $_GET)) {
+					$this->html_out .=  " parm_idma : ".$parm_idma;
+				}
+				setcookie(_CkLANG,$parm_idma,time()+31536000*10,'/');
+				return $parm_idma;
+			} else return false;
+		} else
+		if (isset($_COOKIE[_CkLANG])){
+			$idioma=$_COOKIE[_CkLANG];
+			if (file_exists(""._DirLANGS."lang_$idioma".FILE_EXT.".inc")) return $idioma; else return false;
+		}
+		else
+		{
+			if (file_exists(""._DirLANGS."lang_"._DEFAULT_LANG.FILE_EXT.".inc")){ 
+				if (array_key_exists("debug", $_GET)) $this->html_out .= "set cookie "._DEFAULT_LANG." ";
+				setcookie(_CkLANG,_DEFAULT_LANG,time()+31536000*10,'/'); return _DEFAULT_LANG;
+			} else return false;
+			// or select language using a intro page make --> include("blocks/intro.php");exit();
+
+		}
+	}
+	/**
+	 * Creates a cookie.
+	 * If cookie can not be set returns false.
+	 * @author Elazos Software Factory
+	 * @access public
+	 * @param string Name of the cookie
+	 * @param string Content of the cookie
+	 * @return string Languaje code to use on the require_once or false
+	 */
+	function set_cookie_state($ck_name,$content=NULL){
+
+		if (is_array($content)) $str=serialize($content); else $str=NULL;
+
+		if (setcookie($ck_name,$str,0,'/'))
+		return true;
+		else return false;
+	}
+	/**
+	 * Gets cookie content.
+	 * If doesn't exists returns NULL
+	 * @author Elazos Software Factory
+	 * @access public
+	 * @param string Name of the cookie
+	 * @return string Unserialized content of the cookie or Null if it doesn't exist
+	 */
+	function get_cookie_state($ck_name)
+	{
+
+		if (isset($_COOKIE[$ck_name])){
+			$str=stripslashes($_COOKIE[$ck_name]);
+			//$this->tmp.=$str."<br />";
+			$state=unserialize($str);
+			//$this->tmp.= var_export($state,true)."<br />";
+
+			return $state;
+		}
+		else
+		{
+			return null;
+		}
+	}
+
+	/**
+	 * Saves into the class var array page_msg any message to be displayed as error or help with the method ->messages.
+	 * @author Elazos Software Factory
+	 * @access public
+	 * @param string Message
+	 * @return boolean
+	 */
+	function add_msg($string){
+		reset($this->page_msg);
+		while (list($key,$msg)=each($this->page_msg))
+		{ if ($msg==$string) return true;}
+		if (isset($string) && $string!="")
+		$this->page_msg[count($this->page_msg)]=$string;
+		return true;
+	}	
+	/**
+	 * Gets the cookie of the language and load language file from tpl/name/langs
+	 *
+	 */
+	public function getLanguage(){
+		if (!isset($_GET["idma"])) $parm_idma=null; else $parm_idma=trim($_GET["idma"]);
+		if ($parm_idma=="") $parm_idma = 'ca';
+		if (parm_idma!=null && strlen($parm_idma)>2) $parm_idma = substr($parm_idma, 0,2);
+		if ($file_idioma=$this->cookie_idioma($parm_idma)){
+			if (file_exists(_TPLDIR."/".$this->theme_dir."/langs/lang_$file_idioma.inc"))
+			require_once(_TPLDIR."/".$this->theme_dir."/langs/lang_$file_idioma.inc");
+			//require_once(_DirLANGS."lang_".$file_idioma.FILE_EXT.".inc");
+		} else {echo "Fail to load Language";die();}
+	}
+	/**
+	 * Enter description here...
+	 *
+	 */
+	public function send_notfound(){
+		$this->notfound = true;
+		$this->vars["pg"] = "notfound";
+		$this->pagetitle = _NOTFOUND;
+	}
+	//**************************** Class End ************************************************
+}
+?>
