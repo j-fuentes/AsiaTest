@@ -1,17 +1,19 @@
-# solr:
-#   build: ./agent
-#   hostname: solr
-#   volumes:
-#     - ./solr/data:/opt/solr
-#   external-links:
-#     - puppetmaster:master
+solr:
+  build: ./baseubuntu
+  hostname: solr
+  volumes:
+    - ./master/puppet/modules/solr_asia/volumes/data:/opt/solr/data
+  external_links:
+    - puppetmaster:master
+
 mysql:
   build: ./basecentos
   hostname: mysql
   ports:
-    - "0.0.0.0:8086:3306"
+    - "3306:3306"
   external_links:
     - puppetmaster:master
+
 apache:
   build: ./basecentos
   hostname: apache
@@ -25,5 +27,5 @@ apache:
   external_links:
     - puppetmaster:master
   links:
-  #  - solr
+    - solr
     - mysql
