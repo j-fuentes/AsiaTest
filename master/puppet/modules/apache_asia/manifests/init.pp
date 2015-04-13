@@ -1,11 +1,12 @@
 class apache_asia {
 
-
+  # packages to install
   $phpmodules = [ "php", "php-mysql", "php-gd", "php-imap", "php-ldap", "php-odbc", "php-pear", "php-xml", "php-xmlrpc", "php-mbstring", "php-mcrypt", "php-mssql", "php-snmp", "php-soap", "php-tidy", "curl", "php-pecl-apc"]
   $javapackages = [ "java-1.6.0-openjdk", "java-1.6.0-openjdk-devel" ]
   $dependencies = [ "cyrus-sasl-devel", "zlib-devel", "gcc-c++" ]
   $libmemcaches = [ "memcached.x86_64" ]
   $otherpackages = [ "wget", "tar", "vsftpd", "ftp", "openssh-server" ]
+  $muninpackages = [ "munin", "munin-node" ]
 
   package { $otherpackages: ensure => "installed", require => Exec["update-yum"] }
 
@@ -106,6 +107,10 @@ class apache_asia {
     require => Package['httpd'],
   }
 
+  # Munin configuration
+
+  package { $muninpackages: ensure => "installed", require => Exec["update-yum"] }
+
   file {'/etc/munin/':
     ensure => directory,
   }
@@ -114,6 +119,11 @@ class apache_asia {
     ensure => file,
     source => 'puppet:///modules/apache_asia/etc/munin/munin.conf',
     require => File["/etc/munin"],
+  }
+
+  file {'/var/lib/munin':
+    source => 'puppet:///modules/apache_asia/var/lib/munin',
+    recurse => true,
   }
 
   # Services
@@ -128,6 +138,11 @@ class apache_asia {
   }
 
   service { 'vsftpd':
+    ensure => running,
+    enable => true,
+  }
+
+  service { 'munin-node':
     ensure => running,
     enable => true,
   }
