@@ -1,12 +1,12 @@
 # Puppetized AsiaTest
 
-## Description
+## 1 Description
 
 This fork substitutes specific docker images for each service with generic docker base images equipped with puppet agent.
 
 A puppet master can be deployed in another container and it will command the setup of the service nodes using the recipes stored in puppet scripts.
 
-## Status
+## 2 Status
 
 - Puppet master container: __Running__
 - Generic puppet agents containers: __Running and being commanded by master__
@@ -14,12 +14,13 @@ A puppet master can be deployed in another container and it will command the set
 - Mysql container: __Up and running.__
 - Solr container: __ON GOING.__
 
-## Deploy instructions
-### Run puppet master
+## 3 Deploy instructions
+
+### 3.1 Run puppet master
 - Go to the `master` directory: `cd ./master`
 - Execute the launcher script. The first time, use the option `-b` to build the container: `./launchmaster.sh -b`
 
-#### Certificates signing
+#### 3.1.1 Certificates signing
 Puppet master denies to configure agents by default. In order to allow the master to command an agent, you have to explicit sign the agent certificate.
 - Get a bash console in the agent container: `docker exec -ti <container name> bash`
 - Force the agent to ask the master: `puppet agent --test`
@@ -28,13 +29,11 @@ Puppet master denies to configure agents by default. In order to allow the maste
 - Sign the desired agents certificates: `puppet cert sign <agent hostname.domain>`
 
 
-### Deploy the application
+### 3.2 Deploy the application
 - In the root directory: `docker-compose up`
 > You may want to change in `docker-compose.yml` the port mapping between containers and the host machine.
 
-## Manual agent launching
-Follow this instructions to manually test puppet agent configuration
 
-## Notes
+## 4 Notes
 
 - '/master/puppet/modules/mysql_asia/files/database.sql' must exists but it is not uploaded because it is too heavy.
