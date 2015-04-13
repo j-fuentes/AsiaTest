@@ -34,6 +34,7 @@ Puppet master denies to configure agents by default. In order to allow the maste
 > You may want to change in `docker-compose.yml` the port mapping between containers and the host machine.
 
 
-## 4 Notes
+## 4 Additional and important notes
 
-- '/master/puppet/modules/mysql_asia/files/database.sql' must exists but it is not uploaded because it is too heavy.
+- `/master/puppet/modules/mysql_asia/files/database.sql` must exists but it is not uploaded because it is too heavy.
+- Before deploying the _solr_ node, download `http://www.mirrorservice.org/sites/ftp.apache.org/lucene/solr/4.10.2/solr-4.10.2.tgz` and place it in `/master/puppet/modules/solr_asia/files/solr-4.10.2.tgz`. This is not included because it weights too much. Before it was downloaded in by the puppet agent itselt, but it took soo much and sometimes it failed.
